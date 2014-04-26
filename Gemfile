@@ -40,3 +40,6 @@ gem 'spring',        group: :development
 
 # Required by Heroku
 gem 'rails_12factor', group: :production
+
+# Ruby 
+ruby "2.1.1"

@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: tangoLyricsDB_production
-#  username: tangoLyricsDB
+  username: tangoLyricsDB
   password: <%= ENV['TANGOLYRICSDB_DATABASE_PASSWORD'] %>
