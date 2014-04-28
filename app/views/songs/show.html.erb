@@ -18,5 +18,11 @@
   <%= @song.lyricist %>
 </p>
 
-<%= link_to 'Back', songs_path %>
-<%= link_to 'Edit', edit_song_path(@song) %>
+<h2>Translations</h2>
+<%= render @song.translations %>
+
+<h2>Add a translation:</h2>
+<%= render "translations/form" %>
+
+<%= link_to 'Edit Song', edit_song_path(@song) %>
+<%= link_to 'Back to Songs', songs_path %>

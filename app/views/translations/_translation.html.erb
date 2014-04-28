@@ -1,0 +1,10 @@
+<p>
+  <strong>Link:</strong>
+	<%= auto_link(translation.link) %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Translation', [translation.song, translation],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

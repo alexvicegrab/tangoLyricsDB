@@ -1,0 +1,9 @@
+<%= form_for([@song, @song.translations.build]) do |f| %>
+  <p>
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

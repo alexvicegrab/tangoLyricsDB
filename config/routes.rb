@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :songs
+  resources :songs do
+    resources :translations
+  end
   
   root 'welcome#index'
 

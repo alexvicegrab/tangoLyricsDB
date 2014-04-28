@@ -1,5 +1,7 @@
 class SongsController < ApplicationController
   
+  http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show]
+  
   def index
     @songs = Song.all
   end

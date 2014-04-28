@@ -43,3 +43,6 @@ gem 'rails_12factor', group: :production
 
 # Ruby 
 ruby "2.1.1"
+
+# Autolink
+gem 'rails_autolink'
