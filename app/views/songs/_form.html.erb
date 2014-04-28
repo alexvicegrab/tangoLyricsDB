@@ -1,38 +1,32 @@
-<%= form_for @song do |f| %>
-
-	<% if @song.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@song.errors.count, "error") %> prohibited
-      this song from being saved:</h2>
-    <ul>
-    <% @song.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+<%= form_for @song, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
   </div>
-  <% end %>
+  <div class="control-group">
+    <%= f.label :composer, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :composer, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :lyricist, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :lyricist, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :year, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :year, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
- 	<p>
-   	<%= f.label :year %><br>
-   	<%= f.number_field :year %>
- 	</p>
- 
-  <p>
-    <%= f.label :composer %><br>
-    <%= f.text_field :composer %>
-  </p>
-	
-  <p>
-    <%= f.label :lyricist %><br>
-    <%= f.text_field :lyricist %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                songs_path, :class => 'btn' %>
+  </div>
 <% end %>

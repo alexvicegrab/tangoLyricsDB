@@ -1,28 +1,27 @@
-<p>
-  <strong>Title:</strong>
-  <%= @song.title %>
-</p>
- 
-<p>
-  <strong>Year:</strong>
-  <%= @song.year %>
-</p>
+<%- model_class = Song -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Composer:</strong>
-  <%= @song.composer %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @song.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:composer) %>:</strong></dt>
+  <dd><%= @song.composer %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lyricist) %>:</strong></dt>
+  <dd><%= @song.lyricist %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:year) %>:</strong></dt>
+  <dd><%= @song.year %></dd>
+</dl>
 
-<p>
-  <strong>Lyricist:</strong>
-  <%= @song.lyricist %>
-</p>
-
-<h2>Translations</h2>
-<%= render @song.translations %>
-
-<h2>Add a translation:</h2>
-<%= render "translations/form" %>
-
-<%= link_to 'Edit Song', edit_song_path(@song) %>
-<%= link_to 'Back to Songs', songs_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              songs_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_song_path(@song), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              song_path(@song),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
