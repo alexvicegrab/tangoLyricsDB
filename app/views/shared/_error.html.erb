@@ -1,0 +1,11 @@
+	<% if f.errors.any? %>
+  <div class="field_with_errors">
+    <h2><%= pluralize(f.errors.count, "error") %> prohibited
+      this song from being saved:</h2>
+    <ul>
+    <% f.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
