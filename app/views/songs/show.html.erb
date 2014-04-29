@@ -14,6 +14,12 @@
   <dd><%= @song.year %></dd>
 </dl>
 
+<h2>Translations</h2>
+<%= render @song.translations %>
+ 
+<h2>Add a translation:</h2>
+<%= render "translations/form" %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               songs_path, :class => 'btn'  %>
