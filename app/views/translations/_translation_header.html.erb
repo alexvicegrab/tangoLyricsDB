@@ -2,7 +2,7 @@
     <div class="notice"><%= flash[:translation_success] %></div>
 <% end %>
 <% if flash[:translation_error] %>
-    <div class="field_with_errors"><%= flash[:translation_error] %></div>
+    <div id="error_explanation"><%= flash[:translation_error] %></div>
 <% end %>
 
 <%- model_class = Translation -%>

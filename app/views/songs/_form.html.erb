@@ -1,7 +1,7 @@
 <%= form_for @song, :html => { :class => 'form-horizontal' } do |f| %>
 	
 	<%= render partial: 'shared/error', locals: {f: @song} %>
-	
+		
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
@@ -33,3 +33,4 @@
                 songs_path, :class => 'btn' %>
   </div>
 <% end %>
+
