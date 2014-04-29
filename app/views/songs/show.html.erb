@@ -14,14 +14,6 @@
   <dd><%= @song.year %></dd>
 </dl>
 
-<h2>Translations</h2>
-<%= render "translations/translation_header" %>
-<%= render @song.translations %>
-<%= render "translations/translation_footer" %>
- 
-<h2>Add a translation:</h2>
-<%= render "translations/form" %>
-
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               songs_path, :class => 'btn'  %>
@@ -33,3 +25,13 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+
+<h2>Translations</h2>
+<%= render "translations/translation_header" %>
+<%= render @song.translations %>
+<%= render "translations/translation_footer" %>
+ 
+<h2>Add a translation:</h2>
+<%= render "translations/form" %>
+
+
