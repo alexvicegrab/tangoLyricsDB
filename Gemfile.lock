@@ -66,8 +66,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.5.3)
     minitest (5.3.3)
     multi_json (1.9.2)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.5.2)
@@ -99,6 +102,7 @@ GEM
     rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    redcarpet (2.1.1)
     ref (1.0.5)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -154,10 +158,12 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
+  nokogiri
   pg
   rails (= 4.1.0)
   rails_12factor
   rails_autolink
+  redcarpet (~> 2.1.1)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring

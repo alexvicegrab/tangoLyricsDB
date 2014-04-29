@@ -45,6 +45,9 @@ ruby "2.1.1"
 # Autolink
 gem 'rails_autolink'
 
+# Documentation
+gem 'redcarpet', '~> 2.1.1'
+gem 'nokogiri'
 
 # Bootstrap (Twitter's front-end framework)
 #gem 'bootstrap-sass', '~> 3.1.1.1'

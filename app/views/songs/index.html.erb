@@ -18,7 +18,7 @@
     <% @songs.each do |song| %>
       <tr>
         <td><%= link_to song.id, song_path(song) %></td>
-        <td><%= song.title %></td>
+        <td><%= link_to song.title, song_path(song) %></td>
         <td><%= song.composer %></td>
         <td><%= song.lyricist %></td>
         <td><%= song.year %></td>

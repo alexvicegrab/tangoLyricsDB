@@ -3,6 +3,7 @@ class Song < ActiveRecord::Base
   
   validates :title,
     presence: true,
+    uniqueness: { case_sensitive: false },
     length: { minimum: 4 }
     
   validates :year,
