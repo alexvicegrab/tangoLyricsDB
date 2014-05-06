@@ -1,12 +1,14 @@
 class Song < ActiveRecord::Base
   include Filterable
   
+  belongs_to :genre
   has_many :translations, dependent: :destroy
   
   # Scopes
   default_scope { order('title') }
   
-  scope :title_contains, -> (title) { where("lower(title) like ?", "%#{title.downcase}%") }
+  scope :title_has, -> (title) { where("lower(title) like ?", "%#{title.downcase}%") }
+  scope :genre_is, -> (genre_id) { where("genre_id = ?", genre_id) }
   scope :year_min, -> (year) { where("year >= ?", year) }
   scope :year_max, -> (year) { where("year <= ?", year) }
   
@@ -15,10 +17,14 @@ class Song < ActiveRecord::Base
   presence: true,
   uniqueness: { case_sensitive: false },
   length: { minimum: 4 }
+  
+  validates :genre_id,
+  presence: true,
+  numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 6}
     
   validates :year,
   numericality: {only_integer: true, greater_than_or_equal_to: 1866, less_than_or_equal_to: 2014}
-    
+  
   validates :composer,
   presence: true,
   length: { minimum: 4 }

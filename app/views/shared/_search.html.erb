@@ -1,26 +1,35 @@
 <h2>Search songs</h2>
 <%= form_tag songs_path, :method => 'get' do %>
 
-		<div class="control-group">
-  <%= label_tag(:title_contains, "Title search:") %>
+<div class="control-group">
+	<%= label_tag(:title_has, "Title contains:") %>
 	<div class="controls">
-	<%= text_field_tag :title_contains, params[:title_contains] %>
-    </div>
-  </div>
+		<%= text_field_tag :title_has, params[:title_has] %>
+	</div>
+</div>
+
+<div class="control-group">
+	<%= label_tag(:genre_is, "Genre is:") %>
+	<div class="controls">
+		<%= select_tag :genre_is, options_from_collection_for_select(Genre.all, :id, :name, params[:genre_is]), include_blank: :true %> 
+	</div>
+</div>
 	
-	<div class="control-group">
+<div class="control-group">
 	<%= label_tag(:year_min, "Year minimum:") %>
 	<div class="controls">
-	<%= text_field_tag :year_min, params[:year_min] %>
-    </div>
-  </div>
+		<%= text_field_tag :year_min, params[:year_min] %>
+	</div>
+</div>
 	
 <div class="control-group">
 	<%= label_tag(:year_max, "Year maximum:") %>
 	<div class="controls">
-	<%= text_field_tag :year_max, params[:year_max] %>
-	    </div>
-	  </div>
+		<%= text_field_tag :year_max, params[:year_max] %>
+	</div>
+</div>
 		
-	<%= submit_tag("Search", :name => nil, :class => 'btn btn-primary') %>
+<%= submit_tag("Search", :name => nil, :class => 'btn btn-primary') %>
+<%= link_to t('.clear', :default => t("helpers.links.clear")),
+              songs_path, :class => 'btn'  %>
 <% end %>

@@ -4,7 +4,7 @@ class SongsController < ApplicationController
   
   def index
     #@songs = Song.all
-    @songs = Song.filter(params.slice(:title_contains, :year_min, :year_max))
+    @songs = Song.filter(params.slice(:title_contains, :genre_is, :year_min, :year_max))
   end
   
   def new
@@ -50,7 +50,7 @@ class SongsController < ApplicationController
   
   private
     def song_params
-      params.require(:song).permit(:title, :year, :composer, :lyricist)
+      params.require(:song).permit(:title, :genre_id, :year, :composer, :lyricist)
     end
   
 end

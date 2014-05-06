@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Genre seeds
+genres = Genre.create([ { name: "Tango" }, 
+  { name: "Vals" }, 
+  { name: "Milonga" },
+  { name: "Candombe" }, 
+  { name: "Foxtrot" }, 
+  { name: "Otros Ritmos" }])
+  
+# Initial song seeds

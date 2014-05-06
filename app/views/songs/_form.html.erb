@@ -9,6 +9,12 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :genre, :class => 'control-label' %>
+    <div class="controls">
+			<%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :composer, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :composer, :class => 'text_field' %>
