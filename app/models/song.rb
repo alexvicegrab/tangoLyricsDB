@@ -1,6 +1,8 @@
 class Song < ActiveRecord::Base
   has_many :translations, dependent: :destroy
   
+  default_scope { order('title DESC') }
+  
   validates :title,
     presence: true,
     uniqueness: { case_sensitive: false },
