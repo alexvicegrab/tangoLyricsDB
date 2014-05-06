@@ -1,8 +1,16 @@
 class Song < ActiveRecord::Base
+  include Filterable
+  
   has_many :translations, dependent: :destroy
   
+  # Scopes
   default_scope { order('title') }
   
+  scope :title_contains, -> (title) { where("lower(title) like ?", "%#{title.downcase}%") }
+  scope :year_min, -> (year) { where("year >= ?", year) }
+  scope :year_max, -> (year) { where("year <= ?", year) }
+  
+  # Validations
   validates :title,
   presence: true,
   uniqueness: { case_sensitive: false },
@@ -19,6 +27,7 @@ class Song < ActiveRecord::Base
   presence: true,
   length: { minimum: 4 }
     
+  # Callbacks
   before_validation :normalise_song, on: [ :create, :update ]
     
   protected

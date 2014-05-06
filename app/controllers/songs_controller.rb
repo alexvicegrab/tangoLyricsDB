@@ -3,7 +3,8 @@ class SongsController < ApplicationController
   http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show]
   
   def index
-    @songs = Song.all
+    #@songs = Song.all
+    @songs = Song.filter(params.slice(:title_contains, :year_min, :year_max))
   end
   
   def new
