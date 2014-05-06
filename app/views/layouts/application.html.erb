@@ -8,7 +8,13 @@
 </head>
 <body>
 	<div class="container">
-  	<%= yield %>
+		<div class="row">
+		      <div class="span9"><%= yield %></div>
+		      <div class="span3">
+		        <%= render 'shared/search' %>
+		      </div>
+		    </div>
 	</div>
+	
 </body>
 </html>

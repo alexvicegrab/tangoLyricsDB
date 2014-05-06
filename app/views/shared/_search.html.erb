@@ -1,15 +1,26 @@
+<h2>Search songs</h2>
 <%= form_tag songs_path, :method => 'get' do %>
-<p>
+
+		<div class="control-group">
   <%= label_tag(:title_contains, "Title search:") %>
+	<div class="controls">
 	<%= text_field_tag :title_contains, params[:title_contains] %>
-</p>
-<p>
+    </div>
+  </div>
+	
+	<div class="control-group">
 	<%= label_tag(:year_min, "Year minimum:") %>
+	<div class="controls">
 	<%= text_field_tag :year_min, params[:year_min] %>
-</p>
-<p>
+    </div>
+  </div>
+	
+<div class="control-group">
 	<%= label_tag(:year_max, "Year maximum:") %>
+	<div class="controls">
 	<%= text_field_tag :year_max, params[:year_max] %>
-</p>  
-	<%= submit_tag("Search", :name => nil) %>
+	    </div>
+	  </div>
+		
+	<%= submit_tag("Search", :name => nil, :class => 'btn btn-primary') %>
 <% end %>
