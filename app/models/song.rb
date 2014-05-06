@@ -19,11 +19,13 @@ class Song < ActiveRecord::Base
   presence: true,
   length: { minimum: 4 }
     
-  before_validation :normalise_title, on: [ :create, :update ]
+  before_validation :normalise_song, on: [ :create, :update ]
     
   protected
-  def normalise_title
+  def normalise_song
     self.title = self.title.downcase.titleize
+    self.composer = self.composer.downcase.titleize
+    self.lyricist = self.lyricist.downcase.titleize
   end
   
 end
