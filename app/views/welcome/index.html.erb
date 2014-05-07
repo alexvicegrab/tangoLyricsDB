@@ -1,10 +1,10 @@
 <h2>Tango Translation Database</h2>
 <p>
-  The database is not working yet, but it can tell you the time: <%= Time.now %>
+  This database is meant to serve as a repository to link up all translation efforts in the Argentine Tango community. Please bear in mind that is under development, its humble beginnings can be accessed below through the "Songs" button.
 </p>
-
 <p>
-  The humble beginnings of the database can be seen below:
+	If you wish to provide me with feedback, please write to me on <a href="https://www.facebook.com/DjAlejandroSasha">Facebook</a>
 </p>
 
-<%= link_to 'Songs', controller: 'songs' %>
+<%= link_to t('.songs', :default => t("helpers.links.songs")),
+              songs_path, :class => 'btn btn-primary'  %>
