@@ -1,0 +1,18 @@
+<h2>Stats</h2>
+
+<h4>
+	<%= Song.count.nil? ? 0 : Song.count %> songs in database
+</h4>
+<h4>
+	<%= Translation.count.nil? ? 0 : Translation.count %> translations linked
+</h4>
+
+<h3>
+	Last additions:
+</h3>
+<h5>
+	Song: <%= Song.last.nil? ? "N/A" : Song.last.title %>
+</h5>
+<h5>
+	Translation: <%= Translation.last.nil? ? "N/A" : Translation.last.song.title %>
+</h5>
