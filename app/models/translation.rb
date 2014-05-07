@@ -1,5 +1,5 @@
 class Translation < ActiveRecord::Base
-  belongs_to :song
+  belongs_to :song, counter_cache: true
   
   validates :link,
     presence: true,

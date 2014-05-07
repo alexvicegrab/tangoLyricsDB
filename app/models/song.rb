@@ -1,7 +1,7 @@
 class Song < ActiveRecord::Base
   include Filterable
   
-  belongs_to :genre
+  belongs_to :genre, counter_cache: true
   has_many :translations, dependent: :destroy
   
   # Scopes
