@@ -23,6 +23,7 @@ class Song < ActiveRecord::Base
   numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 6}
     
   validates :year,
+  allow_nil: true,
   numericality: {only_integer: true, greater_than_or_equal_to: 1866, less_than_or_equal_to: 2014}
   
   validates :composer,

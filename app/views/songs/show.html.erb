@@ -13,7 +13,7 @@
   <dt><strong><%= model_class.human_attribute_name(:lyricist) %>:</strong></dt>
   <dd><%= @song.lyricist %></dd>
   <dt><strong><%= model_class.human_attribute_name(:year) %>:</strong></dt>
-  <dd><%= @song.year %></dd>
+  <dd><%= @song.year.nil? ? "N/A" : @song.year %></dd>
 </dl>
 
 <div class="form-actions">

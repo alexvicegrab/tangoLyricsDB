@@ -24,7 +24,7 @@
 				<td><%= song.genre.blank? ? "N/A" : song.genre.name %></td>
         <td><%= song.composer %></td>
         <td><%= song.lyricist %></td>
-        <td><%= song.year %></td>
+        <td><%= song.year.nil? ? "N/A" : song.year %></td>
         <!--  <td><%=l song.created_at %></td> -->
 				<td><%= song.translations.count %></td>
         <td>
