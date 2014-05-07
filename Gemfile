@@ -57,3 +57,6 @@ gem 'therubyracer',  platforms: :ruby
 
 # Dump database to seed...!
 gem 'seed_dump'
+
+# Transliteration of [spanish] words
+gem 'i18n'

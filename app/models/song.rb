@@ -7,7 +7,7 @@ class Song < ActiveRecord::Base
   # Scopes
   default_scope { order('title') }
   
-  scope :title_has, -> (title) { where("lower(title) like ?", "%#{title.downcase}%") }
+  scope :title_has, -> (title) { where("lower(title) like ?", "%#{I18n.transliterate(title.downcase)}%") }
   scope :genre_is, -> (genre_id) { where("genre_id = ?", genre_id) }
   scope :year_min, -> (year) { where("year >= ?", year) }
   scope :year_max, -> (year) { where("year <= ?", year) }
@@ -16,7 +16,7 @@ class Song < ActiveRecord::Base
   validates :title,
   presence: true,
   uniqueness: { case_sensitive: false },
-  length: { minimum: 4 }
+  length: { minimum: 3 }
   
   validates :genre_id,
   presence: true,
@@ -39,9 +39,9 @@ class Song < ActiveRecord::Base
     
   protected
   def normalise_song
-    self.title = self.title.downcase.titleize
-    self.composer = self.composer.downcase.titleize
-    self.lyricist = self.lyricist.downcase.titleize
-  end
-  
+    # Remove accents, white space, lower, titleise
+    self.title = I18n.transliterate(self.title.lstrip.downcase.titleize)
+    self.composer = I18n.transliterate(self.composer.lstrip.downcase.titleize)
+    self.lyricist = I18n.transliterate(self.lyricist.lstrip.downcase.titleize)
+  end  
 end
