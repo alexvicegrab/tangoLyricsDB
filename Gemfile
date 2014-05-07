@@ -49,12 +49,11 @@ gem 'rails_autolink'
 gem 'redcarpet', '~> 2.1.1'
 gem 'nokogiri'
 
-# Bootstrap (Twitter's front-end framework)
-#gem 'bootstrap-sass', '~> 3.1.1.1'
-  
-gem 'twitter-bootstrap-rails'
 # Required by twitter-bootstrap-rails:
+gem 'twitter-bootstrap-rails'
 gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
 
+# Dump database to seed...!
+gem 'seed_dump'

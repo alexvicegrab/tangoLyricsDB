@@ -1,326 +1,316 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# Genre seeds
-genres = Genre.create([ { name: "Tango" }, 
-  { name: "Vals" }, 
-  { name: "Milonga" },
-  { name: "Candombe" }, 
-  { name: "Foxtrot" }, 
-  { name: "Otros Ritmos" }])
-  
-# Initial song seeds
-Song.create(:title => 'A la luz del candil', :genre_id => 1, :year => 1927, :composer => 'Carlos Vicente Geroni Flores', :lyricist => 'Julio Navarrine')
-Song.create(:title => 'A media luz', :genre_id => 1, :year => 1924, :composer => 'Edgardo Donato', :lyricist => 'Carlos Lenzi')
-Song.create(:title => 'A mi madre (Con los amigos)', :genre_id => 2, :composer => 'Carlos Gardel', :lyricist => 'Andrés Cepeda')
-Song.create(:title => 'Abandono', :genre_id => 1, :composer => 'Pedro Maffia', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Acquaforte', :genre_id => 1, :year => 1932, :composer => 'Horacio Pettorossi', :lyricist => 'Juan Carlos Marambio Catán')
-Song.create(:title => 'Adiós arrabal', :genre_id => 1, :year => 1930, :composer => 'Juan Baüer', :lyricist => 'Carlos Lenzi')
-Song.create(:title => 'Adiós Buenos Aires', :genre_id => 1, :composer => 'Eduardo Arolas', :lyricist => 'Leopoldo Torres Ríos')
-Song.create(:title => 'Adiós pampa mía', :genre_id => 1, :year => 1945, :composer => 'Francisco Canaro', :lyricist => 'Ivo Pelay')
-Song.create(:title => 'Afiches', :genre_id => 1, :composer => 'Atilio Stampone', :lyricist => 'Homero Expósito')
-Song.create(:title => 'Ahora no me conocés', :genre_id => 1, :year => 1941, :composer => 'Armando Baliotti', :lyricist => 'Carlos Giampetruzzi (Giampé)')
-Song.create(:title => 'Al compás del corazón (Late un corazón)', :genre_id => 1, :year => 1942, :composer => 'Domingo Federico', :lyricist => 'Homero Expósito')
-Song.create(:title => 'Al compás de un tango', :genre_id => 1, :year => 1942, :composer => 'Alberto Suárez Villanueva', :lyricist => 'Oscar Rubens')
-Song.create(:title => 'Al verla pasar', :genre_id => 1, :composer => 'Joaquín Mora', :lyricist => 'José María Contursi')
-Song.create(:title => 'Alas rotas', :genre_id => 1, :composer => 'Edgardo Donato', :lyricist => 'Maruja Pacheco Huergo')
-Song.create(:title => 'Alma de bohemio', :genre_id => 1, :year => 1914, :composer => 'Roberto Firpo', :lyricist => 'Juan Andrés Caruso')
-Song.create(:title => 'Alma mía', :genre_id => 2, :year => 1936, :composer => 'Diego Centeno', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'Amarras', :genre_id => 1, :year => 1944, :composer => 'Carlos Marchisio', :lyricist => 'Carmelo Santiago')
-Song.create(:title => 'Amigos que yo quiero', :genre_id => 1, :composer => 'Hugo Gutiérrez', :lyricist => 'Hugo Gutiérrez')
-Song.create(:title => 'Amurado', :genre_id => 1, :year => 1927, :composer => 'Pedro Maffia', :lyricist => 'José De Grandis')
-Song.create(:title => 'Anclao en París', :genre_id => 1, :year => 1931, :composer => 'Guillermo Barbieri', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Anoche a las dos', :genre_id => 1, :year => 1926, :composer => 'Raúl De los Hoyos', :lyricist => 'Roberto Lino Cayol')
-Song.create(:title => 'Así se baila el tango', :genre_id => 1, :year => 1942, :composer => 'Elías Randal', :lyricist => ' Marvil (Elizardo Martínez Vilas)')
-Song.create(:title => 'Atenti pebeta', :genre_id => 1, :year => 1929, :composer => 'Ciriaco Ortiz', :lyricist => 'Celedonio Flores')
-Song.create(:title => 'Bailarín compadrito', :genre_id => 1, :year => 1929, :composer => 'Miguel Bucino', :lyricist => 'Miguel Bucino')
-Song.create(:title => 'Bailarín de contraseña', :genre_id => 1, :composer => 'Víctor Felice', :lyricist => 'Carlos Lucero')
-Song.create(:title => 'Bailemos', :genre_id => 1, :composer => 'Pascual Mamone', :lyricist => 'Reinaldo Yiso')
-Song.create(:title => 'Bajo el cono azul', :genre_id => 1, :year => 1943, :composer => 'Alfredo De Angelis', :lyricist => 'Carmelo Volpe')
-Song.create(:title => 'Bajo un cielo de estrellas', :genre_id => 2, :year => 1941, :composer => 'Enrique Francini', :lyricist => 'José María Contursi')
-Song.create(:title => 'Balada para un loco', :genre_id => 1, :year => 1969, :composer => 'Astor Piazzolla', :lyricist => 'Horacio Ferrer')
-Song.create(:title => 'Bandoneón arrabalero', :genre_id => 1, :year => 1928, :composer => ' Bachicha', :lyricist => 'Pascual Contursi')
-Song.create(:title => 'Barajando recuerdos', :genre_id => 1, :composer => 'Luis Visca', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Barrio de tango', :genre_id => 1, :year => 1942, :composer => 'Aníbal Troilo', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Bigotito', :genre_id => 5, :composer => 'Edgardo Donato', :lyricist => 'Celedonio Flores')
-Song.create(:title => 'Cada vez que me recuerdes', :genre_id => 1, :year => 1943, :composer => 'Mariano Mores', :lyricist => 'José María Contursi')
-Song.create(:title => 'Café de Los Angelitos', :genre_id => 1, :year => 1944, :composer => 'José Razzano', :lyricist => 'José Razzano')
-Song.create(:title => 'Cafetín de Buenos Aires', :genre_id => 1, :year => 1948, :composer => 'Mariano Mores', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Calla bandoneón', :genre_id => 1, :composer => 'Carlos Lazzari', :lyricist => 'Oscar Rubens')
-Song.create(:title => 'Cambalache', :genre_id => 1, :year => 1934, :composer => 'Enrique Santos Discepolo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Caminito', :genre_id => 1, :year => 1926, :composer => 'Juan de Dios Filiberto', :lyricist => 'Gabino Coria Peñaloza')
-Song.create(:title => 'Campo afuera', :genre_id => 3, :year => 1939, :composer => 'Rodolfo Biagi', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Canción de rango (Pa'' que se callen)''', :genre_id => 1, :year => 1942, :composer => 'Raúl Kaplún', :lyricist => 'José María Suñé')
-Song.create(:title => 'Canción desesperada', :genre_id => 1, :year => 1945, :composer => 'Enrique Santos Discepolo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Cantando', :genre_id => 1, :year => 1931, :composer => 'Mercedes Simone', :lyricist => 'Mercedes Simone')
-Song.create(:title => 'Caricias', :genre_id => 1, :composer => 'María Isolina Godard', :lyricist => 'Juan Andrés Caruso')
-Song.create(:title => 'Carillón de La Merced', :genre_id => 1, :year => 1931, :composer => 'Enrique Santos Discepolo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Carnaval de mi barrio', :genre_id => 1, :year => 1938, :composer => 'Luis Rubistein', :lyricist => 'Luis Rubistein')
-Song.create(:title => 'Cascabelito', :genre_id => 1, :year => 1924, :composer => 'José Bohr', :lyricist => 'Juan Andrés Caruso')
-Song.create(:title => 'Chapaleando barro', :genre_id => 1, :composer => 'Arturo Castillo', :lyricist => 'Celedonio Flores')
-Song.create(:title => 'Charlemos', :genre_id => 1, :year => 1940, :composer => 'Luis Rubistein', :lyricist => 'Luis Rubistein')
-Song.create(:title => 'Che bandoneón', :genre_id => 1, :year => 1949, :composer => 'Aníbal Troilo', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Chorra', :genre_id => 1, :year => 1928, :composer => 'Enrique Santos Discepolo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Como dos extraños', :genre_id => 1, :year => 1940, :composer => 'Pedro Laurenz', :lyricist => 'José María Contursi')
-Song.create(:title => 'Como el hornero', :genre_id => 1, :year => 1944, :composer => 'Manuel Sucher', :lyricist => 'José Rótulo')
-Song.create(:title => 'Compadrón', :genre_id => 1, :year => 1927, :composer => 'Luis Visca', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Con alma y vida', :genre_id => 3, :composer => 'Carlos Di Sarli', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'Condena', :genre_id => 1, :year => 1937, :composer => 'Enrique Santos Discepolo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Confesión', :genre_id => 1, :year => 1931, :composer => 'Enrique Santos Discepolo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Convencernos', :genre_id => 1, :composer => 'Eladia Blázquez', :lyricist => 'Eladia Blázquez')
-Song.create(:title => 'Corazón', :genre_id => 1, :year => 1939, :composer => 'Carlos Di Sarli', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'Corazón de oro', :genre_id => 2, :composer => 'Francisco Canaro', :lyricist => 'Jesús Fernández Blanco')
-Song.create(:title => 'Corazón, no le hagas caso!', :genre_id => 1, :year => 1943, :composer => 'Armando Pontier', :lyricist => 'Carlos Bahr')
-Song.create(:title => 'Corrientes y Esmeralda', :genre_id => 1, :year => 1933, :composer => 'Francisco Pracánico', :lyricist => 'Celedonio Flores')
-Song.create(:title => 'Cosas olvidadas', :genre_id => 1, :year => 1940, :composer => 'Antonio Rodio', :lyricist => 'José María Contursi')
-Song.create(:title => 'Cristal', :genre_id => 1, :year => 1944, :composer => 'Mariano Mores', :lyricist => 'José María Contursi')
-Song.create(:title => 'Cualquier cosa', :genre_id => 1, :year => 1927, :composer => 'Herminia Velich', :lyricist => 'Herminia Velich')
-Song.create(:title => 'Cuando no se quiere más', :genre_id => 1, :composer => 'Roberto Rufino', :lyricist => 'Abel Aznar')
-Song.create(:title => 'Cuando un viejo se enamora', :genre_id => 3, :composer => 'Rodolfo Sciammarella', :lyricist => 'Manuel Romero')
-Song.create(:title => 'Cuartito azul', :genre_id => 1, :year => 1939, :composer => 'Mariano Mores', :lyricist => 'Mario Battistella')
-Song.create(:title => 'Cuatro lágrimas', :genre_id => 1, :year => 1945, :composer => 'Lito Bayardo', :lyricist => 'Lito Bayardo')
-Song.create(:title => 'Cuatro palabras', :genre_id => 2, :composer => 'Miguel Bucino', :lyricist => 'Miguel Bucino')
-Song.create(:title => 'Cuesta abajo', :genre_id => 1, :year => 1934, :composer => 'Carlos Gardel', :lyricist => 'Alfredo Le Pera')
-Song.create(:title => 'Danza maligna', :genre_id => 1, :composer => 'Fernando Randle', :lyricist => 'Claudio Frollo')
-Song.create(:title => 'De mi barrio', :genre_id => 1, :year => 1923, :composer => 'Roberto Goyheneche', :lyricist => 'Roberto Goyheneche')
-Song.create(:title => 'De puro curda', :genre_id => 1, :year => 1957, :composer => 'Carlos Olmedo', :lyricist => 'Abel Aznar')
-Song.create(:title => 'De puro guapo', :genre_id => 1, :year => 1927, :composer => 'Rafael Iriarte', :lyricist => 'Juan Carlos Fernández Díaz')
-Song.create(:title => 'Decile que vuelva', :genre_id => 1, :composer => 'Miguel Bucino', :lyricist => 'Miguel Bucino')
-Song.create(:title => 'Déjame no quiero verte más', :genre_id => 1, :composer => 'Francisco Canaro', :lyricist => 'Ivo Pelay')
-Song.create(:title => 'Derrotado (Tenés razón)', :genre_id => 1, :composer => 'Antonio Arcieri', :lyricist => 'José Terragno')
-Song.create(:title => 'Desde el alma', :genre_id => 2, :year => 1947, :composer => 'Rosita Melo', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Desencanto', :genre_id => 1, :year => 1936, :composer => 'Enrique Santos Discepolo', :lyricist => 'Luis César Amadori')
-Song.create(:title => 'Desencuentro', :genre_id => 1, :year => 1962, :composer => 'Aníbal Troilo', :lyricist => 'Cátulo Castillo')
-Song.create(:title => 'Después', :genre_id => 1, :year => 1944, :composer => 'Hugo Gutiérrez', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Destellos', :genre_id => 1, :year => 1924, :composer => 'Francisco Canaro', :lyricist => 'Juan Andrés Caruso')
-Song.create(:title => 'Dime mi amor', :genre_id => 1, :composer => 'Rodolfo Sciammarella', :lyricist => 'Manuel Romero')
-Song.create(:title => 'Din don', :genre_id => 1, :composer => 'Alberto Suárez Villanueva', :lyricist => 'Evaristo Fratantoni')
-Song.create(:title => 'Dónde estás corazón', :genre_id => 1, :year => 1930, :composer => 'Luis Martínez Serrano', :lyricist => 'Luis Martínez Serrano')
-Song.create(:title => 'Duelo criollo', :genre_id => 1, :year => 1928, :composer => 'Juan Rezzano', :lyricist => 'Lito Bayardo')
-Song.create(:title => 'El adiós', :genre_id => 1, :year => 1937, :composer => 'Maruja Pacheco Huergo', :lyricist => 'Virgilio San Clemente')
-Song.create(:title => 'El abrojito', :genre_id => 1, :year => 1926, :composer => 'Luis Bernstein', :lyricist => 'Jesús Fernández Blanco')
-Song.create(:title => 'El choclo', :genre_id => 1, :composer => 'Ángel Villoldo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'El ciruja', :genre_id => 1, :year => 1926, :composer => 'Ernesto de la Cruz', :lyricist => 'Alfredo Marino')
-Song.create(:title => 'El día que me quieras', :genre_id => 6, :year => 1935, :composer => 'Carlos Gardel', :lyricist => 'Alfredo Le Pera')
-Song.create(:title => 'El firulete', :genre_id => 3, :composer => 'Mariano Mores', :lyricist => 'Rodolfo Taboada')
-Song.create(:title => 'El huracán', :genre_id => 1, :composer => 'Osvaldo Donato', :lyricist => 'Nolo López')
-Song.create(:title => 'El motivo', :genre_id => 1, :composer => 'Juan Carlos Cobián', :lyricist => 'Pascual Contursi')
-Song.create(:title => 'El olivo', :genre_id => 1, :year => 1924, :composer => 'Antonio Scatasso', :lyricist => 'Carlos Cabral')
-Song.create(:title => 'El pañuelito', :genre_id => 1, :year => 1920, :composer => 'Juan de Dios Filiberto', :lyricist => 'Gabino Coria Peñaloza')
-Song.create(:title => 'El último café', :genre_id => 1, :composer => 'Héctor Stamponi', :lyricist => 'Cátulo Castillo')
-Song.create(:title => 'El último organito', :genre_id => 1, :year => 1949, :composer => 'Acho Manzi', :lyricist => 'Homero Manzi')
-Song.create(:title => 'El vals soñador', :genre_id => 2, :composer => 'Armando Pontier', :lyricist => 'Oscar Rubens')
-Song.create(:title => 'El Yacaré', :genre_id => 1, :composer => 'Alfredo Attadía', :lyricist => 'Mario Soto')
-Song.create(:title => 'Embrujamiento', :genre_id => 1, :composer => 'Ricardo Malerba', :lyricist => 'Manuel Ferradás Campos')
-Song.create(:title => 'En esta tarde gris', :genre_id => 1, :year => 1941, :composer => 'Mariano Mores', :lyricist => 'José María Contursi')
-Song.create(:title => 'En la buena y en la mala', :genre_id => 1, :composer => 'Domingo Scarpino', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'En tus brazos', :genre_id => 1, :composer => 'Carlos Zárate', :lyricist => ' Marvil (Elizardo Martínez Vilas)')
-Song.create(:title => 'En carne propia', :genre_id => 1, :year => 1944, :composer => 'Manuel Sucher', :lyricist => 'Carlos Bahr')
-Song.create(:title => 'Entre pitada y pitada', :genre_id => 3, :composer => 'Rodolfo Sciammarella', :lyricist => 'Rodolfo Sciammarella')
-Song.create(:title => 'Esquinas porteñas', :genre_id => 2, :year => 1933, :composer => 'Sebastián Piana', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Esta noche al pasar', :genre_id => 1, :year => 1945, :composer => 'Héctor Grané', :lyricist => 'Justo Ricardo Thompson')
-Song.create(:title => 'Esta noche de luna', :genre_id => 1, :year => 1943, :composer => 'José García', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'Esta noche en Buenos Aires', :genre_id => 1, :year => 1944, :composer => 'Ángel D''Agostino', :lyricist => ' Avlis (Erasmo Silva Cabrera)')
-Song.create(:title => 'Esta noche me emborracho', :genre_id => 1, :year => 1928, :composer => 'Enrique Santos Discepolo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Estampa federal', :genre_id => 2, :composer => 'Pedro Maffia', :lyricist => 'Cátulo Castillo')
-Song.create(:title => 'Este es tu tango', :genre_id => 1, :composer => 'Enrique Mora', :lyricist => 'Reinaldo Yiso')
-Song.create(:title => 'Farol', :genre_id => 1, :year => 1943, :composer => 'Virgilio Expósito', :lyricist => 'Homero Expósito')
-Song.create(:title => 'Flor de Lino', :genre_id => 6, :year => 1947, :composer => 'Héctor Stamponi', :lyricist => 'Homero Expósito')
-Song.create(:title => 'Flores del alma', :genre_id => 2, :composer => 'Juan Larenza', :lyricist => 'Alfredo Lucero Palacios')
-Song.create(:title => 'El fueye de Arolas', :genre_id => 1, :composer => 'Héctor Marcó', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'Fuimos', :genre_id => 1, :year => 1945, :composer => 'José Dames', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Fumando espero', :genre_id => 1, :year => 1922, :composer => 'Juan Viladomat', :lyricist => 'Félix Garzo')
-Song.create(:title => 'Garganta con arena', :genre_id => 1, :year => 1993, :composer => 'Cacho Castaña', :lyricist => 'Cacho Castaña')
-Song.create(:title => 'Garúa', :genre_id => 1, :year => 1943, :composer => 'Aníbal Troilo', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Gitana rusa', :genre_id => 1, :year => 1942, :composer => 'Juan Sánchez Gorio', :lyricist => 'Horacio Sanguinetti')
-Song.create(:title => 'Gólgota', :genre_id => 1, :year => 1938, :composer => 'Rodolfo Biagi', :lyricist => 'Francisco Gorrindo')
-Song.create(:title => 'Gricel', :genre_id => 1, :year => 1942, :composer => 'Mariano Mores', :lyricist => 'José María Contursi')
-Song.create(:title => 'Griseta', :genre_id => 1, :year => 1924, :composer => 'Enrique Delfino', :lyricist => 'José González Castillo')
-Song.create(:title => 'Hasta siempre amor', :genre_id => 1, :year => 1953, :composer => 'Donato Racciatti', :lyricist => 'Federico Silva')
-Song.create(:title => 'Hay que vivirla compadre', :genre_id => 1, :composer => 'Ángel D''Agostino', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'Historia de un amor', :genre_id => 6, :composer => 'Carlos Almarán', :lyricist => 'Carlos Almarán')
-Song.create(:title => 'Humillación', :genre_id => 1, :year => 1941, :composer => 'Rodolfo Biagi', :lyricist => 'Carlos Bahr')
-Song.create(:title => 'Ilusión azul', :genre_id => 2, :composer => 'Arquímedes Arci', :lyricist => 'Arquímedes Arci')
-Song.create(:title => 'Infamia', :genre_id => 1, :year => 1941, :composer => 'Enrique Santos Discepolo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Inútil', :genre_id => 1, :composer => 'Tito Ribero', :lyricist => 'Reinaldo Yiso')
-Song.create(:title => 'Cuando llegue el invierno', :genre_id => 1, :year => 1948, :composer => 'José Márquez', :lyricist => 'José Márquez')
-Song.create(:title => 'Jacinto Chiclana', :genre_id => 3, :composer => 'Astor Piazzolla', :lyricist => 'Jorge Luis Borges')
-Song.create(:title => 'Jamás retornarás', :genre_id => 1, :year => 1942, :composer => 'Osmar Maderna', :lyricist => 'Osmar Maderna')
-Song.create(:title => 'Junto a tu corazón', :genre_id => 1, :year => 1942, :composer => 'Enrique Francini', :lyricist => 'José María Contursi')
-Song.create(:title => 'La abandoné y no sabía', :genre_id => 1, :year => 1943, :composer => 'José Canet', :lyricist => 'José Canet')
-Song.create(:title => 'La bicicleta blanca', :genre_id => 6, :composer => 'Astor Piazzolla', :lyricist => 'Horacio Ferrer')
-Song.create(:title => 'La bruja', :genre_id => 1, :year => 1938, :composer => 'Juan Polito', :lyricist => 'Francisco Gorrindo')
-Song.create(:title => 'La cachila', :genre_id => 1, :composer => 'Eduardo Arolas', :lyricist => 'Héctor Polito')
-Song.create(:title => 'La canción de Buenos Aires', :genre_id => 1, :year => 1933, :composer => 'Orestes Cúfaro', :lyricist => 'Manuel Romero')
-Song.create(:title => 'La capilla blanca', :genre_id => 1, :year => 1944, :composer => 'Carlos Di Sarli', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'La casita de mis viejos', :genre_id => 1, :year => 1932, :composer => 'Juan Carlos Cobián', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'La copa del olvido', :genre_id => 1, :year => 1921, :composer => 'Enrique Delfino', :lyricist => 'Alberto Vacarezza')
-Song.create(:title => 'La cumparsita', :genre_id => 1, :composer => 'Gerardo Matos Rodríguez', :lyricist => 'Pascual Contursi / Enrique Maroni')
-Song.create(:title => 'La mariposa', :genre_id => 1, :year => 1923, :composer => 'Pedro Maffia', :lyricist => 'Celedonio Flores')
-Song.create(:title => 'La melodía del corazón', :genre_id => 1, :composer => 'Fioravante Di Cicco', :lyricist => 'Carmelo Santiago')
-Song.create(:title => 'La milonga de Buenos Aires', :genre_id => 3, :year => 1939, :composer => 'Francisco Canaro', :lyricist => 'Ivo Pelay')
-Song.create(:title => 'La morocha', :genre_id => 1, :year => 1905, :composer => 'Enrique Saborido', :lyricist => 'Ángel Villoldo')
-Song.create(:title => 'La mulateada', :genre_id => 3, :composer => 'Julio Eduardo Del Puerto', :lyricist => 'Carlos Pesce')
-Song.create(:title => 'La piba de los jazmines', :genre_id => 1, :composer => 'Ricardo Malerba', :lyricist => 'Julio Navarrine')
-Song.create(:title => 'La última copa', :genre_id => 1, :year => 1926, :composer => 'Francisco Canaro', :lyricist => 'Juan Andrés Caruso')
-Song.create(:title => 'La última curda', :genre_id => 1, :year => 1956, :composer => 'Aníbal Troilo', :lyricist => 'Cátulo Castillo')
-Song.create(:title => 'La vida es corta', :genre_id => 1, :composer => 'Ricardo Tanturi', :lyricist => 'Francisco Gorrindo')
-Song.create(:title => 'Lejos de Buenos Aires', :genre_id => 1, :year => 1942, :composer => 'Alberto Suárez Villanueva', :lyricist => 'Oscar Rubens')
-Song.create(:title => 'Lilián', :genre_id => 1, :year => 1944, :composer => 'Héctor Varela', :lyricist => 'Luis Caruso')
-Song.create(:title => 'Lloran las campanas', :genre_id => 1, :year => 1944, :composer => 'Alberto Suárez Villanueva', :lyricist => 'Oscar Rubens')
-Song.create(:title => 'Llorar por una mujer', :genre_id => 1, :composer => 'Enrique Rodríguez', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Lo han visto con otra', :genre_id => 1, :year => 1928, :composer => 'Horacio Pettorossi', :lyricist => 'Horacio Pettorossi')
-Song.create(:title => 'Lo que vos te merecés', :genre_id => 1, :composer => 'Carlos Olmedo', :lyricist => 'Abel Aznar')
-Song.create(:title => 'Los mareados', :genre_id => 1, :year => 1942, :composer => 'Juan Carlos Cobián', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Lunes', :genre_id => 1, :year => 1927, :composer => 'José Luis Padula', :lyricist => 'Francisco García Jiménez')
-Song.create(:title => 'Madame Ivonne', :genre_id => 1, :year => 1933, :composer => 'Eduardo Pereyra', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Madreselva', :genre_id => 1, :year => 1931, :composer => 'Francisco Canaro', :lyricist => 'Luis César Amadori')
-Song.create(:title => 'Malena', :genre_id => 1, :year => 1941, :composer => 'Lucio Demare', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Malevaje', :genre_id => 1, :year => 1929, :composer => 'Juan de Dios Filiberto', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Mandria', :genre_id => 1, :composer => 'Juan Rodríguez', :lyricist => 'Francisco Brancatti')
-Song.create(:title => 'Mano a mano', :genre_id => 1, :year => 1923, :composer => 'Carlos Gardel', :lyricist => 'Celedonio Flores')
-Song.create(:title => 'Mañana zarpa un barco', :genre_id => 1, :year => 1942, :composer => 'Lucio Demare', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Maquillaje', :genre_id => 1, :composer => 'Virgilio Expósito', :lyricist => 'Homero Expósito')
-Song.create(:title => 'Marioneta', :genre_id => 1, :year => 1928, :composer => 'Juan José Guichandut', :lyricist => 'Armando Tagini')
-Song.create(:title => 'Mariposita', :genre_id => 1, :year => 1941, :composer => 'Anselmo Aieta', :lyricist => 'Francisco García Jiménez')
-Song.create(:title => 'Marol', :genre_id => 1, :composer => 'Alberto Nery', :lyricist => 'Federico Silva')
-Song.create(:title => 'Maula', :genre_id => 1, :year => 1927, :composer => 'Adolfo Mondino', :lyricist => 'Víctor Soliño')
-Song.create(:title => 'Me quedé mirándola', :genre_id => 1, :year => 1945, :composer => 'Vicente Spina', :lyricist => 'Roberto Miró')
-Song.create(:title => 'Mendocina', :genre_id => 2, :composer => 'Miguel Bruno', :lyricist => 'Benigno Palmeiro')
-Song.create(:title => 'Metido (Enamorado)', :genre_id => 1, :composer => ' Príncipe Cubano', :lyricist => ' Príncipe Cubano')
-Song.create(:title => 'Mi Buenos Aires querido', :genre_id => 1, :year => 1934, :composer => 'Carlos Gardel', :lyricist => 'Alfredo Le Pera')
-Song.create(:title => 'Mi dolor', :genre_id => 1, :year => 1930, :composer => 'Carlos Marcucci', :lyricist => 'Manuel Meaños')
-Song.create(:title => 'Mi noche triste (Lita)', :genre_id => 1, :year => 1916, :composer => 'Samuel Castriota', :lyricist => 'Pascual Contursi')
-Song.create(:title => 'Mi serenata', :genre_id => 1, :composer => 'Edgardo Donato', :lyricist => 'Juan Carlos Thorry')
-Song.create(:title => 'Mi taza de café', :genre_id => 1, :year => 1943, :composer => 'Alfredo Malerba', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Milonga que peina canas', :genre_id => 3, :year => 1942, :composer => 'Alberto Gómez', :lyricist => 'Alberto Gómez')
-Song.create(:title => 'Milonga querida', :genre_id => 3, :composer => 'Juan Larenza', :lyricist => 'Lito Bayardo')
-Song.create(:title => 'Milonga triste', :genre_id => 3, :year => 1936, :composer => 'Sebastián Piana', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Milonguita (Esthercita)', :genre_id => 1, :year => 1920, :composer => 'Enrique Delfino', :lyricist => 'Samuel Linnig')
-Song.create(:title => 'Mis harapos', :genre_id => 6, :composer => 'Marino García', :lyricist => 'Jorge Luque Lobos')
-Song.create(:title => 'Moneda de Cobre', :genre_id => 1, :year => 1942, :composer => 'Carlos Viván', :lyricist => 'Horacio Sanguinetti')
-Song.create(:title => 'Muchacho', :genre_id => 1, :year => 1926, :composer => 'Edgardo Donato', :lyricist => 'Celedonio Flores')
-Song.create(:title => 'Muchachos comienza la ronda', :genre_id => 1, :year => 1943, :composer => 'Luis Porcell', :lyricist => 'Leopoldo Díaz Vélez')
-Song.create(:title => 'Muñeca brava', :genre_id => 1, :year => 1929, :composer => 'Luis Visca', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Murió el malevo', :genre_id => 1, :composer => 'Héctor Varela', :lyricist => 'Carlos Waiss')
-Song.create(:title => 'Nada más', :genre_id => 1, :year => 1938, :composer => 'Juan D''Arienzo', :lyricist => 'Juan D''Arienzo')
-Song.create(:title => 'Naranjo en flor', :genre_id => 1, :year => 1944, :composer => 'Virgilio Expósito', :lyricist => 'Homero Expósito')
-Song.create(:title => 'Nido gaucho', :genre_id => 1, :year => 1942, :composer => 'Carlos Di Sarli', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'Niebla del Riachuelo', :genre_id => 1, :year => 1937, :composer => 'Juan Carlos Cobián', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Ninguna', :genre_id => 1, :year => 1942, :composer => 'Raúl Fernández Siro', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Niño bien', :genre_id => 1, :year => 1928, :composer => 'Juan Antonio Collazo', :lyricist => 'Víctor Soliño')
-Song.create(:title => 'No hay tierra como la mía', :genre_id => 3, :composer => ' Charlo', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'No me escribas', :genre_id => 1, :year => 1927, :composer => 'Agustín Bardi', :lyricist => 'Juan Andrés Caruso')
-Song.create(:title => 'No me pregunten por qué', :genre_id => 1, :year => 1935, :composer => 'Carlos Di Sarli', :lyricist => 'Reynaldo Pignataro')
-Song.create(:title => 'No mientas', :genre_id => 1, :composer => 'Héctor Varela', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'No te apures, Carablanca', :genre_id => 1, :year => 1942, :composer => 'Roberto Garza', :lyricist => 'Carlos Bahr')
-Song.create(:title => 'Noche de reyes', :genre_id => 1, :year => 1926, :composer => 'Pedro Maffia', :lyricist => 'Jorge Curi')
-Song.create(:title => 'Nostalgias', :genre_id => 1, :year => 1936, :composer => 'Juan Carlos Cobián', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Nunca tuvo novio', :genre_id => 1, :year => 1930, :composer => 'Agustín Bardi', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Oigo tu voz', :genre_id => 1, :composer => 'Mario Canaro', :lyricist => 'Francisco García Jiménez')
-Song.create(:title => 'Olvidao', :genre_id => 1, :year => 1932, :composer => 'Guillermo Barbieri', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Oro y plata', :genre_id => 3, :year => 1943, :composer => ' Charlo', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Pa'' qué seguir', :genre_id => 1, :composer => 'Francisco Fiorentino', :lyricist => 'Pedro Lloret')
-Song.create(:title => 'Paciencia', :genre_id => 1, :year => 1937, :composer => 'Juan D''Arienzo', :lyricist => 'Francisco Gorrindo')
-Song.create(:title => 'Pájaro ciego', :genre_id => 1, :composer => 'Antonio Bonavena', :lyricist => 'Lito Bayardo')
-Song.create(:title => 'Paisaje', :genre_id => 2, :year => 1943, :composer => 'Sebastián Piana', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Pasional', :genre_id => 1, :year => 1951, :composer => 'Jorge Caldara', :lyricist => 'Mario Soto')
-Song.create(:title => 'Patotero sentimental', :genre_id => 1, :year => 1922, :composer => 'Manuel Jovés', :lyricist => 'Manuel Romero')
-Song.create(:title => 'Pensalo bien', :genre_id => 1, :composer => 'Alberto Calvera', :lyricist => 'Enrique López')
-Song.create(:title => 'Pero yo sé', :genre_id => 1, :year => 1928, :composer => 'Azucena Maizani', :lyricist => 'Azucena Maizani')
-Song.create(:title => 'Percal', :genre_id => 1, :year => 1943, :composer => 'Domingo Federico', :lyricist => 'Homero Expósito')
-Song.create(:title => 'Pobre flor (Primera ilusión)', :genre_id => 2, :composer => 'Luis Mottolese', :lyricist => 'Víctor Spindola')
-Song.create(:title => 'Pocas palabras', :genre_id => 1, :year => 1941, :composer => 'Ricardo Tanturi', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Poema', :genre_id => 1, :composer => 'Eduardo Bianco / Mario Melfi', :lyricist => 'Mario Melfi / Eduardo Bianco')
-Song.create(:title => 'Por qué canto así', :genre_id => 1, :year => 1943, :composer => 'José Razzano', :lyricist => 'Celedonio Flores')
-Song.create(:title => 'Por qué la quise tanto', :genre_id => 1, :composer => 'Mariano Mores', :lyricist => 'Rodolfo Taboada')
-Song.create(:title => 'Por una cabeza', :genre_id => 1, :year => 1935, :composer => 'Carlos Gardel', :lyricist => 'Alfredo Le Pera')
-Song.create(:title => 'Prohibido', :genre_id => 1, :composer => 'Manuel Sucher', :lyricist => 'Carlos Bahr')
-Song.create(:title => 'Qué bien te queda (Cómo has cambiado)', :genre_id => 1, :year => 1944, :composer => 'Vicente Salerno', :lyricist => 'Juan Mazaroni')
-Song.create(:title => 'Que falta que me hacés', :genre_id => 1, :composer => 'Armando Pontier', :lyricist => 'Federico Silva')
-Song.create(:title => 'Que no sepan las estrellas', :genre_id => 1, :year => 1945, :composer => 'José Ranieri', :lyricist => 'Alfredo Faustino Roldán')
-Song.create(:title => 'Que nunca me falte', :genre_id => 1, :year => 1937, :composer => 'Héctor Morales', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'Que se vayan', :genre_id => 1, :year => 1929, :composer => 'Francisco Canosa', :lyricist => 'Enrique Dizeo')
-Song.create(:title => 'Qué será de ti', :genre_id => 1, :composer => 'Roberto Nievas Blanco', :lyricist => 'Julio Jorge Nelson')
-Song.create(:title => 'Qué tango hay que cantar', :genre_id => 1, :composer => 'Rubén Juárez', :lyricist => 'Cacho Castaña')
-Song.create(:title => 'Qué te importa que te llore', :genre_id => 1, :year => 1942, :composer => 'Miguel Caló', :lyricist => 'Miguel Caló')
-Song.create(:title => 'Quiero verte una vez más', :genre_id => 1, :year => 1939, :composer => 'Mario Canaro', :lyricist => 'José María Contursi')
-Song.create(:title => 'Recién', :genre_id => 1, :year => 1943, :composer => 'Osvaldo Pugliese', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Recuerdo malevo', :genre_id => 1, :year => 1933, :composer => 'Carlos Gardel', :lyricist => 'Alfredo Le Pera')
-Song.create(:title => 'Recuerdos de la pampa', :genre_id => 1, :composer => 'Rodolfo Duclós', :lyricist => 'Rodolfo Duclós')
-Song.create(:title => 'Remembranza', :genre_id => 1, :year => 1934, :composer => 'Mario Melfi', :lyricist => 'Mario Battistella')
-Song.create(:title => 'Ríe payaso', :genre_id => 1, :year => 1929, :composer => 'Virgilio Carmona', :lyricist => 'Emilio Falero')
-Song.create(:title => 'Romance de barrio', :genre_id => 2, :year => 1947, :composer => 'Aníbal Troilo', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Rondando tu esquina', :genre_id => 1, :year => 1945, :composer => ' Charlo', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Se dice de mí', :genre_id => 3, :year => 1943, :composer => 'Francisco Canaro', :lyricist => 'Ivo Pelay')
-Song.create(:title => 'Se lustra señor', :genre_id => 1, :year => 1946, :composer => 'Enrique Alessio', :lyricist => ' Marvil (Elizardo Martínez Vilas)')
-Song.create(:title => 'Señores yo soy del centro', :genre_id => 3, :composer => 'Armando Baliotti', :lyricist => 'Santiago Adamini')
-Song.create(:title => 'Siempre es carnaval', :genre_id => 1, :year => 1937, :composer => 'Osvaldo Fresedo', :lyricist => 'Emilio Fresedo')
-Song.create(:title => 'Silbando', :genre_id => 1, :year => 1925, :composer => 'Sebastián Piana / Cátulo Castillo', :lyricist => 'José González Castillo')
-Song.create(:title => 'Silencio', :genre_id => 1, :year => 1932, :composer => 'Carlos Gardel / Horacio Pettorossi', :lyricist => 'Alfredo Le Pera / Horacio Pettorossi')
-Song.create(:title => 'Sin palabras', :genre_id => 1, :year => 1946, :composer => 'Mariano Mores', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Sin rumbo fijo', :genre_id => 1, :composer => 'Eugenio Carrere', :lyricist => 'Eugenio Carrere')
-Song.create(:title => 'Solamente ella', :genre_id => 1, :year => 1944, :composer => 'Lucio Demare', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Soñar y nada más', :genre_id => 2, :year => 1943, :composer => 'Francisco Canaro', :lyricist => 'Ivo Pelay')
-Song.create(:title => 'Sosiego en la noche', :genre_id => 1, :year => 1943, :composer => 'Roberto Garza', :lyricist => 'Carlos Bahr')
-Song.create(:title => 'Soy aquel viajero', :genre_id => 1, :composer => 'Héctor Grané', :lyricist => 'Justo Ricardo Thompson')
-Song.create(:title => 'Sur', :genre_id => 1, :year => 1948, :composer => 'Aníbal Troilo', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Sus ojos se cerraron', :genre_id => 1, :year => 1935, :composer => 'Carlos Gardel', :lyricist => 'Alfredo Le Pera')
-Song.create(:title => 'Tabernero (El tabernero)', :genre_id => 1, :year => 1927, :composer => 'Fausto Frontera', :lyricist => 'Raúl Costa Oliveri')
-Song.create(:title => 'Tal vez será su voz', :genre_id => 1, :year => 1943, :composer => 'Lucio Demare', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Te aconsejo que me olvides', :genre_id => 1, :year => 1926, :composer => 'Pedro Maffia', :lyricist => 'Jorge Curi')
-Song.create(:title => 'Tinta roja', :genre_id => 1, :year => 1941, :composer => 'Sebastián Piana', :lyricist => 'Cátulo Castillo')
-Song.create(:title => 'Toda mi vida', :genre_id => 1, :year => 1941, :composer => 'Aníbal Troilo', :lyricist => 'José María Contursi')
-Song.create(:title => 'Todo te nombra', :genre_id => 1, :composer => 'Francisco Canaro', :lyricist => 'Ivo Pelay')
-Song.create(:title => 'Todo te nombra', :genre_id => 1, :composer => 'Francisco Canaro', :lyricist => 'Ivo Pelay')
-Song.create(:title => 'Tomo y obligo', :genre_id => 1, :year => 1931, :composer => 'Carlos Gardel', :lyricist => 'Manuel Romero')
-Song.create(:title => 'Tormenta', :genre_id => 1, :year => 1939, :composer => 'Enrique Santos Discepolo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Torrente', :genre_id => 1, :year => 1944, :composer => 'Hugo Gutiérrez', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Trasnochando', :genre_id => 1, :year => 1942, :composer => 'Armando Baliotti', :lyricist => 'Santiago Adamini')
-Song.create(:title => 'Tres amigos', :genre_id => 1, :year => 1944, :composer => 'Enrique Cadícamo', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Tres esquinas', :genre_id => 1, :year => 1941, :composer => 'Ángel D''Agostino', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Triste comedia', :genre_id => 1, :year => 1949, :composer => 'Héctor Stamponi', :lyricist => 'Oscar Rubens')
-Song.create(:title => 'Tristeza marina', :genre_id => 1, :year => 1943, :composer => 'José Dames', :lyricist => 'Horacio Sanguinetti')
-Song.create(:title => 'Tu angustia y mi dolor', :genre_id => 1, :composer => 'Alfredo Gobbi', :lyricist => 'Julio Camilloni')
-Song.create(:title => 'Tu boca mintió', :genre_id => 1, :composer => 'Armando Angeletti', :lyricist => 'Alberto Longo')
-Song.create(:title => 'Tu diagnóstico', :genre_id => 2, :composer => 'José Betinotti', :lyricist => 'José Betinotti')
-Song.create(:title => 'Tú el cielo y tú', :genre_id => 1, :year => 1944, :composer => 'Mario Canaro', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'Tu vieja ventana', :genre_id => 2, :composer => 'Guillermo Barbieri', :lyricist => 'Ambrosio Río')
-Song.create(:title => 'Tus labios me dirán', :genre_id => 1, :composer => 'Emilio Brameri', :lyricist => 'Héctor Negro')
-Song.create(:title => 'Un crimen', :genre_id => 1, :composer => 'Luis Rubistein', :lyricist => 'Luis Rubistein')
-Song.create(:title => 'Una emoción', :genre_id => 1, :year => 1943, :composer => 'Raúl Kaplún', :lyricist => 'José María Suñé')
-Song.create(:title => 'Una lágrima tuya', :genre_id => 1, :year => 1949, :composer => 'Mariano Mores', :lyricist => 'Homero Manzi')
-Song.create(:title => 'Una noche de garufa', :genre_id => 1, :composer => 'Eduardo Arolas', :lyricist => 'Gabriel Clausi')
-Song.create(:title => 'Una pena', :genre_id => 1, :year => 1923, :composer => 'Adolfo Rosquellas', :lyricist => 'Arturo Albert')
-Song.create(:title => 'Una piba como vos', :genre_id => 1, :composer => 'Dante Gilardoni', :lyricist => 'Dante Gilardoni')
-Song.create(:title => 'Uno', :genre_id => 1, :year => 1943, :composer => 'Mariano Mores', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Vamos', :genre_id => 1, :year => 1944, :composer => 'Feliciano Brunelli', :lyricist => 'Rodolfo Sciammarella')
-Song.create(:title => 'Ventanita de arrabal', :genre_id => 1, :year => 1927, :composer => 'Antonio Scatasso', :lyricist => 'Pascual Contursi')
-Song.create(:title => 'Ventarrón', :genre_id => 1, :year => 1933, :composer => 'Pedro Maffia', :lyricist => 'José Horacio Staffolani')
-Song.create(:title => 'Verdemar', :genre_id => 1, :year => 1943, :composer => 'Carlos Di Sarli', :lyricist => 'José María Contursi')
-Song.create(:title => 'Vida mía', :genre_id => 1, :year => 1933, :composer => 'Osvaldo Fresedo', :lyricist => 'Emilio Fresedo')
-Song.create(:title => 'Vieja Recova', :genre_id => 1, :year => 1930, :composer => 'Rodolfo Sciammarella', :lyricist => 'Enrique Cadícamo')
-Song.create(:title => 'Viejo portón', :genre_id => 2, :composer => 'Héctor Palacios', :lyricist => 'Máximo Orsi')
-Song.create(:title => 'Violín', :genre_id => 1, :composer => 'Ricardo Malerba / Dante Smurra', :lyricist => 'Horacio Sanguinetti')
-Song.create(:title => 'Volvé mi negra', :genre_id => 1, :composer => 'José María Rizzuti', :lyricist => 'José Diez Gómez')
-Song.create(:title => 'Volver', :genre_id => 1, :year => 1935, :composer => 'Carlos Gardel', :lyricist => 'Alfredo Le Pera')
-Song.create(:title => 'Volver a vernos', :genre_id => 1, :composer => 'Joaquín Mora', :lyricist => 'Luis Castiñeira')
-Song.create(:title => 'Vuelvo al sur', :genre_id => 1, :composer => 'Astor Piazzolla', :lyricist => 'Fernando "Pino" Solanas')
-Song.create(:title => 'Vuelves', :genre_id => 1, :year => 1939, :composer => 'María Esther Pacheco Huergo', :lyricist => 'Virgilio San Clemente')
-Song.create(:title => 'Whisky', :genre_id => 1, :year => 1957, :composer => 'Héctor Marcó', :lyricist => 'Héctor Marcó')
-Song.create(:title => 'Y todavía te quiero', :genre_id => 1, :composer => 'Luciano Leocata', :lyricist => 'Abel Aznar')
-Song.create(:title => 'Ya sale el tren', :genre_id => 1, :year => 1943, :composer => 'Luis Rubistein', :lyricist => 'Luis Rubistein')
-Song.create(:title => 'Yira yira', :genre_id => 1, :year => 1930, :composer => 'Enrique Santos Discepolo', :lyricist => 'Enrique Santos Discepolo')
-Song.create(:title => 'Yo me llamo Juan te quiero', :genre_id => 3, :composer => 'Antonio Molina', :lyricist => 'Fernán Silva Valdés')
-Song.create(:title => 'Yo no sé que me han hecho tus ojos', :genre_id => 2, :composer => 'Francisco Canaro', :lyricist => 'Francisco Canaro')
-Song.create(:title => 'Yo soy de San Telmo', :genre_id => 3, :composer => 'Arturo Gallucci', :lyricist => 'Victorino Velázquez')
-Song.create(:title => 'Yo también soñé', :genre_id => 1, :year => 1935, :composer => 'Francisco Canaro', :lyricist => 'Luis César Amadori')
-Song.create(:title => 'Yo te adoro bandoneón', :genre_id => 1, :composer => 'Ramón Coll', :lyricist => 'Carlos Pesce')
-Song.create(:title => 'Yuyo verde', :genre_id => 1, :year => 1944, :composer => 'Domingo Federico', :lyricist => 'Homero Expósito')
-Song.create(:title => 'Zapatitos de raso', :genre_id => 3, :composer => 'Jorge Dragone', :lyricist => 'Fernando Caprio')
-Song.create(:title => 'Zorzal', :genre_id => 3, :composer => 'Dorita Zárate', :lyricist => 'Dorita Zárate')
+Genre.create!([
+  {name: "Tango"},
+  {name: "Vals"},
+  {name: "Milonga"},
+  {name: "Candombe"},
+  {name: "Foxtrot"},
+  {name: "Otros Ritmos"}
+])
+Song.create!([
+  {title: "A La Luz Del Candil", composer: "Carlos Vicente Geroni Flores", lyricist: "Julio Navarrine", year: 1927, genre_id: 1},
+  {title: "A Media Luz", composer: "Edgardo Donato", lyricist: "Carlos Lenzi", year: 1924, genre_id: 1},
+  {title: "A Mi Madre", composer: "Carlos Gardel", lyricist: "Andrés Cepeda", year: nil, genre_id: 2},
+  {title: "Abandono", composer: "Pedro Maffia", lyricist: "Homero Manzi", year: nil, genre_id: 1},
+  {title: "Acquaforte", composer: "Horacio Pettorossi", lyricist: "Juan Carlos Marambio Catán", year: 1932, genre_id: 1},
+  {title: "Adiós Arrabal", composer: "Juan Baüer", lyricist: "Carlos Lenzi", year: 1930, genre_id: 1},
+  {title: "Adiós Buenos Aires", composer: "Eduardo Arolas", lyricist: "Leopoldo Torres Ríos", year: nil, genre_id: 1},
+  {title: "Adiós Pampa Mía", composer: "Francisco Canaro", lyricist: "Ivo Pelay", year: 1945, genre_id: 1},
+  {title: "Afiches", composer: "Atilio Stampone", lyricist: "Homero Expósito", year: nil, genre_id: 1},
+  {title: "Ahora No Me Conocés", composer: "Armando Baliotti", lyricist: "Carlos Giampetruzzi (Giampé)", year: 1941, genre_id: 1},
+  {title: "Al Compás De Un Tango", composer: "Alberto Suárez Villanueva", lyricist: "Oscar Rubens", year: 1942, genre_id: 1},
+  {title: "Al Compás Del Corazón (Late Un Corazón)", composer: "Domingo Federico", lyricist: "Homero Expósito", year: 1942, genre_id: 1},
+  {title: "Al Verla Pasar", composer: "Joaquín Mora", lyricist: "José María Contursi", year: nil, genre_id: 1},
+  {title: "Alas Rotas", composer: "Edgardo Donato", lyricist: "Maruja Pacheco Huergo", year: nil, genre_id: 1},
+  {title: "Alma De Bohemio", composer: "Roberto Firpo", lyricist: "Juan Andrés Caruso", year: 1914, genre_id: 1},
+  {title: "Alma Mía", composer: "Diego Centeno", lyricist: "Héctor Marcó", year: 1936, genre_id: 2},
+  {title: "Amarras", composer: "Carlos Marchisio", lyricist: "Carmelo Santiago", year: 1944, genre_id: 1},
+  {title: "Amigos Que Yo Quiero", composer: "Hugo Gutiérrez", lyricist: "Hugo Gutiérrez", year: nil, genre_id: 1},
+  {title: "Amurado", composer: "Pedro Maffia", lyricist: "José De Grandis", year: 1927, genre_id: 1},
+  {title: "Anclao En París", composer: "Guillermo Barbieri", lyricist: "Enrique Cadícamo", year: 1931, genre_id: 1},
+  {title: "Anoche A Las Dos", composer: "Raúl De Los Hoyos", lyricist: "Roberto Lino Cayol", year: 1926, genre_id: 1},
+  {title: "Así Se Baila El Tango", composer: "Elías Randal", lyricist: " Marvil (Elizardo Martínez Vilas)", year: 1942, genre_id: 1},
+  {title: "Atenti Pebeta", composer: "Ciriaco Ortiz", lyricist: "Celedonio Flores", year: 1929, genre_id: 1},
+  {title: "Bailarín Compadrito", composer: "Miguel Bucino", lyricist: "Miguel Bucino", year: 1929, genre_id: 1},
+  {title: "Bailarín De Contraseña", composer: "Víctor Felice", lyricist: "Carlos Lucero", year: nil, genre_id: 1},
+  {title: "Bailemos", composer: "Pascual Mamone", lyricist: "Reinaldo Yiso", year: nil, genre_id: 1},
+  {title: "Bajo El Cono Azul", composer: "Alfredo De Angelis", lyricist: "Carmelo Volpe", year: 1943, genre_id: 1},
+  {title: "Bajo Un Cielo De Estrellas", composer: "Enrique Francini", lyricist: "José María Contursi", year: 1941, genre_id: 2},
+  {title: "Balada Para Un Loco", composer: "Astor Piazzolla", lyricist: "Horacio Ferrer", year: 1969, genre_id: 1},
+  {title: "Bandoneón Arrabalero", composer: " Bachicha", lyricist: "Pascual Contursi", year: 1928, genre_id: 1},
+  {title: "Barajando Recuerdos", composer: "Luis Visca", lyricist: "Enrique Cadícamo", year: nil, genre_id: 1},
+  {title: "Barrio De Tango", composer: "Aníbal Troilo", lyricist: "Homero Manzi", year: 1942, genre_id: 1},
+  {title: "Bigotito", composer: "Edgardo Donato", lyricist: "Celedonio Flores", year: nil, genre_id: 5},
+  {title: "Cada Vez Que Me Recuerdes", composer: "Mariano Mores", lyricist: "José María Contursi", year: 1943, genre_id: 1},
+  {title: "Cafetín De Buenos Aires", composer: "Mariano Mores", lyricist: "Enrique Santos Discepolo", year: 1948, genre_id: 1},
+  {title: "Café De Los Angelitos", composer: "José Razzano", lyricist: "José Razzano", year: 1944, genre_id: 1},
+  {title: "Calla Bandoneón", composer: "Carlos Lazzari", lyricist: "Oscar Rubens", year: nil, genre_id: 1},
+  {title: "Cambalache", composer: "Enrique Santos Discepolo", lyricist: "Enrique Santos Discepolo", year: 1934, genre_id: 1},
+  {title: "Caminito", composer: "Juan De Dios Filiberto", lyricist: "Gabino Coria Peñaloza", year: 1926, genre_id: 1},
+  {title: "Campo Afuera", composer: "Rodolfo Biagi", lyricist: "Homero Manzi", year: 1939, genre_id: 3},
+  {title: "Canción De Rango (Pa Que Se Callen)", composer: "Raúl Kaplún", lyricist: "José María Suñé", year: 1942, genre_id: 1},
+  {title: "Canción Desesperada", composer: "Enrique Santos Discepolo", lyricist: "Enrique Santos Discepolo", year: 1945, genre_id: 1},
+  {title: "Cantando", composer: "Mercedes Simone", lyricist: "Mercedes Simone", year: 1931, genre_id: 1},
+  {title: "Caricias", composer: "María Isolina Godard", lyricist: "Juan Andrés Caruso", year: nil, genre_id: 1},
+  {title: "Carillón De La Merced", composer: "Enrique Santos Discepolo", lyricist: "Enrique Santos Discepolo", year: 1931, genre_id: 1},
+  {title: "Carnaval De Mi Barrio", composer: "Luis Rubistein", lyricist: "Luis Rubistein", year: 1938, genre_id: 1},
+  {title: "Cascabelito", composer: "José Bohr", lyricist: "Juan Andrés Caruso", year: 1924, genre_id: 1},
+  {title: "Chapaleando Barro", composer: "Arturo Castillo", lyricist: "Celedonio Flores", year: nil, genre_id: 1},
+  {title: "Charlemos", composer: "Luis Rubistein", lyricist: "Luis Rubistein", year: 1940, genre_id: 1},
+  {title: "Che Bandoneón", composer: "Aníbal Troilo", lyricist: "Homero Manzi", year: 1949, genre_id: 1},
+  {title: "Chorra", composer: "Enrique Santos Discepolo", lyricist: "Enrique Santos Discepolo", year: 1928, genre_id: 1},
+  {title: "Como Dos Extraños", composer: "Pedro Laurenz", lyricist: "José María Contursi", year: 1940, genre_id: 1},
+  {title: "Como El Hornero", composer: "Manuel Sucher", lyricist: "José Rótulo", year: 1944, genre_id: 1},
+  {title: "Compadrón", composer: "Luis Visca", lyricist: "Enrique Cadícamo", year: 1927, genre_id: 1},
+  {title: "Con Alma Y Vida", composer: "Carlos Di Sarli", lyricist: "Héctor Marcó", year: nil, genre_id: 3},
+  {title: "Condena", composer: "Enrique Santos Discepolo", lyricist: "Enrique Santos Discepolo", year: 1937, genre_id: 1},
+  {title: "Confesión", composer: "Enrique Santos Discepolo", lyricist: "Enrique Santos Discepolo", year: 1931, genre_id: 1},
+  {title: "Convencernos", composer: "Eladia Blázquez", lyricist: "Eladia Blázquez", year: nil, genre_id: 1},
+  {title: "Corazón", composer: "Carlos Di Sarli", lyricist: "Héctor Marcó", year: 1939, genre_id: 1},
+  {title: "Corazón De Oro", composer: "Francisco Canaro", lyricist: "Jesús Fernández Blanco", year: nil, genre_id: 2},
+  {title: "Corazón, No Le Hagas Caso!", composer: "Armando Pontier", lyricist: "Carlos Bahr", year: 1943, genre_id: 1},
+  {title: "Corrientes Y Esmeralda", composer: "Francisco Pracánico", lyricist: "Celedonio Flores", year: 1933, genre_id: 1},
+  {title: "Cosas Olvidadas", composer: "Antonio Rodio", lyricist: "José María Contursi", year: 1940, genre_id: 1},
+  {title: "Cristal", composer: "Mariano Mores", lyricist: "José María Contursi", year: 1944, genre_id: 1},
+  {title: "Cualquier Cosa", composer: "Herminia Velich", lyricist: "Herminia Velich", year: 1927, genre_id: 1},
+  {title: "Cuando Llegue El Invierno", composer: "José Márquez", lyricist: "José Márquez", year: 1948, genre_id: 1},
+  {title: "Cuando No Se Quiere Más", composer: "Roberto Rufino", lyricist: "Abel Aznar", year: nil, genre_id: 1},
+  {title: "Cuando Un Viejo Se Enamora", composer: "Rodolfo Sciammarella", lyricist: "Manuel Romero", year: nil, genre_id: 3},
+  {title: "Cuartito Azul", composer: "Mariano Mores", lyricist: "Mario Battistella", year: 1939, genre_id: 1},
+  {title: "Cuatro Lágrimas", composer: "Lito Bayardo", lyricist: "Lito Bayardo", year: 1945, genre_id: 1},
+  {title: "Cuatro Palabras", composer: "Miguel Bucino", lyricist: "Miguel Bucino", year: nil, genre_id: 2},
+  {title: "Cuesta Abajo", composer: "Carlos Gardel", lyricist: "Alfredo Le Pera", year: 1934, genre_id: 1},
+  {title: "Danza Maligna", composer: "Fernando Randle", lyricist: "Claudio Frollo", year: nil, genre_id: 1},
+  {title: "De Mi Barrio", composer: "Roberto Goyheneche", lyricist: "Roberto Goyheneche", year: 1923, genre_id: 1},
+  {title: "De Puro Curda", composer: "Carlos Olmedo", lyricist: "Abel Aznar", year: 1957, genre_id: 1},
+  {title: "De Puro Guapo", composer: "Rafael Iriarte", lyricist: "Juan Carlos Fernández Díaz", year: 1927, genre_id: 1},
+  {title: "Decile Que Vuelva", composer: "Miguel Bucino", lyricist: "Miguel Bucino", year: nil, genre_id: 1},
+  {title: "Derrotado (Tenés Razón)", composer: "Antonio Arcieri", lyricist: "José Terragno", year: nil, genre_id: 1},
+  {title: "Desde El Alma", composer: "Rosita Melo", lyricist: "Homero Manzi", year: 1947, genre_id: 2},
+  {title: "Desencanto", composer: "Enrique Santos Discepolo", lyricist: "Luis César Amadori", year: 1936, genre_id: 1},
+  {title: "Desencuentro", composer: "Aníbal Troilo", lyricist: "Cátulo Castillo", year: 1962, genre_id: 1},
+  {title: "Después", composer: "Hugo Gutiérrez", lyricist: "Homero Manzi", year: 1944, genre_id: 1},
+  {title: "Destellos", composer: "Francisco Canaro", lyricist: "Juan Andrés Caruso", year: 1924, genre_id: 1},
+  {title: "Dime Mi Amor", composer: "Rodolfo Sciammarella", lyricist: "Manuel Romero", year: nil, genre_id: 1},
+  {title: "Din Don", composer: "Alberto Suárez Villanueva", lyricist: "Evaristo Fratantoni", year: nil, genre_id: 1},
+  {title: "Duelo Criollo", composer: "Juan Rezzano", lyricist: "Lito Bayardo", year: 1928, genre_id: 1},
+  {title: "Déjame No Quiero Verte Más", composer: "Francisco Canaro", lyricist: "Ivo Pelay", year: nil, genre_id: 1},
+  {title: "Dónde Estás Corazón", composer: "Luis Martínez Serrano", lyricist: "Luis Martínez Serrano", year: 1930, genre_id: 1},
+  {title: "El Abrojito", composer: "Luis Bernstein", lyricist: "Jesús Fernández Blanco", year: 1926, genre_id: 1},
+  {title: "El Adiós", composer: "Maruja Pacheco Huergo", lyricist: "Virgilio San Clemente", year: 1937, genre_id: 1},
+  {title: "El Choclo", composer: "Ángel Villoldo", lyricist: "Enrique Santos Discepolo", year: nil, genre_id: 1},
+  {title: "El Ciruja", composer: "Ernesto De La Cruz", lyricist: "Alfredo Marino", year: 1926, genre_id: 1},
+  {title: "El Día Que Me Quieras", composer: "Carlos Gardel", lyricist: "Alfredo Le Pera", year: 1935, genre_id: 6},
+  {title: "El Firulete", composer: "Mariano Mores", lyricist: "Rodolfo Taboada", year: nil, genre_id: 3},
+  {title: "El Fueye De Arolas", composer: "Héctor Marcó", lyricist: "Héctor Marcó", year: nil, genre_id: 1},
+  {title: "El Huracán", composer: "Osvaldo Donato", lyricist: "Nolo López", year: nil, genre_id: 1},
+  {title: "El Motivo", composer: "Juan Carlos Cobián", lyricist: "Pascual Contursi", year: nil, genre_id: 1},
+  {title: "El Olivo", composer: "Antonio Scatasso", lyricist: "Carlos Cabral", year: 1924, genre_id: 1},
+  {title: "El Pañuelito", composer: "Juan De Dios Filiberto", lyricist: "Gabino Coria Peñaloza", year: 1920, genre_id: 1},
+  {title: "El Vals Soñador", composer: "Armando Pontier", lyricist: "Oscar Rubens", year: nil, genre_id: 2},
+  {title: "El Yacaré", composer: "Alfredo Attadía", lyricist: "Mario Soto", year: nil, genre_id: 1},
+  {title: "El último Café", composer: "Héctor Stamponi", lyricist: "Cátulo Castillo", year: nil, genre_id: 1},
+  {title: "El último Organito", composer: "Acho Manzi", lyricist: "Homero Manzi", year: 1949, genre_id: 1},
+  {title: "Embrujamiento", composer: "Ricardo Malerba", lyricist: "Manuel Ferradás Campos", year: nil, genre_id: 1},
+  {title: "En Carne Propia", composer: "Manuel Sucher", lyricist: "Carlos Bahr", year: 1944, genre_id: 1},
+  {title: "En Esta Tarde Gris", composer: "Mariano Mores", lyricist: "José María Contursi", year: 1941, genre_id: 1},
+  {title: "En La Buena Y En La Mala", composer: "Domingo Scarpino", lyricist: "Enrique Cadícamo", year: nil, genre_id: 1},
+  {title: "En Tus Brazos", composer: "Carlos Zárate", lyricist: " Marvil (Elizardo Martínez Vilas)", year: nil, genre_id: 1},
+  {title: "Entre Pitada Y Pitada", composer: "Rodolfo Sciammarella", lyricist: "Rodolfo Sciammarella", year: nil, genre_id: 3},
+  {title: "Esquinas Porteñas", composer: "Sebastián Piana", lyricist: "Homero Manzi", year: 1933, genre_id: 2},
+  {title: "Esta Noche Al Pasar", composer: "Héctor Grané", lyricist: "Justo Ricardo Thompson", year: 1945, genre_id: 1},
+  {title: "Esta Noche De Luna", composer: "José García", lyricist: "Héctor Marcó", year: 1943, genre_id: 1},
+  {title: "Esta Noche En Buenos Aires", composer: "Ángel Dagostino", lyricist: " Avlis (Erasmo Silva Cabrera)", year: 1944, genre_id: 1},
+  {title: "Esta Noche Me Emborracho", composer: "Enrique Santos Discepolo", lyricist: "Enrique Santos Discepolo", year: 1928, genre_id: 1},
+  {title: "Estampa Federal", composer: "Pedro Maffia", lyricist: "Cátulo Castillo", year: nil, genre_id: 2},
+  {title: "Este Es Tu Tango", composer: "Enrique Mora", lyricist: "Reinaldo Yiso", year: nil, genre_id: 1},
+  {title: "Farol", composer: "Virgilio Expósito", lyricist: "Homero Expósito", year: 1943, genre_id: 1},
+  {title: "Flor De Lino", composer: "Héctor Stamponi", lyricist: "Homero Expósito", year: 1947, genre_id: 6},
+  {title: "Flores Del Alma", composer: "Juan Larenza", lyricist: "Alfredo Lucero Palacios", year: nil, genre_id: 2},
+  {title: "Fuimos", composer: "José Dames", lyricist: "Homero Manzi", year: 1945, genre_id: 1},
+  {title: "Fumando Espero", composer: "Juan Viladomat", lyricist: "Félix Garzo", year: 1922, genre_id: 1},
+  {title: "Garganta Con Arena", composer: "Cacho Castaña", lyricist: "Cacho Castaña", year: 1993, genre_id: 1},
+  {title: "Garúa", composer: "Aníbal Troilo", lyricist: "Enrique Cadícamo", year: 1943, genre_id: 1},
+  {title: "Gitana Rusa", composer: "Juan Sánchez Gorio", lyricist: "Horacio Sanguinetti", year: 1942, genre_id: 1},
+  {title: "Gricel", composer: "Mariano Mores", lyricist: "José María Contursi", year: 1942, genre_id: 1},
+  {title: "Griseta", composer: "Enrique Delfino", lyricist: "José González Castillo", year: 1924, genre_id: 1},
+  {title: "Gólgota", composer: "Rodolfo Biagi", lyricist: "Francisco Gorrindo", year: 1938, genre_id: 1},
+  {title: "Hasta Siempre Amor", composer: "Donato Racciatti", lyricist: "Federico Silva", year: 1953, genre_id: 1},
+  {title: "Hay Que Vivirla Compadre", composer: "Ángel Dagostino", lyricist: "Héctor Marcó", year: nil, genre_id: 1},
+  {title: "Historia De Un Amor", composer: "Carlos Almarán", lyricist: "Carlos Almarán", year: nil, genre_id: 6},
+  {title: "Humillación", composer: "Rodolfo Biagi", lyricist: "Carlos Bahr", year: 1941, genre_id: 1},
+  {title: "Ilusión Azul", composer: "Arquímedes Arci", lyricist: "Arquímedes Arci", year: nil, genre_id: 2},
+  {title: "Infamia", composer: "Enrique Santos Discepolo", lyricist: "Enrique Santos Discepolo", year: 1941, genre_id: 1},
+  {title: "Inútil", composer: "Tito Ribero", lyricist: "Reinaldo Yiso", year: nil, genre_id: 1},
+  {title: "Jacinto Chiclana", composer: "Astor Piazzolla", lyricist: "Jorge Luis Borges", year: nil, genre_id: 3},
+  {title: "Jamás Retornarás", composer: "Osmar Maderna", lyricist: "Osmar Maderna", year: 1942, genre_id: 1},
+  {title: "Junto A Tu Corazón", composer: "Enrique Francini", lyricist: "José María Contursi", year: 1942, genre_id: 1},
+  {title: "La Abandoné Y No Sabía", composer: "José Canet", lyricist: "José Canet", year: 1943, genre_id: 1},
+  {title: "La Bicicleta Blanca", composer: "Astor Piazzolla", lyricist: "Horacio Ferrer", year: nil, genre_id: 6},
+  {title: "La Bruja", composer: "Juan Polito", lyricist: "Francisco Gorrindo", year: 1938, genre_id: 1},
+  {title: "La Cachila", composer: "Eduardo Arolas", lyricist: "Héctor Polito", year: nil, genre_id: 1},
+  {title: "La Canción De Buenos Aires", composer: "Orestes Cúfaro", lyricist: "Manuel Romero", year: 1933, genre_id: 1},
+  {title: "La Capilla Blanca", composer: "Carlos Di Sarli", lyricist: "Héctor Marcó", year: 1944, genre_id: 1},
+  {title: "La Casita De Mis Viejos", composer: "Juan Carlos Cobián", lyricist: "Enrique Cadícamo", year: 1932, genre_id: 1},
+  {title: "La Copa Del Olvido", composer: "Enrique Delfino", lyricist: "Alberto Vacarezza", year: 1921, genre_id: 1},
+  {title: "La Cumparsita", composer: "Gerardo Matos Rodríguez", lyricist: "Pascual Contursi / Enrique Maroni", year: nil, genre_id: 1},
+  {title: "La Mariposa", composer: "Pedro Maffia", lyricist: "Celedonio Flores", year: 1923, genre_id: 1},
+  {title: "La Melodía Del Corazón", composer: "Fioravante Di Cicco", lyricist: "Carmelo Santiago", year: nil, genre_id: 1},
+  {title: "La Milonga De Buenos Aires", composer: "Francisco Canaro", lyricist: "Ivo Pelay", year: 1939, genre_id: 3},
+  {title: "La Morocha", composer: "Enrique Saborido", lyricist: "Ángel Villoldo", year: 1905, genre_id: 1},
+  {title: "La Mulateada", composer: "Julio Eduardo Del Puerto", lyricist: "Carlos Pesce", year: nil, genre_id: 3},
+  {title: "La Piba De Los Jazmines", composer: "Ricardo Malerba", lyricist: "Julio Navarrine", year: nil, genre_id: 1},
+  {title: "La Vida Es Corta", composer: "Ricardo Tanturi", lyricist: "Francisco Gorrindo", year: nil, genre_id: 1},
+  {title: "La última Copa", composer: "Francisco Canaro", lyricist: "Juan Andrés Caruso", year: 1926, genre_id: 1},
+  {title: "La última Curda", composer: "Aníbal Troilo", lyricist: "Cátulo Castillo", year: 1956, genre_id: 1},
+  {title: "Lejos De Buenos Aires", composer: "Alberto Suárez Villanueva", lyricist: "Oscar Rubens", year: 1942, genre_id: 1},
+  {title: "Lilián", composer: "Héctor Varela", lyricist: "Luis Caruso", year: 1944, genre_id: 1},
+  {title: "Lloran Las Campanas", composer: "Alberto Suárez Villanueva", lyricist: "Oscar Rubens", year: 1944, genre_id: 1},
+  {title: "Llorar Por Una Mujer", composer: "Enrique Rodríguez", lyricist: "Enrique Cadícamo", year: nil, genre_id: 1},
+  {title: "Lo Han Visto Con Otra", composer: "Horacio Pettorossi", lyricist: "Horacio Pettorossi", year: 1928, genre_id: 1},
+  {title: "Lo Que Vos Te Merecés", composer: "Carlos Olmedo", lyricist: "Abel Aznar", year: nil, genre_id: 1},
+  {title: "Los Mareados", composer: "Juan Carlos Cobián", lyricist: "Enrique Cadícamo", year: 1942, genre_id: 1},
+  {title: "Lunes", composer: "José Luis Padula", lyricist: "Francisco García Jiménez", year: 1927, genre_id: 1},
+  {title: "Madame Ivonne", composer: "Eduardo Pereyra", lyricist: "Enrique Cadícamo", year: 1933, genre_id: 1},
+  {title: "Madreselva", composer: "Francisco Canaro", lyricist: "Luis César Amadori", year: 1931, genre_id: 1},
+  {title: "Malena", composer: "Lucio Demare", lyricist: "Homero Manzi", year: 1941, genre_id: 1},
+  {title: "Malevaje", composer: "Juan De Dios Filiberto", lyricist: "Enrique Santos Discepolo", year: 1929, genre_id: 1},
+  {title: "Mandria", composer: "Juan Rodríguez", lyricist: "Francisco Brancatti", year: nil, genre_id: 1},
+  {title: "Mano A Mano", composer: "Carlos Gardel", lyricist: "Celedonio Flores", year: 1923, genre_id: 1},
+  {title: "Maquillaje", composer: "Virgilio Expósito", lyricist: "Homero Expósito", year: nil, genre_id: 1},
+  {title: "Marioneta", composer: "Juan José Guichandut", lyricist: "Armando Tagini", year: 1928, genre_id: 1},
+  {title: "Mariposita", composer: "Anselmo Aieta", lyricist: "Francisco García Jiménez", year: 1941, genre_id: 1},
+  {title: "Marol", composer: "Alberto Nery", lyricist: "Federico Silva", year: nil, genre_id: 1},
+  {title: "Maula", composer: "Adolfo Mondino", lyricist: "Víctor Soliño", year: 1927, genre_id: 1},
+  {title: "Mañana Zarpa Un Barco", composer: "Lucio Demare", lyricist: "Homero Manzi", year: 1942, genre_id: 1},
+  {title: "Me Quedé Mirándola", composer: "Vicente Spina", lyricist: "Roberto Miró", year: 1945, genre_id: 1},
+  {title: "Mendocina", composer: "Miguel Bruno", lyricist: "Benigno Palmeiro", year: nil, genre_id: 2},
+  {title: "Metido (Enamorado)", composer: " Príncipe Cubano", lyricist: " Príncipe Cubano", year: nil, genre_id: 1},
+  {title: "Mi Buenos Aires Querido", composer: "Carlos Gardel", lyricist: "Alfredo Le Pera", year: 1934, genre_id: 1},
+  {title: "Mi Dolor", composer: "Carlos Marcucci", lyricist: "Manuel Meaños", year: 1930, genre_id: 1},
+  {title: "Mi Noche Triste (Lita)", composer: "Samuel Castriota", lyricist: "Pascual Contursi", year: 1916, genre_id: 1},
+  {title: "Mi Serenata", composer: "Edgardo Donato", lyricist: "Juan Carlos Thorry", year: nil, genre_id: 1},
+  {title: "Mi Taza De Café", composer: "Alfredo Malerba", lyricist: "Homero Manzi", year: 1943, genre_id: 1},
+  {title: "Milonga Que Peina Canas", composer: "Alberto Gómez", lyricist: "Alberto Gómez", year: 1942, genre_id: 3},
+  {title: "Milonga Querida", composer: "Juan Larenza", lyricist: "Lito Bayardo", year: nil, genre_id: 3},
+  {title: "Milonga Triste", composer: "Sebastián Piana", lyricist: "Homero Manzi", year: 1936, genre_id: 3},
+  {title: "Milonguita (Esthercita)", composer: "Enrique Delfino", lyricist: "Samuel Linnig", year: 1920, genre_id: 1},
+  {title: "Mis Harapos", composer: "Marino García", lyricist: "Jorge Luque Lobos", year: nil, genre_id: 6},
+  {title: "Moneda De Cobre", composer: "Carlos Viván", lyricist: "Horacio Sanguinetti", year: 1942, genre_id: 1},
+  {title: "Muchacho", composer: "Edgardo Donato", lyricist: "Celedonio Flores", year: 1926, genre_id: 1},
+  {title: "Muchachos Comienza La Ronda", composer: "Luis Porcell", lyricist: "Leopoldo Díaz Vélez", year: 1943, genre_id: 1},
+  {title: "Murió El Malevo", composer: "Héctor Varela", lyricist: "Carlos Waiss", year: nil, genre_id: 1},
+  {title: "Muñeca Brava", composer: "Luis Visca", lyricist: "Enrique Cadícamo", year: 1929, genre_id: 1},
+  {title: "Nada Más", composer: "Juan Darienzo", lyricist: "Juan Darienzo", year: 1938, genre_id: 1},
+  {title: "Naranjo En Flor", composer: "Virgilio Expósito", lyricist: "Homero Expósito", year: 1944, genre_id: 1},
+  {title: "Nido Gaucho", composer: "Carlos Di Sarli", lyricist: "Héctor Marcó", year: 1942, genre_id: 1},
+  {title: "Niebla Del Riachuelo", composer: "Juan Carlos Cobián", lyricist: "Enrique Cadícamo", year: 1937, genre_id: 1},
+  {title: "Ninguna", composer: "Raúl Fernández Siro", lyricist: "Homero Manzi", year: 1942, genre_id: 1},
+  {title: "Niño Bien", composer: "Juan Antonio Collazo", lyricist: "Víctor Soliño", year: 1928, genre_id: 1},
+  {title: "No Hay Tierra Como La Mía", composer: " Charlo", lyricist: "Enrique Cadícamo", year: nil, genre_id: 3},
+  {title: "No Me Escribas", composer: "Agustín Bardi", lyricist: "Juan Andrés Caruso", year: 1927, genre_id: 1},
+  {title: "No Me Pregunten Por Qué", composer: "Carlos Di Sarli", lyricist: "Reynaldo Pignataro", year: 1935, genre_id: 1},
+  {title: "No Mientas", composer: "Héctor Varela", lyricist: "Héctor Marcó", year: nil, genre_id: 1},
+  {title: "No Te Apures, Carablanca", composer: "Roberto Garza", lyricist: "Carlos Bahr", year: 1942, genre_id: 1},
+  {title: "Noche De Reyes", composer: "Pedro Maffia", lyricist: "Jorge Curi", year: 1926, genre_id: 1},
+  {title: "Nostalgias", composer: "Juan Carlos Cobián", lyricist: "Enrique Cadícamo", year: 1936, genre_id: 1},
+  {title: "Nunca Tuvo Novio", composer: "Agustín Bardi", lyricist: "Enrique Cadícamo", year: 1930, genre_id: 1},
+  {title: "Oigo Tu Voz", composer: "Mario Canaro", lyricist: "Francisco García Jiménez", year: nil, genre_id: 1},
+  {title: "Olvidao", composer: "Guillermo Barbieri", lyricist: "Enrique Cadícamo", year: 1932, genre_id: 1},
+  {title: "Oro Y Plata", composer: " Charlo", lyricist: "Homero Manzi", year: 1943, genre_id: 3},
+  {title: "Pa Qué Seguir", composer: "Francisco Fiorentino", lyricist: "Pedro Lloret", year: nil, genre_id: 1},
+  {title: "Paciencia", composer: "Juan Darienzo", lyricist: "Francisco Gorrindo", year: 1937, genre_id: 1},
+  {title: "Paisaje", composer: "Sebastián Piana", lyricist: "Homero Manzi", year: 1943, genre_id: 2},
+  {title: "Pasional", composer: "Jorge Caldara", lyricist: "Mario Soto", year: 1951, genre_id: 1},
+  {title: "Patotero Sentimental", composer: "Manuel Jovés", lyricist: "Manuel Romero", year: 1922, genre_id: 1},
+  {title: "Pensalo Bien", composer: "Alberto Calvera", lyricist: "Enrique López", year: nil, genre_id: 1},
+  {title: "Percal", composer: "Domingo Federico", lyricist: "Homero Expósito", year: 1943, genre_id: 1},
+  {title: "Pero Yo Sé", composer: "Azucena Maizani", lyricist: "Azucena Maizani", year: 1928, genre_id: 1},
+  {title: "Pobre Flor (Primera Ilusión)", composer: "Luis Mottolese", lyricist: "Víctor Spindola", year: nil, genre_id: 2},
+  {title: "Pocas Palabras", composer: "Ricardo Tanturi", lyricist: "Enrique Cadícamo", year: 1941, genre_id: 1},
+  {title: "Poema", composer: "Eduardo Bianco / Mario Melfi", lyricist: "Mario Melfi / Eduardo Bianco", year: nil, genre_id: 1},
+  {title: "Por Qué Canto Así", composer: "José Razzano", lyricist: "Celedonio Flores", year: 1943, genre_id: 1},
+  {title: "Por Qué La Quise Tanto", composer: "Mariano Mores", lyricist: "Rodolfo Taboada", year: nil, genre_id: 1},
+  {title: "Por Una Cabeza", composer: "Carlos Gardel", lyricist: "Alfredo Le Pera", year: 1935, genre_id: 1},
+  {title: "Prohibido", composer: "Manuel Sucher", lyricist: "Carlos Bahr", year: nil, genre_id: 1},
+  {title: "Pájaro Ciego", composer: "Antonio Bonavena", lyricist: "Lito Bayardo", year: nil, genre_id: 1},
+  {title: "Que Falta Que Me Hacés", composer: "Armando Pontier", lyricist: "Federico Silva", year: nil, genre_id: 1},
+  {title: "Que No Sepan Las Estrellas", composer: "José Ranieri", lyricist: "Alfredo Faustino Roldán", year: 1945, genre_id: 1},
+  {title: "Que Nunca Me Falte", composer: "Héctor Morales", lyricist: "Héctor Marcó", year: 1937, genre_id: 1},
+  {title: "Que Se Vayan", composer: "Francisco Canosa", lyricist: "Enrique Dizeo", year: 1929, genre_id: 1},
+  {title: "Quiero Verte Una Vez Más", composer: "Mario Canaro", lyricist: "José María Contursi", year: 1939, genre_id: 1},
+  {title: "Qué Bien Te Queda (Cómo Has Cambiado)", composer: "Vicente Salerno", lyricist: "Juan Mazaroni", year: 1944, genre_id: 1},
+  {title: "Qué Será De Ti", composer: "Roberto Nievas Blanco", lyricist: "Julio Jorge Nelson", year: nil, genre_id: 1},
+  {title: "Qué Tango Hay Que Cantar", composer: "Rubén Juárez", lyricist: "Cacho Castaña", year: nil, genre_id: 1},
+  {title: "Qué Te Importa Que Te Llore", composer: "Miguel Caló", lyricist: "Miguel Caló", year: 1942, genre_id: 1},
+  {title: "Recién", composer: "Osvaldo Pugliese", lyricist: "Homero Manzi", year: 1943, genre_id: 1},
+  {title: "Recuerdo Malevo", composer: "Carlos Gardel", lyricist: "Alfredo Le Pera", year: 1933, genre_id: 1},
+  {title: "Recuerdos De La Pampa", composer: "Rodolfo Duclós", lyricist: "Rodolfo Duclós", year: nil, genre_id: 1},
+  {title: "Remembranza", composer: "Mario Melfi", lyricist: "Mario Battistella", year: 1934, genre_id: 1},
+  {title: "Romance De Barrio", composer: "Aníbal Troilo", lyricist: "Homero Manzi", year: 1947, genre_id: 2},
+  {title: "Rondando Tu Esquina", composer: " Charlo", lyricist: "Enrique Cadícamo", year: 1945, genre_id: 1},
+  {title: "Ríe Payaso", composer: "Virgilio Carmona", lyricist: "Emilio Falero", year: 1929, genre_id: 1},
+  {title: "Se Dice De Mí", composer: "Francisco Canaro", lyricist: "Ivo Pelay", year: 1943, genre_id: 3},
+  {title: "Se Lustra Señor", composer: "Enrique Alessio", lyricist: " Marvil (Elizardo Martínez Vilas)", year: 1946, genre_id: 1},
+  {title: "Señores Yo Soy Del Centro", composer: "Armando Baliotti", lyricist: "Santiago Adamini", year: nil, genre_id: 3},
+  {title: "Siempre Es Carnaval", composer: "Osvaldo Fresedo", lyricist: "Emilio Fresedo", year: 1937, genre_id: 1},
+  {title: "Silbando", composer: "Sebastián Piana / Cátulo Castillo", lyricist: "José González Castillo", year: 1925, genre_id: 1},
+  {title: "Silencio", composer: "Carlos Gardel / Horacio Pettorossi", lyricist: "Alfredo Le Pera / Horacio Pettorossi", year: 1932, genre_id: 1},
+  {title: "Sin Palabras", composer: "Mariano Mores", lyricist: "Enrique Santos Discepolo", year: 1946, genre_id: 1},
+  {title: "Sin Rumbo Fijo", composer: "Eugenio Carrere", lyricist: "Eugenio Carrere", year: nil, genre_id: 1},
+  {title: "Solamente Ella", composer: "Lucio Demare", lyricist: "Homero Manzi", year: 1944, genre_id: 1},
+  {title: "Sosiego En La Noche", composer: "Roberto Garza", lyricist: "Carlos Bahr", year: 1943, genre_id: 1},
+  {title: "Soy Aquel Viajero", composer: "Héctor Grané", lyricist: "Justo Ricardo Thompson", year: nil, genre_id: 1},
+  {title: "Soñar Y Nada Más", composer: "Francisco Canaro", lyricist: "Ivo Pelay", year: 1943, genre_id: 2},
+  {title: "Sus Ojos Se Cerraron", composer: "Carlos Gardel", lyricist: "Alfredo Le Pera", year: 1935, genre_id: 1},
+  {title: "Tabernero (El Tabernero)", composer: "Fausto Frontera", lyricist: "Raúl Costa Oliveri", year: 1927, genre_id: 1},
+  {title: "Tal Vez Será Su Voz", composer: "Lucio Demare", lyricist: "Homero Manzi", year: 1943, genre_id: 1},
+  {title: "Te Aconsejo Que Me Olvides", composer: "Pedro Maffia", lyricist: "Jorge Curi", year: 1926, genre_id: 1},
+  {title: "Tinta Roja", composer: "Sebastián Piana", lyricist: "Cátulo Castillo", year: 1941, genre_id: 1},
+  {title: "Toda Mi Vida", composer: "Aníbal Troilo", lyricist: "José María Contursi", year: 1941, genre_id: 1},
+  {title: "Todo Te Nombra", composer: "Francisco Canaro", lyricist: "Ivo Pelay", year: nil, genre_id: 1},
+  {title: "Tomo Y Obligo", composer: "Carlos Gardel", lyricist: "Manuel Romero", year: 1931, genre_id: 1},
+  {title: "Tormenta", composer: "Enrique Santos Discepolo", lyricist: "Enrique Santos Discepolo", year: 1939, genre_id: 1},
+  {title: "Torrente", composer: "Hugo Gutiérrez", lyricist: "Homero Manzi", year: 1944, genre_id: 1},
+  {title: "Trasnochando", composer: "Armando Baliotti", lyricist: "Santiago Adamini", year: 1942, genre_id: 1},
+  {title: "Tres Amigos", composer: "Enrique Cadícamo", lyricist: "Enrique Cadícamo", year: 1944, genre_id: 1},
+  {title: "Tres Esquinas", composer: "Ángel Dagostino", lyricist: "Enrique Cadícamo", year: 1941, genre_id: 1},
+  {title: "Triste Comedia", composer: "Héctor Stamponi", lyricist: "Oscar Rubens", year: 1949, genre_id: 1},
+  {title: "Tristeza Marina", composer: "José Dames", lyricist: "Horacio Sanguinetti", year: 1943, genre_id: 1},
+  {title: "Tu Angustia Y Mi Dolor", composer: "Alfredo Gobbi", lyricist: "Julio Camilloni", year: nil, genre_id: 1},
+  {title: "Tu Boca Mintió", composer: "Armando Angeletti", lyricist: "Alberto Longo", year: nil, genre_id: 1},
+  {title: "Tu Diagnóstico", composer: "José Betinotti", lyricist: "José Betinotti", year: nil, genre_id: 2},
+  {title: "Tu Vieja Ventana", composer: "Guillermo Barbieri", lyricist: "Ambrosio Río", year: nil, genre_id: 2},
+  {title: "Tus Labios Me Dirán", composer: "Emilio Brameri", lyricist: "Héctor Negro", year: nil, genre_id: 1},
+  {title: "Tú El Cielo Y Tú", composer: "Mario Canaro", lyricist: "Héctor Marcó", year: 1944, genre_id: 1},
+  {title: "Un Crimen", composer: "Luis Rubistein", lyricist: "Luis Rubistein", year: nil, genre_id: 1},
+  {title: "Una Emoción", composer: "Raúl Kaplún", lyricist: "José María Suñé", year: 1943, genre_id: 1},
+  {title: "Una Lágrima Tuya", composer: "Mariano Mores", lyricist: "Homero Manzi", year: 1949, genre_id: 1},
+  {title: "Una Noche De Garufa", composer: "Eduardo Arolas", lyricist: "Gabriel Clausi", year: nil, genre_id: 1},
+  {title: "Una Pena", composer: "Adolfo Rosquellas", lyricist: "Arturo Albert", year: 1923, genre_id: 1},
+  {title: "Una Piba Como Vos", composer: "Dante Gilardoni", lyricist: "Dante Gilardoni", year: nil, genre_id: 1},
+  {title: "Vamos", composer: "Feliciano Brunelli", lyricist: "Rodolfo Sciammarella", year: 1944, genre_id: 1},
+  {title: "Ventanita De Arrabal", composer: "Antonio Scatasso", lyricist: "Pascual Contursi", year: 1927, genre_id: 1},
+  {title: "Ventarrón", composer: "Pedro Maffia", lyricist: "José Horacio Staffolani", year: 1933, genre_id: 1},
+  {title: "Verdemar", composer: "Carlos Di Sarli", lyricist: "José María Contursi", year: 1943, genre_id: 1},
+  {title: "Vida Mía", composer: "Osvaldo Fresedo", lyricist: "Emilio Fresedo", year: 1933, genre_id: 1},
+  {title: "Vieja Recova", composer: "Rodolfo Sciammarella", lyricist: "Enrique Cadícamo", year: 1930, genre_id: 1},
+  {title: "Viejo Portón", composer: "Héctor Palacios", lyricist: "Máximo Orsi", year: nil, genre_id: 2},
+  {title: "Violín", composer: "Ricardo Malerba / Dante Smurra", lyricist: "Horacio Sanguinetti", year: nil, genre_id: 1},
+  {title: "Volver", composer: "Carlos Gardel", lyricist: "Alfredo Le Pera", year: 1935, genre_id: 1},
+  {title: "Volver A Vernos", composer: "Joaquín Mora", lyricist: "Luis Castiñeira", year: nil, genre_id: 1},
+  {title: "Volvé Mi Negra", composer: "José María Rizzuti", lyricist: "José Diez Gómez", year: nil, genre_id: 1},
+  {title: "Vuelves", composer: "María Esther Pacheco Huergo", lyricist: "Virgilio San Clemente", year: 1939, genre_id: 1},
+  {title: "Vuelvo Al Sur", composer: "Astor Piazzolla", lyricist: "Fernando \"Pino\" Solanas", year: nil, genre_id: 1},
+  {title: "Whisky", composer: "Héctor Marcó", lyricist: "Héctor Marcó", year: 1957, genre_id: 1},
+  {title: "Y Todavía Te Quiero", composer: "Luciano Leocata", lyricist: "Abel Aznar", year: nil, genre_id: 1},
+  {title: "Ya Sale El Tren", composer: "Luis Rubistein", lyricist: "Luis Rubistein", year: 1943, genre_id: 1},
+  {title: "Yira Yira", composer: "Enrique Santos Discepolo", lyricist: "Enrique Santos Discepolo", year: 1930, genre_id: 1},
+  {title: "Yo Me Llamo Juan Te Quiero", composer: "Antonio Molina", lyricist: "Fernán Silva Valdés", year: nil, genre_id: 3},
+  {title: "Yo No Sé Que Me Han Hecho Tus Ojos", composer: "Francisco Canaro", lyricist: "Francisco Canaro", year: nil, genre_id: 2},
+  {title: "Yo Soy De San Telmo", composer: "Arturo Gallucci", lyricist: "Victorino Velázquez", year: nil, genre_id: 3},
+  {title: "Yo También Soñé", composer: "Francisco Canaro", lyricist: "Luis César Amadori", year: 1935, genre_id: 1},
+  {title: "Yo Te Adoro Bandoneón", composer: "Ramón Coll", lyricist: "Carlos Pesce", year: nil, genre_id: 1},
+  {title: "Yuyo Verde", composer: "Domingo Federico", lyricist: "Homero Expósito", year: 1944, genre_id: 1},
+  {title: "Zapatitos De Raso", composer: "Jorge Dragone", lyricist: "Fernando Caprio", year: nil, genre_id: 3},
+  {title: "Zorzal", composer: "Dorita Zárate", lyricist: "Dorita Zárate", year: nil, genre_id: 3}
+])
