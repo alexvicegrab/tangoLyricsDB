@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>TangoLyricsDB</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,11 +11,10 @@
 		<div class="row">
 		      <div class="span9"><%= yield %></div>
 		      <div class="span3">
-		        <%= render 'shared/search' %>
-						<%= render 'shared/stats' %>
+		        <%= render 'layouts/search' %>
+						<%= render 'layouts/stats' %>
 		      </div>
 		    </div>
 	</div>
-	
 </body>
 </html>
