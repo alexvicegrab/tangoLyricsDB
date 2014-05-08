@@ -11,8 +11,8 @@
 	Last additions:
 </h3>
 <h5>
-	Song: <%= Song.last.nil? ? "N/A" : Song.last.title %>
+	Song: <%= Song.unscoped.last.nil? ? "N/A" : link_to(Song.unscoped.last.title, Song.unscoped.last) %>
 </h5>
 <h5>
-	Translation: <%= Translation.last.nil? ? "N/A" : Translation.last.song.title %>
+	Translation: <%= Translation.last.nil? ? "N/A" : link_to(Translation.last.song.title, Translation.last.song) %>
 </h5>
