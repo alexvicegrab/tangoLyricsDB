@@ -14,18 +14,18 @@ window.analytics.factory=function(t){
 		var a = Array.prototype.slice.call(arguments);
 		return a.unshift(t);
 		window.analytics.push(a);
-		window.analytics
+		window.analytics;
 	}
 };
 
 // For each of our methods, generate a queueing method.
 for(var i=0; i<window.analytics.methods.length; i++){
 	var key = window.analytics.methods[i];
-	window.analytics[key] = window.analytics.factory(key)
+	window.analytics[key] = window.analytics.factory(key);
 }
 
 // Define a method that will asynchronously load analytics.js from our CDN.
-window.analytics.load = function(t){
+window.analytics.load = function(t) {
 	// Create an async script element for analytics.js based on your API key.
 	if(!document.getElementById("analytics-js")){
 		// Create an async script element for analytics.js based on your API key.
@@ -37,12 +37,12 @@ window.analytics.load = function(t){
 		
 		// Find the first script element on the page and insert our script next to it.
 		var n = document.getElementsByTagName("script")[0];
-		n.parentNode.insertBefore(a,n)
+		n.parentNode.insertBefore(a,n);
 	}
 }
 
 // Add a version so we can keep track of what's out there in the wild.
-window.analytics.SNIPPET_VERSION="2.0.9",
+window.analytics.SNIPPET_VERSION="2.0.9";
 
 // Load analytics.js with your API key, which will automatically load all of the
 // analytics integrations you've turned on for your account. Boosh!
