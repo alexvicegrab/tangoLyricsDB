@@ -13,6 +13,7 @@ class Song < ActiveRecord::Base
   scope :genre_is, -> (genre_id) { where("genre_id = ?", genre_id) }
   scope :year_min, -> (year) { where("year >= ?", year) }
   scope :year_max, -> (year) { where("year <= ?", year) }
+  scope :translation_num, -> (translations_count) { where("translations_count = ?", translations_count) }
   
   # Validations
   validates :title,

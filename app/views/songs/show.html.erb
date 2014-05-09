@@ -7,13 +7,13 @@
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
   <dd><%= @song.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:genre) %>:</strong></dt>
-  <dd><%= @song.genre.blank? ? "N/A" : @song.genre.name %></dd>
+  <dd><%= @song.genre.blank? ? "..." : @song.genre.name  %></dd>
   <dt><strong><%= model_class.human_attribute_name(:composer) %>:</strong></dt>
   <dd><%= @song.composer %></dd>
   <dt><strong><%= model_class.human_attribute_name(:lyricist) %>:</strong></dt>
   <dd><%= @song.lyricist %></dd>
   <dt><strong><%= model_class.human_attribute_name(:year) %>:</strong></dt>
-  <dd><%= @song.year.nil? ? "N/A" : @song.year %></dd>
+  <dd><%= @song.year.nil? ? "..." : @song.year %></dd>
 </dl>
 
 <div class="form-actions">

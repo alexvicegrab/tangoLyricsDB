@@ -8,3 +8,18 @@
 
 <%= link_to t('.songs', :default => t("helpers.links.songs")),
               songs_path, :class => 'btn btn-primary'  %>
+
+<style>
+  .spacer{
+     margin-bottom: 1.5cm;
+  }
+</style>
+<p class="spacer"><p>
+<p>
+	This webapp has been developed using...
+</p>
+<div>
+<%= link_to image_tag('rails.jpeg', height: 150, width: 118), "http://www.rubyonrails.org"  %>
+<%= link_to image_tag('heroku.jpeg', height: 150, width: 118), "http://www.heroku.com"  %>
+
+</div>

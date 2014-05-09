@@ -43,6 +43,13 @@
 	</div>
 </div>
 
+<div class="control-group">
+	<%= label_tag(:translation_num, "Number of translations:") %>
+	<div class="controls">
+		<%= text_field_tag :translation_num, params[:translation_num] %>
+	</div>
+</div>
+
 <%= submit_tag("Search", :name => nil, :class => 'btn btn-primary') %>
 <%= link_to t('.clear', :default => t("helpers.links.clear")),
               songs_path, :class => 'btn'  %>
