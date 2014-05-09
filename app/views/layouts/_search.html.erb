@@ -14,21 +14,35 @@
 		<%= select_tag :genre_is, options_from_collection_for_select(Genre.all, :id, :name, params[:genre_is]), include_blank: :true %> 
 	</div>
 </div>
-	
+
+<div class="control-group">
+	<%= label_tag(:composer_has, "Composer contains:") %>
+	<div class="controls">
+		<%= text_field_tag :composer_has, params[:composer_has] %>
+	</div>
+</div>
+
+<div class="control-group">
+	<%= label_tag(:lyricist_has, "Lyricist contains:") %>
+	<div class="controls">
+		<%= text_field_tag :lyricist_has, params[:lyricist_has] %>
+	</div>
+</div>
+
 <div class="control-group">
 	<%= label_tag(:year_min, "Year minimum:") %>
 	<div class="controls">
 		<%= text_field_tag :year_min, params[:year_min] %>
 	</div>
 </div>
-	
+
 <div class="control-group">
 	<%= label_tag(:year_max, "Year maximum:") %>
 	<div class="controls">
 		<%= text_field_tag :year_max, params[:year_max] %>
 	</div>
 </div>
-		
+
 <%= submit_tag("Search", :name => nil, :class => 'btn btn-primary') %>
 <%= link_to t('.clear', :default => t("helpers.links.clear")),
               songs_path, :class => 'btn'  %>

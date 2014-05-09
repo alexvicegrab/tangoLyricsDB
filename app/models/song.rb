@@ -8,6 +8,8 @@ class Song < ActiveRecord::Base
   default_scope { order('title') }
   
   scope :title_has, -> (title) { where("lower(title) like ?", "%#{I18n.transliterate(title.downcase)}%") }
+  scope :composer_has, -> (composer) { where("lower(composer) like ?", "%#{I18n.transliterate(composer.downcase)}%") }
+  scope :lyricist_has, -> (lyricist) { where("lower(lyricist) like ?", "%#{I18n.transliterate(lyricist.downcase)}%") }
   scope :genre_is, -> (genre_id) { where("genre_id = ?", genre_id) }
   scope :year_min, -> (year) { where("year >= ?", year) }
   scope :year_max, -> (year) { where("year <= ?", year) }

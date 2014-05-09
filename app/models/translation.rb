@@ -5,4 +5,13 @@ class Translation < ActiveRecord::Base
     presence: true,
     uniqueness: { case_sensitive: false },
     length: { minimum: 15 }
+    
+    # Callbacks
+    before_validation :normalise_translation, on: [ :create, :update ]
+    
+    protected
+    def normalise_translation
+      # Remove white space, lower
+      self.link = self.link.lstrip.downcase
+    end  
 end
