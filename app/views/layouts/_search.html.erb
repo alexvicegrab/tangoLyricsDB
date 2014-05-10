@@ -30,16 +30,11 @@
 </div>
 
 <div class="control-group">
-	<%= label_tag(:year_min, "Year minimum:") %>
+	<%= label_tag(:year_min, "Year range:") %>
 	<div class="controls">
-		<%= text_field_tag :year_min, params[:year_min] %>
-	</div>
-</div>
-
-<div class="control-group">
-	<%= label_tag(:year_max, "Year maximum:") %>
-	<div class="controls">
-		<%= text_field_tag :year_max, params[:year_max] %>
+		<%= text_field_tag :year_min, params[:year_min], maxlength: 4, id: "TTD_year_search" %>
+		&nbsp;to&nbsp;
+		<%= text_field_tag :year_max, params[:year_max], maxlength: 4, id: "TTD_year_search" %>
 	</div>
 </div>
 
