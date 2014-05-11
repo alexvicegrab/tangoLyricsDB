@@ -1,5 +1,6 @@
 class Language < ActiveRecord::Base
   has_many :translations
+  has_many :songs, through: :translations
   
   # Scopes
   default_scope { order('iso') }

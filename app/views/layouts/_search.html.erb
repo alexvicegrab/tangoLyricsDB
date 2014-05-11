@@ -45,6 +45,13 @@
 	</div>
 </div>
 
+<div class="control-group">
+	<%= label_tag(:language_is, "Language is:") %>
+	<div class="controls">
+		<%= select_tag :language_is, options_from_collection_for_select(Language.all, :id, :iso, params[:language_is]), include_blank: :true %> 
+	</div>
+</div>
+
 <%= submit_tag("Search", :name => nil, :class => 'btn btn-primary') %>
 <%= link_to t('.clear', :default => t("helpers.links.clear")),
               songs_path, :class => 'btn'  %>

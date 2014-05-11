@@ -3,6 +3,7 @@ class Song < ActiveRecord::Base
   
   belongs_to :genre, counter_cache: true
   has_many :translations, dependent: :destroy
+  has_many :languages, through: :translations
   
   # Scopes
   default_scope { order('title') }
@@ -14,6 +15,7 @@ class Song < ActiveRecord::Base
   scope :year_min, -> (year) { where("year >= ?", year) }
   scope :year_max, -> (year) { where("year <= ?", year) }
   scope :translation_num, -> (translations_count) { where("translations_count = ?", translations_count) }
+  scope :language_is, -> (language_id) { joins(:translations).merge( Translation.where("language_id = ?", language_id) ) } 
   
   # Validations
   validates :title,
