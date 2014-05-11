@@ -1,5 +1,6 @@
 <tr>
 	<td><%= auto_link(translation.link) %></td>
+	<td><%= translation.language.iso %></td>
 	<td>
 		<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
 												[translation.song, translation],

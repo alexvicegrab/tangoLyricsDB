@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507202959) do
+ActiveRecord::Schema.define(version: 20140511140740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20140507202959) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "songs_count", default: 0
+  end
+
+  create_table "languages", force: true do |t|
+    t.string  "iso"
+    t.integer "translations_count"
   end
 
   create_table "songs", force: true do |t|
@@ -39,8 +44,10 @@ ActiveRecord::Schema.define(version: 20140507202959) do
     t.integer  "song_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "language_id", default: 1
   end
 
+  add_index "translations", ["language_id"], name: "index_translations_on_language_id", using: :btree
   add_index "translations", ["song_id"], name: "index_translations_on_song_id", using: :btree
 
 end

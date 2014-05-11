@@ -1,6 +1,9 @@
 class Genre < ActiveRecord::Base
   has_many :songs
   
+  # Scopes
+  default_scope { order('name') }
+  
   # Validations
   validates :name,
   presence: true,

@@ -23,7 +23,7 @@ class TranslationsController < ApplicationController
  
   private
     def translation_params
-      params.require(:translation).permit(:link)
+      params.require(:translation).permit(:link, :language_id)
     end
     
 end
