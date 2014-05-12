@@ -8,9 +8,9 @@ class Translation < ActiveRecord::Base
   # Validations
   validates :link,
   presence: true,
-  uniqueness: { case_sensitive: false },
   length: { minimum: 15 },
-  url: true # Custom URL validator in app/validators
+  url: true, # Custom URL validator in app/validators
+  uniqueness: { case_sensitive: false, scope: :language_id, message: "+ language combination must be unique" } # Sometimes a page may contain several translations (in different languages)
   
   validates :language_id,
   presence: true,
