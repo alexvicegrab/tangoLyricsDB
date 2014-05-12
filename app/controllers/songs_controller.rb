@@ -5,6 +5,8 @@ class SongsController < ApplicationController
   def index
     #@songs = Song.all
     @songs = Song.filter( params.slice(:title_has, :genre_is, :composer_has, :lyricist_has, :year_min, :year_max, :translation_num, :language_is ))
+    # Do not repeat records
+    @songs = @songs.distinct
   end
   
   def new
