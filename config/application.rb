@@ -21,5 +21,8 @@ module TangoLyricsDB
     # config.i18n.default_locale = :de
     
     config.i18n.enforce_available_locales = true
+    
+    # Add custom validators path
+    config.autoload_paths += %W["#{config.root}/app/validators/"]
   end
 end

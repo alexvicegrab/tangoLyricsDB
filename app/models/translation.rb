@@ -9,7 +9,9 @@ class Translation < ActiveRecord::Base
   validates :link,
   presence: true,
   uniqueness: { case_sensitive: false },
-  length: { minimum: 15 }
+  length: { minimum: 15 },
+  url: true # Custom URL validator in app/validators
+  
   validates :language_id,
   presence: true,
   numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: Language.maximum(:id)}
