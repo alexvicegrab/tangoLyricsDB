@@ -21,7 +21,7 @@ class Song < ActiveRecord::Base
   validates :title,
   presence: true,
   uniqueness: { case_sensitive: false },
-  length: { minimum: 3 }
+  length: { minimum: 2 }
   
   validates :genre_id,
   presence: true,
