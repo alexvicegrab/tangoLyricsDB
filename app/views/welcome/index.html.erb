@@ -1,25 +1,40 @@
 <h2>Tango Translation DataBase</h2>
 <p>
-  This database is meant to serve as a repository to link up all translation efforts in the Argentine Tango community. Please bear in mind that is under development, its humble beginnings can be accessed below through the "Songs" button.
+	This database is meant to serve as a repository to link up all translation efforts in the Argentine Tango community. Please bear in mind that is under development!
 </p>
 <p>
-	If you wish to provide me with feedback, please write to me on <a href="https://www.facebook.com/DjAlejandroSasha">Facebook</a>
+	You don't need admin rights to:
+</p>
+<ul>
+	<li>Add <em>translations</em> (please specify the language correctly)</li>
+</ul>
+<p>
+	You do need admin rights to:
+</p>
+<ul>
+	<li>Add <em>songs</em></li>
+	<li>Add translation <em>languages</em></li>
+</ul>
+</p>
+<p>
+If you wish to provide me with <b>feedback</b> or obtain <b>admin rights</b>, please write to me on <a href="https://www.facebook.com/DjAlejandroSasha">Facebook</a>
 </p>
 
-<%= link_to t('.songs', :default => t("helpers.links.songs")),
-              songs_path, :class => 'btn btn-primary'  %>
+<%= link_to t('.songs', :default => t("helpers.links.enter_database")),
+songs_path, :class => 'btn btn-primary'  %>
 
 <style>
-  .spacer{
-     margin-bottom: 1.5cm;
-  }
+.spacer{
+margin-bottom: 1.5cm;
+}
 </style>
 <p class="spacer"><p>
 <p>
 	This webapp has been developed using...
 </p>
 <div>
-<%= link_to image_tag('rails.jpeg', height: 150, width: 118), "http://www.rubyonrails.org"  %>
-<%= link_to image_tag('heroku.jpeg', height: 150, width: 118), "http://www.heroku.com"  %>
+	<%= link_to image_tag('rails.png', height: 150, width: 118), "http://www.rubyonrails.org"  %>
+	<%= link_to image_tag('heroku.png', height: 150, width: 118), "http://www.heroku.com"  %>
+	<%= link_to image_tag('octocat.png', height: 150, width: 118), "http://www.github.com"  %>
 
 </div>

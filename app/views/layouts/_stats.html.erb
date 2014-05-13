@@ -1,18 +1,14 @@
 <h2>Stats</h2>
 
 <h4>
-	<%= Song.count.nil? ? 0 : Song.count %> songs in database
+	<%= Song.count.nil? ? 0 : Song.count %> songs
 </h4>
 <h4>
-	<%= Translation.count.nil? ? 0 : Translation.count %> translations linked
+	<%= Translation.count.nil? ? 0 : Translation.count %> translations
 </h4>
-
-<h3>
-	Last additions:
-</h3>
-<h5>
-	Song: <%= Song.unscoped.last.nil? ? "N/A" : link_to(Song.unscoped.last.title, Song.unscoped.last) %>
+<h4>
+	last Song: <%= Song.unscoped.last.nil? ? "N/A" : link_to(Song.unscoped.last.title, Song.unscoped.last) %>
 </h5>
-<h5>
-	Translation: <%= Translation.last.nil? ? "N/A" : link_to(Translation.last.song.title, Translation.last.song) %>
+<h4>
+	last Translation: <%= Translation.last.nil? ? "N/A" : link_to(Translation.last.song.title, Translation.last.song) %>
 </h5>

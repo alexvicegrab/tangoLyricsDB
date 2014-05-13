@@ -2,35 +2,35 @@
 <%= form_tag songs_path, :method => 'get' do %>
 
 <div class="control-group">
-	<%= label_tag(:title_has, "Title contains:") %>
+	<%= label_tag(:title_has, "Title:") %>
 	<div class="controls">
 		<%= text_field_tag :title_has, params[:title_has] %>
 	</div>
 </div>
 
 <div class="control-group">
-	<%= label_tag(:genre_is, "Genre is:") %>
+	<%= label_tag(:genre_is, "Genre:") %>
 	<div class="controls">
 		<%= select_tag :genre_is, options_from_collection_for_select(Genre.all, :id, :name, params[:genre_is]), include_blank: :true %> 
 	</div>
 </div>
 
 <div class="control-group">
-	<%= label_tag(:composer_has, "Composer contains:") %>
+	<%= label_tag(:composer_has, "Composer:") %>
 	<div class="controls">
 		<%= text_field_tag :composer_has, params[:composer_has] %>
 	</div>
 </div>
 
 <div class="control-group">
-	<%= label_tag(:lyricist_has, "Lyricist contains:") %>
+	<%= label_tag(:lyricist_has, "Lyricist:") %>
 	<div class="controls">
 		<%= text_field_tag :lyricist_has, params[:lyricist_has] %>
 	</div>
 </div>
 
 <div class="control-group">
-	<%= label_tag(:year_min, "Year range:") %>
+	<%= label_tag(:year_min, "Years:") %>
 	<div class="controls">
 		<%= text_field_tag :year_min, params[:year_min], maxlength: 4, id: "TTD_year_search" %>
 		&nbsp;to&nbsp;
@@ -39,20 +39,23 @@
 </div>
 
 <div class="control-group">
-	<%= label_tag(:translation_num, "Number of translations:") %>
+	<%= label_tag(:translation_num, "Translation #:") %>
 	<div class="controls">
 		<%= text_field_tag :translation_num, params[:translation_num] %>
 	</div>
 </div>
 
 <div class="control-group">
-	<%= label_tag(:language_is, "Language is:") %>
+	<%= label_tag(:language_is, "Translation language:") %>
 	<div class="controls">
 		<%= select_tag :language_is, options_from_collection_for_select(Language.all, :id, :iso, params[:language_is]), include_blank: :true %> 
 	</div>
 </div>
 
-<%= submit_tag("Search", :name => nil, :class => 'btn btn-primary') %>
+<%= submit_tag("Search", :name => nil, :class => 'btn btn-info') %>
 <%= link_to t('.clear', :default => t("helpers.links.clear")),
-              songs_path, :class => 'btn'  %>
+songs_path, :class => 'btn btn-default'  %>
+<%= link_to t('.new', :default => t("helpers.links.new_song")),
+new_song_path,
+:class => 'btn btn-primary' %>
 <% end %>
