@@ -1,15 +1,9 @@
-
 <%= nav_bar :fixed => :top, :brand => "Tango Translation DB", :responsive => true do %>
 	<%= menu_group do %>
 		<%= menu_divider %>
 		<%= menu_item "Songs", songs_path %>
 		<%= menu_item "Translators", root_path %>
-	<% end %>
-	<%= menu_group :pull => :right do %>
-		<%= drop_down "Admin" do %>
-			<%= menu_item "Translators", root_path %>
-			<%= menu_item "Languages", root_path %>
-			<%= menu_item "Genres", root_path %>
-		<% end %>
+		<%= menu_item "Languages", languages_path %>
+		<%= menu_item "Genres", genres_path %>
 	<% end %>
 <% end %>
