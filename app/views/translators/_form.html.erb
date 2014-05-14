@@ -1,0 +1,29 @@
+<%= form_for @translator, :html => { :class => 'form-horizontal' } do |f| %>
+
+	<%= render partial: 'shared/error', locals: {f: @translator} %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :site_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :site_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :site_link, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :site_link, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                translators_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,4 +1,5 @@
 class LanguagesController < ApplicationController
+  before_action :set_language, only: [:show, :edit, :update, :destroy]
   
   http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show]
   
@@ -20,16 +21,12 @@ class LanguagesController < ApplicationController
   end
   
 	def show
-		@language = Language.find(params[:id])
 	end
   
   def edit
-    @language = Language.find(params[:id])
   end
   
-  def update
-		@language = Language.find(params[:id])
-    
+  def update    
 		if @language.update(language_params)
 		  redirect_to @language
     else
@@ -38,13 +35,17 @@ class LanguagesController < ApplicationController
   end
   
   def destroy
-    @language = Language.find(params[:id])
     @language.destroy
  
     redirect_to languages_path
   end
   
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_language
+      @language = Language.find(params[:id])
+    end
+  
     def language_params
       params.require(:language).permit(:iso, :name)
     end

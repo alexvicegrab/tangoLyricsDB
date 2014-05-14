@@ -1,0 +1,2 @@
+module TranslatorsHelper
+end

@@ -1,6 +1,7 @@
 class Translation < ActiveRecord::Base
   belongs_to :song, counter_cache: true
   belongs_to :language, counter_cache: true
+  belongs_to :translator, counter_cache: true
   
   # Scopes
   default_scope { order('created_at') }

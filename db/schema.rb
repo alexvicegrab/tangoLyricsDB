@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511140740) do
+ActiveRecord::Schema.define(version: 20140514182019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,10 +47,20 @@ ActiveRecord::Schema.define(version: 20140511140740) do
     t.integer  "song_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "language_id", default: 1
+    t.integer  "language_id",   default: 1
+    t.integer  "translator_id", default: 0
   end
 
   add_index "translations", ["language_id"], name: "index_translations_on_language_id", using: :btree
   add_index "translations", ["song_id"], name: "index_translations_on_song_id", using: :btree
+
+  create_table "translators", force: true do |t|
+    t.string   "name"
+    t.string   "site_name"
+    t.string   "site_link"
+    t.integer  "translations_count", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

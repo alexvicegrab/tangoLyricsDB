@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+  before_action :set_genre, only: [:show, :edit, :update, :destroy]
   
   http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show]
   
@@ -20,16 +21,12 @@ class GenresController < ApplicationController
   end
   
 	def show
-		@genre = Genre.find(params[:id])
 	end
   
   def edit
-    @genre = Genre.find(params[:id])
   end
   
   def update
-		@genre = Genre.find(params[:id])
-    
 		if @genre.update(genre_params)
 		  redirect_to @genre
     else
@@ -38,13 +35,17 @@ class GenresController < ApplicationController
   end
   
   def destroy
-    @genre = Genre.find(params[:id])
     @genre.destroy
  
     redirect_to genres_path
   end
   
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_genre
+      @genre = Genre.find(params[:id])
+    end
+  
     def genre_params
       params.require(:genre).permit(:name)
     end

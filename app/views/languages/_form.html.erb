@@ -1,4 +1,7 @@
 <%= form_for @language, :html => { :class => 'form-horizontal' } do |f| %>
+
+	<%= render partial: 'shared/error', locals: {f: @language} %>
+
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
