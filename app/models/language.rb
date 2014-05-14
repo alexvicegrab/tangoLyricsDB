@@ -3,7 +3,7 @@ class Language < ActiveRecord::Base
   has_many :songs, through: :translations
   
   # Scopes
-  default_scope { order('iso') }
+  default_scope { order('name') }
   
   # Validations
   validates :iso,

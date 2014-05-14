@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:site_name) %></th>
       <th><%= model_class.human_attribute_name(:site_link) %></th>
@@ -16,7 +15,6 @@
   <tbody>
     <% @translators.each do |translator| %>
       <tr>
-        <td><%= translator.id %></td>
         <td><%= translator.name %></td>
         <td><%= link_to translator.site_name, translator_path(translator)%></td>
         <td><%= auto_link(translator.site_link) %></td>

@@ -5,7 +5,15 @@ class SongsController < ApplicationController
   
   def index
     #@songs = Song.all
-    @songs = Song.filter( params.slice(:title_has, :genre_is, :composer_has, :lyricist_has, :year_min, :year_max, :translation_num, :language_is ))
+    @songs = Song.filter( params.slice(:title_has, 
+    :genre_is, 
+    :composer_has, 
+    :lyricist_has, 
+    :year_min, 
+    :year_max, 
+    :translation_num, 
+    :language_is,
+    :translator_is ))
     # Do not repeat records
     @songs = @songs.distinct
   end
@@ -18,23 +26,23 @@ class SongsController < ApplicationController
     # Display the hash
     #render plain: params[:song].inspect
     
-		@song = Song.new(song_params)
-		if @song.save
-		  redirect_to @song
+    @song = Song.new(song_params)
+    if @song.save
+      redirect_to @song
     else
       render 'new'
     end
   end
   
-	def show
-	end
+  def show
+  end
   
   def edit
   end
   
   def update
-		if @song.update(song_params)
-		  redirect_to @song
+    if @song.update(song_params)
+      redirect_to @song
     else
       render 'edit'
     end
@@ -47,13 +55,13 @@ class SongsController < ApplicationController
   end
   
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_song
-      @song = Song.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_song
+    @song = Song.find(params[:id])
+  end
   
-    def song_params
-      params.require(:song).permit(:title, :genre_id, :year, :composer, :lyricist)
-    end
+  def song_params
+    params.require(:song).permit(:title, :genre_id, :year, :composer, :lyricist)
+  end
   
 end

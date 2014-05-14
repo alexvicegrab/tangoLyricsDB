@@ -5,9 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
 			<th><%= "Song #" %></th>
       <th><%=t '.actions', :default => t("helpers.managing") %></th>
     </tr>
@@ -15,9 +13,7 @@
   <tbody>
     <% @genres.each do |genre| %>
       <tr>
-        <td><%= genre.id %></td>
         <td><%= link_to genre.name, genre_path(genre) %></td>
-        <td><%=l genre.created_at %></td>
 				<td><%= genre.songs.size %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

@@ -5,21 +5,17 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
 			<th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= "ISO" %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-			<th><%= "Trans. #" %></th>
+			<th><%= "T#" %></th>
       <th><%=t '.actions', :default => t("helpers.managing") %></th>
     </tr>
   </thead>
   <tbody>
     <% @languages.each do |language| %>
       <tr>
-        <td><%= language.id %></td>
 				<td><%= link_to language.name, language_path(language) %></td>
         <td><%= language.iso %></td>
-        <td><%=l language.created_at %></td>
 				<td><%= language.translations.size %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

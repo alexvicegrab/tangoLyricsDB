@@ -19,10 +19,22 @@ class Translation < ActiveRecord::Base
     
   # Callbacks
   before_validation :normalise_translation, on: [ :create, :update ]
+  after_validation :define_translator
     
   protected
   def normalise_translation
     # Remove white space, lower
     self.link = self.link.lstrip.downcase
-  end  
+  end
+  
+  def define_translator
+    # Check which translator this translation belongs to
+    @translators = Translator.all
+    
+    @translators.each do |t|
+      if self.link.include?(t.site_link)
+        self.translator_id = t.id
+      end
+    end
+  end
 end

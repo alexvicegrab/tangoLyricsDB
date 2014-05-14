@@ -458,6 +458,22 @@ Song.create!([
   {id: 339, title: "Yo Te Amo", composer: "Edgardo Donato", lyricist: "Carlos Cesar Lenzi", created_at: "2014-05-08 11:53:39", updated_at: "2014-05-08 11:53:39", year: 1940, genre_id: 1},
   {id: 311, title: "Yuyo Verde", composer: "Domingo Federico", lyricist: "Homero Exposito", created_at: "2014-05-07 20:57:44", updated_at: "2014-05-07 20:57:44", year: 1944, genre_id: 1}
 ])
+Translator.create!([
+  {id: 1, name: "Alberto Paz", site_name: "Letras De Tango", site_link: "http://letrasdetango.wordpress.com/", created_at: "2014-05-14 19:35:51", updated_at: "2014-05-14 19:35:51"},
+  {id: 2, name: "Alberto Paz", site_name: "Planet Tango", site_link: "http://www.planet-tango.com/", created_at: "2014-05-14 19:36:15", updated_at: "2014-05-14 19:36:15"},
+  {id: 4, name: "Alejandro Sasha Vicente Grabovetsky", site_name: "El Tango Te Espera", site_link: "http://www.eltangoteespera.com", created_at: "2014-05-14 19:39:14", updated_at: "2014-05-14 20:28:20"},
+  {id: 11, name: "Birkit & Muzaffer", site_name: "Tango Lzpd", site_link: "http://www.tangoargentino.nl/", created_at: "2014-05-14 20:27:58", updated_at: "2014-05-14 20:27:58"},
+  {id: 3, name: "Derrick Del Pilar", site_name: "Poesia De Gotan", site_link: "http://poesiadegotan.com/", created_at: "2014-05-14 19:36:53", updated_at: "2014-05-14 19:36:53"},
+  {id: 12, name: "Eral Bele", site_name: "Palabras De Tango", site_link: "http://palabrasdetango.wordpress.com/", created_at: "2014-05-14 20:43:32", updated_at: "2014-05-14 20:43:32"},
+  {id: 9, name: "Frank Schladitz ++", site_name: "Tango Rosetta", site_link: "http://www.tango-rosetta.com/", created_at: "2014-05-14 20:24:04", updated_at: "2014-05-14 20:24:04"},
+  {id: 10, name: "Johan", site_name: "Tangoletras", site_link: "http://users.telenet.be/tangoteca/letras/", created_at: "2014-05-14 20:25:56", updated_at: "2014-05-14 20:25:56"},
+  {id: 5, name: "Lucas Tango D.J.", site_name: "Embrujamiento", site_link: "http://embrujamiento.wordpress.com/", created_at: "2014-05-14 19:40:16", updated_at: "2014-05-14 19:40:16"},
+  {id: 6, name: "Michael Krugman", site_name: "Tango Decoder", site_link: "http://thesleepmeister.typepad.com/", created_at: "2014-05-14 19:40:42", updated_at: "2014-05-14 19:40:42"},
+  {id: 14, name: "Nathalie & Bruno", site_name: "Tanguito", site_link: "http://www.tanguito.co.uk/", created_at: "2014-05-14 20:46:13", updated_at: "2014-05-14 20:46:13"},
+  {id: 7, name: "Ozan Bulut", site_name: "Facebook (Notes)", site_link: "https://www.facebook.com/notes/ozan-bulut/", created_at: "2014-05-14 19:41:58", updated_at: "2014-05-14 19:41:58"},
+  {id: 13, name: "Rick Mcgarrey", site_name: "Tango & Chaos", site_link: "http://www.tangoandchaos.org/", created_at: "2014-05-14 20:44:17", updated_at: "2014-05-14 20:44:17"},
+  {id: 8, name: "Terpsichoral Tangoaddict", site_name: "Tango Addiction", site_link: "http://tangoaddiction.wordpress.com/", created_at: "2014-05-14 20:21:34", updated_at: "2014-05-14 20:21:34"}
+])
 Translation.create!([
   {id: 5, link: "http://www.eltangoteespera.com/2013/03/cascabelito.html", song_id: 47, created_at: "2014-05-07 20:57:45", updated_at: "2014-05-07 20:57:45", language_id: 1},
   {id: 25, link: "http://www.eltangoteespera.com/2012/09/cafe-de-los-angelitos.html", song_id: 35, created_at: "2014-05-07 20:57:45", updated_at: "2014-05-07 20:57:45", language_id: 1},

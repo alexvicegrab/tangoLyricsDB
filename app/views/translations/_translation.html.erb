@@ -1,6 +1,7 @@
 <tr>
 	<td><%= auto_link(translation.link) %></td>
 	<td><%= translation.language.iso %></td>
+	<td><%= translation.translator_id == 0 ? "Unknown" : Translator.find(translation.translator_id).site_name %></td>
 	<td>
 		<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
 												[translation.song, translation],

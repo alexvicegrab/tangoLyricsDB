@@ -48,7 +48,14 @@
 <div class="control-group">
 	<%= label_tag(:language_is, "Translation language:") %>
 	<div class="controls">
-		<%= select_tag :language_is, options_from_collection_for_select(Language.all, :id, :iso, params[:language_is]), include_blank: :true %> 
+		<%= select_tag :language_is, options_from_collection_for_select(Language.all, :id, :name, params[:language_is]), include_blank: :true %> 
+	</div>
+</div>
+
+<div class="control-group">
+	<%= label_tag(:translator_is, "Translation site:") %>
+	<div class="controls">
+		<%= select_tag :translator_is, options_from_collection_for_select(Translator.all, :id, :site_name, params[:translator_is]), include_blank: :true %> 
 	</div>
 </div>
 

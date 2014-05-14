@@ -16,6 +16,7 @@ class Song < ActiveRecord::Base
   scope :year_max, -> (year) { where("year <= ?", year) }
   scope :translation_num, -> (translations_count) { where("translations_count = ?", translations_count) }
   scope :language_is, -> (language_id) { joins(:translations).merge( Translation.where("language_id = ?", language_id) ) } 
+  scope :translator_is, -> (translator_id) { joins(:translations).merge( Translation.where("translator_id = ?", translator_id) ) } 
   
   # Validations
   validates :title,
