@@ -1,0 +1,20 @@
+<%= form_for @language, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+	<div class="control-group">
+    <%= f.label :iso, "ISO", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :iso, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                languages_path, :class => 'btn' %>
+  </div>
+<% end %>

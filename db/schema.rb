@@ -24,8 +24,11 @@ ActiveRecord::Schema.define(version: 20140511140740) do
   end
 
   create_table "languages", force: true do |t|
-    t.string  "iso"
-    t.integer "translations_count"
+    t.string   "iso"
+    t.string   "name"
+    t.integer  "translations_count", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "songs", force: true do |t|

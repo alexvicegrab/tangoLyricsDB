@@ -10,6 +10,11 @@ class Language < ActiveRecord::Base
   presence: true,
   uniqueness: { case_sensitive: false },
   length: { is: 2 }
+  
+  validates :name,
+  presence: true,
+  uniqueness: { case_sensitive: false },
+  length: { minimum: 3 }
     
   # Callbacks
   before_validation :normalise_language, on: [ :create, :update ]
@@ -17,6 +22,7 @@ class Language < ActiveRecord::Base
   protected
   def normalise_language
     # Remove white space, lower
+    self.name = self.name.lstrip.downcase.titleize
     self.iso = self.iso.lstrip.downcase
   end  
   
