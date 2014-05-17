@@ -9,7 +9,7 @@
       <th><%= model_class.human_attribute_name(:site_name) %></th>
       <th><%= model_class.human_attribute_name(:site_link) %></th>
       <th><%= "T#" %></th>
-      <th><%=t '.actions', :default => t("helpers.managing") %></th>
+      <th><%=t '.actions', :default => t("helpers.actions!") %></th>
     </tr>
   </thead>
   <tbody>
@@ -20,9 +20,9 @@
         <td><%= auto_link(translator.site_link) %></td>
         <td><%= translator.translations.size %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <%= link_to raw('<i class="icon-edit icon-white"></i>'),
                       edit_translator_path(translator), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.del")),
+          <%= link_to raw('<i class="icon-remove icon-white"></i>'),
                       translator_path(translator),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

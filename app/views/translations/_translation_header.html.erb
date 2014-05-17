@@ -1,8 +1,8 @@
 <% if flash[:translation_success] %>
-    <div class="notice"><%= flash[:translation_success] %></div>
+    <div class="alert alert-success"><%= flash[:translation_success] %></div>
 <% end %>
 <% if flash[:translation_error] %>
-    <div id="error_explanation"><%= flash[:translation_error] %></div>
+    <div class="alert alert-danger"><%= flash[:translation_error] %></div>
 <% end %>
 
 <%- model_class = Translation -%>
@@ -12,7 +12,7 @@
       <th><%= model_class.human_attribute_name(:link) %></th>
 			<th><%= model_class.human_attribute_name(:iso).upcase %></th>
 			<th><%= model_class.human_attribute_name(:translator) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%=t '.actions', :default => t("helpers.actions!") %></th>
     </tr>
   </thead>
   <tbody>

@@ -7,7 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
 			<th><%= "Song #" %></th>
-      <th><%=t '.actions', :default => t("helpers.managing") %></th>
+      <th><%=t '.actions', :default => t("helpers.actions!") %></th>
     </tr>
   </thead>
   <tbody>
@@ -16,9 +16,9 @@
         <td><%= link_to genre.name, genre_path(genre) %></td>
 				<td><%= genre.songs.size %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <%= link_to raw('<i class="icon-edit icon-white"></i>'),
                       edit_genre_path(genre), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.del")),
+          <%= link_to raw('<i class="icon-remove icon-white"></i>'),
                       genre_path(genre),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

@@ -34,6 +34,6 @@
 <%= render "translations/translation_footer" %>
  
 <h2>Add a translation:</h2>
-<%= render "translations/form" %>
-
-
+<%= form_for [@song, @song.translations.build], :html => { :class => 'form-horizontal' } do |f| %>
+	<%= render "translations/form", :f => f %>
+<% end %>
