@@ -12,9 +12,9 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              languages_path, :class => 'btn'  %>
+              languages_path, :class => 'btn btn-default'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_language_path(@language), :class => 'btn' %>
+              edit_language_path(@language), :class => 'btn btn-warning' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               language_path(@language),
               :method => 'delete',

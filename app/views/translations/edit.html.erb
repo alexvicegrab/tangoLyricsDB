@@ -10,6 +10,6 @@
     <div class="alert alert-danger"><%= flash[:translation_error] %></div>
 <% end %>
 
-<%= form_for [@song, @translation], :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for [@song, @translation], :html => { class: 'form-horizontal' } do |f| %>
 	<%= render :partial => 'form', object: f, as: 'f' %>
 <% end %>

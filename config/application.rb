@@ -24,5 +24,8 @@ module TangoLyricsDB
     
     # Add custom validators path
     config.autoload_paths += %W["#{config.root}/app/validators/"]
+    
+    # Auto-precompile images
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end

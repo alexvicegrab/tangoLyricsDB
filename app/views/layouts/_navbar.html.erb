@@ -1,9 +1,23 @@
-<%= nav_bar :fixed => :top, :brand => "Tango Translation DB", :responsive => true do %>
-	<%= menu_group do %>
-		<%= menu_divider %>
-		<%= menu_item "Songs", songs_path %>
-		<%= menu_item "Translators", translators_path %>
-		<%= menu_item "Languages", languages_path %>
-		<%= menu_item "Genres", genres_path %>
-	<% end %>
-<% end %>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#TTD_main_navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+			<%= link_to "Tango Translation DB", root_path, class: "navbar-brand" %>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="TTD_main_navbar">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Songs", songs_path %></li>
+        <li><%= link_to "Translators", translators_path %></li>
+				<li><%= link_to "Languages", languages_path %></li>
+				<li><%= link_to "Genres", genres_path %></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

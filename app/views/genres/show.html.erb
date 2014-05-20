@@ -10,9 +10,9 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              genres_path, :class => 'btn'  %>
+              genres_path, :class => 'btn btn-default'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_genre_path(@genre), :class => 'btn' %>
+              edit_genre_path(@genre), :class => 'btn btn-warning' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               genre_path(@genre),
               :method => 'delete',

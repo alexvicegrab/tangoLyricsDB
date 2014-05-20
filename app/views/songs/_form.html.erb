@@ -1,42 +1,42 @@
-<%= form_for @song, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @song, :html => { class: 'form-horizontal' } do |f| %>
 	
 <%= render partial: 'shared/error', locals: {f: @song} %>
 		
-<div class="control-group">
-	<%= f.label :title, :class => 'control-label' %>
-	<div class="controls">
-		<%= f.text_field :title, :class => 'text_field' %>
+<div class="form-group">
+	<%= f.label :title, class: 'col-sm-2 control-label' %>
+	<div class="col-sm-10">
+		<%= f.text_field :title, class: 'form-control' %>
 	</div>
 </div>
-<div class="control-group">
-	<%= f.label :genre, :class => 'control-label' %>
-	<div class="controls">
-		<%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true %>
+<div class="form-group">
+	<%= f.label :genre, class: 'col-sm-2 control-label' %>
+	<div class="col-sm-10">
+		<%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: true}, {class: 'form-control'} %>
 	</div>
 </div>
-<div class="control-group">
-	<%= f.label :composer, :class => 'control-label' %>
-	<div class="controls">
-		<%= f.text_field :composer, :class => 'text_field' %>
+<div class="form-group">
+	<%= f.label :composer, class: 'col-sm-2 control-label' %>
+	<div class="col-sm-10">
+		<%= f.text_field :composer, class: 'form-control' %>
 	</div>
 </div>
-<div class="control-group">
-	<%= f.label :lyricist, :class => 'control-label' %>
-	<div class="controls">
-		<%= f.text_field :lyricist, :class => 'text_field' %>
+<div class="form-group">
+	<%= f.label :lyricist, class: 'col-sm-2 control-label' %>
+	<div class="col-sm-10">
+		<%= f.text_field :lyricist, class: 'form-control' %>
 	</div>
 </div>
-<div class="control-group">
-	<%= f.label :year, :class => 'control-label' %>
-	<div class="controls">
-		<%= f.text_field :year, :class => 'text_field' %>
+<div class="form-group">
+	<%= f.label :year, class: 'col-sm-2 control-label' %>
+	<div class="col-sm-10">
+		<%= f.text_field :year, class: 'form-control' %>
 	</div>
 </div>
 
-<div class="form-actions">
-	<%= f.submit nil, :class => 'btn btn-primary' %>
+<div class="form-group">
+	<%= f.submit nil, class: 'btn btn-primary' %>
 	<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-	songs_path, :class => 'btn' %>
+	songs_path, class: 'btn btn-default' %>
 </div>
 <% end %>
 

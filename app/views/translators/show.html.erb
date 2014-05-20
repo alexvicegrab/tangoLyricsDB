@@ -14,9 +14,9 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              translators_path, :class => 'btn'  %>
+              translators_path, :class => 'btn btn-default'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_translator_path(@translator), :class => 'btn' %>
+              edit_translator_path(@translator), :class => 'btn btn-warning' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               translator_path(@translator),
               :method => 'delete',

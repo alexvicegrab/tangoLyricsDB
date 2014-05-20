@@ -1,23 +1,24 @@
-<%= form_for @language, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @language, :html => { class: 'form-horizontal' } do |f| %>
 
 	<%= render partial: 'shared/error', locals: {f: @language} %>
-
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
+	
+  <div class="form-group">
+    <%= f.label :name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: 'form-control' %>
     </div>
   </div>
-	<div class="control-group">
-    <%= f.label :iso, "ISO", :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :iso, :class => 'text_field' %>
+	
+	<div class="form-group">
+    <%= f.label :iso, "ISO", class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :iso, class: 'form-control' %>
     </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+  <div class="form-group">
+    <%= f.submit nil, class: 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                languages_path, :class => 'btn' %>
+                languages_path, class: 'btn btn-default' %>
   </div>
 <% end %>

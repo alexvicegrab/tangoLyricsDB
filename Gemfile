@@ -50,10 +50,13 @@ gem 'redcarpet', '~> 2.1.1'
 gem 'nokogiri'
 
 # Required by twitter-bootstrap-rails:
-gem 'twitter-bootstrap-rails'
-gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+#gem 'twitter-bootstrap-rails'
+#gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer',  platforms: :ruby
+#gem 'therubyracer',  platforms: :ruby
+
+# Oficial port of bootstrap into Sass
+gem 'bootstrap-sass'
 
 # Dump database to seed...!
 gem 'seed_dump'

@@ -1,21 +1,21 @@
 	<!-- Would like to catch errors here, but partial won't work, as page redirects to /songs/Nsong/translations, instead of back to /song/Nsong -->
 	
-	<div class="control-group">
-    <%= f.label :link, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :link, :class => 'text_field' %>
+	<div class="form-group">
+    <%= f.label :link, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :link, class: 'form-control' %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :language, :class => 'control-label' %>
-    <div class="controls">
-			<%= f.collection_select :language_id, Language.all, :id, :name, prompt: true %>
+  <div class="form-group">
+    <%= f.label :language, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+			<%= f.collection_select :language_id, Language.all, :id, :name, {prompt: true}, {class: 'form-control'} %>
     </div>
   </div>
   
-	<div class="form-actions">		
+	<div class="form-group">		
 		<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-		  <span class="icon-link icon-green"> Link translation</span>
+		  <span class="glyphicon glyphicon-link"> Link translation</span>
 		<% end %>
 		
   </div>
