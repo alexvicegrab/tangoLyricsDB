@@ -49,14 +49,22 @@
 </div>
 
 <div class="form-group">
-	<%= submit_tag("Find", :name => nil, :class => 'btn btn-info') %>
-	<%= link_to t('.clear', :default => t("helpers.links.clear")),
+	<div class="row">
+		<div class="col-xs-4">
+	<%= button_tag(type: 'submit', class: "btn btn-info") do %>
+	  <i class="glyphicon glyphicon-search"></i> <%= t('.search', :default => t("helpers.links.search")) %>
+	<% end %>
+	</div>
+	<div class="col-xs-4">
+	<%= link_to '<i class="glyphicon glyphicon-trash"></i> '.html_safe + t('.clear', :default => t("helpers.links.clear")),
 	songs_path, :class => 'btn btn-default'  %>
+		</div>
+	</div>
 </div>
 <div class="form-group">
-		<%= link_to t('.new', :default => t("helpers.links.new_song")),
+		<%= link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new")) + ' Song',
 		new_song_path,
-		:class => 'btn btn-primary' %>
+		:class => 'btn btn-warning' %>
 </div>
 
 <% end %>

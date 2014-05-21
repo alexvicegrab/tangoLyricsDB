@@ -15,7 +15,7 @@
       <th><%= model_class.human_attribute_name(:lyricist) %></th>
       <th><%= model_class.human_attribute_name(:year) %></th>
 			<th><%= "T#" %></th>
-      <th><%=t '.actions', :default => t("helpers.actions!") %></th>
+      <th class='action_column'><%=t '.actions', :default => t("helpers.actions!") %></th>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +27,7 @@
         <td><%= song.lyricist %></td>
         <td><%= song.year.nil? ? "" : song.year %></td>
 				<td><%= song.translations.size %></td>
-        <td>
+        <td class='action_column'>
           <%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'),
                       edit_song_path(song), :class => 'btn btn-xs btn-warning' %>
           <%= link_to raw('<i class="glyphicon glyphicon-remove"></i>'),

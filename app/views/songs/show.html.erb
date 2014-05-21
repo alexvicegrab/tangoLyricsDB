@@ -17,11 +17,11 @@
 </dl>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
+  <%= link_to '<i class="glyphicon glyphicon-chevron-left"></i> '.html_safe + t('.back', :default => t("helpers.links.back")),
               songs_path, :class => 'btn btn-default'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+  <%= link_to '<i class="glyphicon glyphicon-edit"></i> '.html_safe + t('.edit', :default => t("helpers.links.edit")),
               edit_song_path(@song), :class => 'btn btn-warning' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <%= link_to '<i class="glyphicon glyphicon-remove"></i> '.html_safe + t('.destroy', :default => t("helpers.links.destroy")),
               song_path(@song),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

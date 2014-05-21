@@ -66,3 +66,6 @@ gem 'i18n'
 
 # Analytics via Segment.io
 gem 'analytics-ruby', '~>1.0'
+
+# Auto-redirect from Heroku to the canonical web-page
+gem 'rack-canonical-host'

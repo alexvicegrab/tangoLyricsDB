@@ -7,7 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
 			<th><%= "Song #" %></th>
-      <th><%=t '.actions', :default => t("helpers.actions!") %></th>
+      <th class='action_column'><%=t '.actions', :default => t("helpers.actions!") %></th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +15,7 @@
       <tr>
         <td><%= link_to genre.name, genre_path(genre) %></td>
 				<td><%= genre.songs.size %></td>
-        <td>
+        <td class='action_column'>
           <%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'),
                       edit_genre_path(genre), :class => 'btn btn-xs btn-warning' %>
           <%= link_to raw('<i class="glyphicon glyphicon-remove"></i>'),
@@ -29,6 +29,6 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new_genre")),
+<%= link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new_genre")),
             new_genre_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-warning' %>

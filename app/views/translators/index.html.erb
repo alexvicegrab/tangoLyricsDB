@@ -9,7 +9,7 @@
       <th><%= model_class.human_attribute_name(:site_name) %></th>
       <th><%= model_class.human_attribute_name(:site_link) %></th>
       <th><%= "T#" %></th>
-      <th><%=t '.actions', :default => t("helpers.actions!") %></th>
+      <th class='action_column'><%=t '.actions', :default => t("helpers.actions!") %></th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +19,7 @@
         <td><%= link_to translator.site_name, translator_path(translator)%></td>
         <td><%= auto_link(translator.site_link) %></td>
         <td><%= translator.translations.size %></td>
-        <td>
+        <td class='action_column'>
           <%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'),
                       edit_translator_path(translator), :class => 'btn btn-xs btn-warning' %>
           <%= link_to raw('<i class="glyphicon glyphicon-remove"></i>'),
@@ -33,6 +33,6 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new_translator")),
+<%= link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new_translator")),
             new_translator_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-warning' %>

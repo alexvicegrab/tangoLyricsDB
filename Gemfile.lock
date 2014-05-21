@@ -27,6 +27,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     analytics-ruby (1.1.0)
     arel (5.0.1.20140414130214)
     bootstrap-sass (3.1.1.1)
@@ -69,6 +70,9 @@ GEM
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.5.2)
+    rack-canonical-host (0.1.0)
+      addressable
+      rack (~> 1.0)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.0)
@@ -146,6 +150,7 @@ DEPENDENCIES
   jquery-rails
   nokogiri
   pg
+  rack-canonical-host
   rails (= 4.1.0)
   rails_12factor
   rails_autolink

@@ -18,7 +18,7 @@
 
   <div class="form-group">
     <%= f.submit nil, class: 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <%= link_to '<i class="glyphicon glyphicon-trash"></i> '.html_safe + t('.cancel', :default => t("helpers.links.cancel")),
                 languages_path, class: 'btn btn-default' %>
   </div>
 <% end %>
