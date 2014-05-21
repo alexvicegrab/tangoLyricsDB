@@ -1,10 +1,13 @@
 <%- model_class = Song -%>
+
 <div class="page-header">
 	<h4 style="float:right">
-		Displaying <%= @songs.count.nil? ? 0 : @songs.count %> / <%= Song.count.nil? ? 0 : Song.count %>
+		Displaying <%= @resultsCount %> / <%= Song.count.nil? ? 0 : Song.count %>
 	</h4>
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+
+<%= paginate @songs, :theme => 'twitter-bootstrap-3' %>
 
 <table class="table table-striped">
   <thead>

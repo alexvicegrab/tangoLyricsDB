@@ -16,6 +16,10 @@ class SongsController < ApplicationController
     :translator_is ))
     # Do not repeat records
     @songs = @songs.distinct
+    
+    @resultsCount = @songs.count.nil? ? 0 : @songs.count
+    
+    @songs = @songs.page params[:page]
   end
   
   def new

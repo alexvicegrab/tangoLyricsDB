@@ -69,3 +69,7 @@ gem 'analytics-ruby', '~>1.0'
 
 # Auto-redirect from Heroku to the canonical web-page
 gem 'rack-canonical-host'
+
+# Pagination for results
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
