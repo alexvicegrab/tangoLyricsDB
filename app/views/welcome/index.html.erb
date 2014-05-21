@@ -1,6 +1,6 @@
 <h2>Tango Translation Database</h2>
 <p>
-	This database is meant to serve as a repository to link up all translation efforts in the Argentine Tango community. Please bear in mind that is under development!
+	This repository links translation efforts in the Argentine Tango community.
 </p>
 <p>
 	You don't need admin rights to:
@@ -17,17 +17,13 @@
 </ul>
 </p>
 <p>
-If you wish to provide me with <b>feedback</b> or obtain <b>admin rights</b>, please write to me on <a href="https://www.facebook.com/DjAlejandroSasha">Facebook</a>
+<b>Feedback</b> and <b>admin rights</b> requests: <a href="https://www.facebook.com/DjAlejandroSasha">contact me</a>
 </p>
-
-<%= link_to t('.songs', :default => t("helpers.links.enter_database")),
-songs_path, :class => 'btn btn-primary'  %>
-
-<style>
-.spacer{
-margin-bottom: 1.5cm;
-}
-</style>
+<p class="spacer"><p>
+	<div class="text-center">
+<%= link_to raw('<i class="glyphicon glyphicon-book"></i> ') + t('.songs', :default => t("helpers.links.enter_database")),
+songs_path, :class => 'btn btn-primary btn-lg'  %>
+</div>
 <p class="spacer"><p>
 <p>
 	This webapp is being developed using...
