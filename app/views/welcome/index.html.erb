@@ -1,37 +1,20 @@
 <h2>Tango Translation Database</h2>
+
 <p>
-	This repository links translation efforts in the Argentine Tango community.
+	This repository links translation efforts in the Argentine Tango community
 </p>
+
 <p>
-	You don't need admin rights to:
+	If confused, please check out the <%= link_to "Usage", usage_path %> tab on the top right!
 </p>
-<ul>
-	<li>Add <em>translations</em> (please specify the language correctly)</li>
-</ul>
-<p>
-	You do need admin rights to:
-</p>
-<ul>
-	<li>Add <em>songs</em></li>
-	<li>Add translation <em>languages</em></li>
-</ul>
-</p>
+
 <p>
 <b>Feedback</b> and <b>admin rights</b> requests: <a href="https://www.facebook.com/DjAlejandroSasha">contact me</a>
 </p>
-<p class="spacer"><p>
-	<div class="text-center">
-<%= link_to raw('<i class="glyphicon glyphicon-book"></i> ') + t('.songs', :default => t("helpers.links.enter_database")),
-songs_path, :class => 'btn btn-primary btn-lg'  %>
-</div>
-<p class="spacer"><p>
-<p>
-	This webapp is being developed using...
-</p>
-<div>
-	<%= link_to image_tag('rails.png', height: 150, width: 118), "http://rubyonrails.org"  %>
-	<%= link_to image_tag('heroku.png', height: 150, width: 118), "https://www.heroku.com"  %>
-	<%= link_to image_tag('octocat.png', height: 150, width: 118), "https://github.com/"  %>
-	<%= link_to image_tag('bootstrap.png', height: 150, width: 118), "http://getbootstrap.com/"  %>
 
+<p class="spacer"><p>
+
+<div class="text-center">
+	<%= link_to raw('<i class="glyphicon glyphicon-book"></i> ') + t('.songs', :default => t("helpers.links.enter_database")),
+songs_path, :class => 'btn btn-primary btn-lg' %>
 </div>
