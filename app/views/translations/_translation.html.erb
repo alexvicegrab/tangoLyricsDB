@@ -1,8 +1,8 @@
 <tr>
-	<td><%= auto_link(translation.link) %></td>
+	<td><%= link_to URI.decode_www_form_component(translation.link), translation.link %></td>
 	<td><%= translation.language.iso %></td>
-	<td><%= translation.translator_id == 0 ? "Unknown" : Translator.find(translation.translator_id).site_name %></td>
-	<td>
+	<td><%= translation.translator_id == 0 ? "[Not categorised]" : Translator.find(translation.translator_id).site_name %></td>
+	<td class='action_column'>
     <%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'),
                 edit_song_translation_path(translation.song, translation),  :class => 'btn btn-xs btn-warning' %>
 		<%= link_to raw('<i class="glyphicon glyphicon-remove"></i>'),
