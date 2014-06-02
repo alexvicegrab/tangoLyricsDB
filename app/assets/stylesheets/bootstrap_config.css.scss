@@ -1,5 +1,7 @@
 @import "bootstrap";
 
+body { padding-top: 51px; }
+
 .navbar {
 	margin-bottom:0;
 }
@@ -10,4 +12,8 @@
 
 .spacer {
 	margin-bottom: 1cm;
+}
+
+#sidebar {
+	background-color: #f0f0f0;
 }

@@ -2,7 +2,7 @@ class Translator < ActiveRecord::Base
   has_many :translations
   
   # Scopes
-  default_scope { order('name') }
+  default_scope { order('site_name') }
   
   # Validations
   validates :name,

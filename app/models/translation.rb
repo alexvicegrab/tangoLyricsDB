@@ -4,7 +4,7 @@ class Translation < ActiveRecord::Base
   belongs_to :translator, counter_cache: true
   
   # Scopes
-  default_scope { order('created_at') }
+  default_scope { joins(:language).order('iso') }
   
   # Validations
   validates :link,
