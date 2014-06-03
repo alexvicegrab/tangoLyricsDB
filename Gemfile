@@ -72,4 +72,4 @@ gem 'rack-canonical-host'
 
 # Pagination for results
 gem 'kaminari'
-gem 'bootstrap-kaminari-views'
+gem 'bootstrap-kaminari-views', :git => 'https://github.com/barock19/bootstrap-kaminari-views.git'

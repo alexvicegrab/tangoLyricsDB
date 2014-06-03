@@ -1,0 +1,22 @@
+<nav id="footer" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#TTD_footer_navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="TTD_footer_navbar">
+			<ul class="nav navbar-nav">
+				<%= paginate @songs, theme: 'twitter-bootstrap-3', :pagination_class => 'pagination-sm' if current_page?(songs_path) %>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="navbar-link"><%= link_to "TTDB by... DJ Alejandro Sasha", "http://www.eltangoteespera.com/p/dj-sasha-el-tordo-cv.html" %></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

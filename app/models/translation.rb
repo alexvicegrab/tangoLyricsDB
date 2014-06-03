@@ -4,7 +4,8 @@ class Translation < ActiveRecord::Base
   belongs_to :translator, counter_cache: true
   
   # Scopes
-  default_scope { joins(:language).order('iso') }
+  # Next line overrides scoping in song Model, hence commented out
+  # default_scope { order('created_at') }
   
   # Validations
   validates :link,
