@@ -19,7 +19,8 @@ body { padding-top: 51px; }
 }
 
 .pagination {
-	margin: 10px;
+	margin-top: 10px;
+	margin-bottom: 0px;
 }
 
 #footer .navbar-nav > li > a {
@@ -27,5 +28,5 @@ body { padding-top: 51px; }
 }
 
 #footer {
-	height:40px;
+	min-height:40px;
 }
