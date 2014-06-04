@@ -4,7 +4,7 @@ class TranslationsController < ApplicationController
   http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show, :create]
   
   def create
-    @song = Song.find(params[:song_id]).joins(:language).order('iso') 
+    @song = Song.find(params[:song_id])
     @translation = @song.translations.new(translation_params)
     if @translation.save
       flash[:translation_success] = "Thank you for adding a new translation!"
