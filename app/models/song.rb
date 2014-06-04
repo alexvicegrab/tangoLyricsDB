@@ -50,7 +50,7 @@ class Song < ActiveRecord::Base
     self.composer = I18n.transliterate(self.composer.lstrip.downcase.titleize)
     self.lyricist = I18n.transliterate(self.lyricist.lstrip.downcase.titleize)
     # Fix "D'a" to "D'A" in composer & lyricist
-    self.composer = self.composer.gsub("D'a", "D'A")
-    self.lyricist = self.lyricist.gsub("D'a", "D'A")
+    self.composer = self.composer.gsub("D'a", "d'A")
+    self.lyricist = self.lyricist.gsub("D'a", "d'A")
   end  
 end

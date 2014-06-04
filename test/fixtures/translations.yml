@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  link: MyString
-  song_id: 
+  id: 1
+  link: http://www.google.com/rojo
+  song_id: 2
 
 two:
-  link: MyString
-  song_id: 
+  id: 2
+  link: https://github.com/verde
+  song_id: 1

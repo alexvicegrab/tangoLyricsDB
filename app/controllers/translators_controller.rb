@@ -1,7 +1,7 @@
 class TranslatorsController < ApplicationController
   before_action :set_translator, only: [:show, :edit, :update, :destroy]
   
-  http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show]
+  http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show] if Rails.env.production?
   
   def index
     @translators = Translator.all

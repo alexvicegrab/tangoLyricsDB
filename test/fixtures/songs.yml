@@ -1,11 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  composer: MyString
-  lyricist: MyString
+  id: 1
+  title: de vuelta al bUlincillo
+  composer: Juan D'Arienzo
+  lyricist: Enrique Cadícamo
+  year: 1921
+  genre_id: 1
 
 two:
-  title: MyString
-  composer: MyString
-  lyricist: MyString
+  id: 2
+  title: En la heulla del PoBrE
+  composer: SERENO ARGELIO
+  lyricist: Angel D'Agostino
+  year: 1934
+  genre_id: 3

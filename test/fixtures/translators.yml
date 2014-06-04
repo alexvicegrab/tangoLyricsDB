@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  site_name: MyString
-  site_link: MyString
-  translations_count: 1
+  id: 1
+  name: "penelope rojas"
+  site_name: "tango rojo"
+  site_link: http://www.google.com/
+  translations_count: 0
 
 two:
-  name: MyString
-  site_name: MyString
-  site_link: MyString
-  translations_count: 1
+  id: 2
+  name: "pino verde"
+  site_name: "verde MAR"
+  site_link: https://github.com/
+  translations_count: 0

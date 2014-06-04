@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  id: 1
+  name: Tango
 
 two:
-  name: MyString
+  id: 2
+  name: Vals
+
+three:
+  id: 3
+  name: Milonga

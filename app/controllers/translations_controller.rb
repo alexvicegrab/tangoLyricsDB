@@ -1,7 +1,7 @@
 class TranslationsController < ApplicationController
   before_action :set_translation, only: [:edit, :update, :destroy]
   
-  http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show, :create]
+  http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show, :create] if Rails.env.production?
   
   def create
     @song = Song.find(params[:song_id])
