@@ -24,8 +24,8 @@ class Translation < ActiveRecord::Base
     
   protected
   def normalise_translation
-    # Remove white space, lower
-    self.link = self.link.lstrip.downcase
+    # Remove white space
+    self.link = self.link.lstrip
   end
   
   def define_translator

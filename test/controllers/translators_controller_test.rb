@@ -18,9 +18,9 @@ class TranslatorsControllerTest < ActionController::TestCase
 
   test "should create translator" do
     assert_difference('Translator.count') do
-      post :create, translator: { name: "Sol Amarillo", #@translator.name,
-        site_link: "http://www.lalalala.com", #@translator.site_link,
-        site_name: "Sol Tango" } #@translator.site_name }
+      post :create, translator: { name: [@translator.name, 'differentName'].join(' '),
+        site_link: [@translator.site_link, 'differentWebsite'].join(''),
+        site_name: @translator.site_name }
     end
 
     assert_redirected_to translator_path(assigns(:translator))
