@@ -1,4 +1,6 @@
 class Translation < ActiveRecord::Base
+  include UrlHelper
+  
   belongs_to :song, counter_cache: true
   belongs_to :language, counter_cache: true
   belongs_to :translator, counter_cache: true
@@ -20,9 +22,18 @@ class Translation < ActiveRecord::Base
     
   # Callbacks
   before_validation :normalise_translation, on: [ :create, :update ]
-  after_validation :define_translator
-    
+  after_validation :define_translator, :check_link
+  
+  def self.save_all
+    # Useful to check that all translations are valid
+    Translation.all.each { |translation| translation.save! }
+  end
+  
   protected
+  def check_link
+    self.active = check_url(self.link)
+  end
+  
   def normalise_translation
     # Remove white space
     self.link = self.link.lstrip

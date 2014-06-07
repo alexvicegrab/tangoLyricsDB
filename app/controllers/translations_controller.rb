@@ -1,7 +1,17 @@
 class TranslationsController < ApplicationController
-  before_action :set_translation, only: [:edit, :update, :destroy]
+  include UrlHelper
   
-  http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show, :create] if Rails.env.production?
+  before_action :set_translation, only: [:show, :edit, :update, :destroy, :check_link]
+  
+  http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show, :create, :check_link] if Rails.env.production?
+  
+  def inactive
+    @translations = Translation.all
+    @translations = @translations.where(:active => false)
+  end
+  
+  def show
+  end
   
   def create
     @song = Song.find(params[:song_id])
@@ -15,6 +25,12 @@ class TranslationsController < ApplicationController
   end
   
   def edit
+  end
+  
+  def check_link
+    # Check if link is working
+    @translation.save # @translation.check_link performed inherently during save validation
+    redirect_to @song
   end
   
   def update
@@ -41,5 +57,4 @@ class TranslationsController < ApplicationController
     def translation_params
       params.require(:translation).permit(:link, :language_id)
     end
-    
 end
