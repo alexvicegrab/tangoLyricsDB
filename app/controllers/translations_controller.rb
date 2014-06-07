@@ -8,6 +8,7 @@ class TranslationsController < ApplicationController
   def inactive
     @translations = Translation.all
     @translations = @translations.where(active: [false, nil])
+    @translations = @translations.order('active')
   end
   
   def show
