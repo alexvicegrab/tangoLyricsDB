@@ -30,7 +30,7 @@ class TranslationsController < ApplicationController
   def check_link
     # Check if link is working
     @translation.save # @translation.check_link performed inherently during save validation
-    redirect_to @song
+    redirect_to(:back)
   end
   
   def update
