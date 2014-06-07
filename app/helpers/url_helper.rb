@@ -10,7 +10,7 @@ module UrlHelper
       end
     rescue => e 
       Rails.logger.warn "UrlHelper::check_url error #{e}"
-      return false
+      return nil
     end
 
     # Handle redirects if you need to
