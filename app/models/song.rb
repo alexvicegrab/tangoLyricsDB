@@ -26,7 +26,7 @@ class Song < ActiveRecord::Base
   
   validates :genre_id,
   presence: true,
-  numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: Genre.maximum(:id)}
+  numericality: { only_integer: true, greater_than_or_equal_to: 1 }
     
   validates :year,
   allow_nil: true,

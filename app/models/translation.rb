@@ -18,7 +18,7 @@ class Translation < ActiveRecord::Base
   
   validates :language_id,
   presence: true,
-  numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: Language.maximum(:id)}
+  numericality: { only_integer: true, greater_than_or_equal_to: 1 }
     
   # Callbacks
   before_validation :normalise_translation, on: [ :create, :update ]
