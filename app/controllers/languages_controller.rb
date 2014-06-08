@@ -13,10 +13,14 @@ class LanguagesController < ApplicationController
   
   def create
 		@language = Language.new(language_params)
-		if @language.save
-		  redirect_to @language
-    else
-      render 'new'
+		respond_to do |format|
+      if @language.save
+        format.html { redirect_to @language, notice: 'Language was successfully created' }
+        format.json { render :show, status: :created, location: @language }
+      else
+        format.html { render :new }
+        format.json { render json: @language.errors, status: :unprocessable_entity }
+      end
     end
   end
   
@@ -26,18 +30,24 @@ class LanguagesController < ApplicationController
   def edit
   end
   
-  def update    
-		if @language.update(language_params)
-		  redirect_to @language
-    else
-      render 'edit'
+  def update
+    respond_to do |format|
+      if @language.update(language_params)
+        format.html { redirect_to @language, notice: 'Language was successfully updated' }
+        format.json { render :show, status: :ok, location: @language }
+      else
+        format.html { render :edit }
+        format.json { render json: @language.errors, status: :unprocessable_entity }
+      end
     end
   end
   
   def destroy
     @language.destroy
- 
-    redirect_to languages_path
+    respond_to do |format|
+      format.html { redirect_to languages_path, notice: 'Language was successfully destroyed' }
+      format.json { head :no_content }
+    end
   end
   
   private

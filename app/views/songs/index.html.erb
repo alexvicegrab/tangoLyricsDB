@@ -7,6 +7,8 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
+<%= render partial: 'shared/flash', locals: { f: flash } %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -16,7 +18,7 @@
       <th><%= model_class.human_attribute_name(:lyricist) %></th>
       <th><%= model_class.human_attribute_name(:year) %></th>
 			<th><%= "T#" %></th>
-      <th class='action_column'><%=t '.actions', :default => t("helpers.actions!") %></th>
+      <th class='action_column'><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -29,6 +31,8 @@
         <td><%= song.year.nil? ? "" : song.year %></td>
 				<td><%= song.translations.size %></td>
         <td class='action_column'>
+			    <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),
+			                song_path(song),  :class => 'btn btn-xs btn-default' %>
           <%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'),
                       edit_song_path(song), :class => 'btn btn-xs btn-warning' %>
           <%= link_to raw('<i class="glyphicon glyphicon-remove"></i>'),

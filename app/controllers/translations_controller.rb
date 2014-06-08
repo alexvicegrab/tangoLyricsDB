@@ -17,36 +17,47 @@ class TranslationsController < ApplicationController
   def create
     @song = Song.find(params[:song_id])
     @translation = @song.translations.new(translation_params)
-    if @translation.save
-      flash[:translation_success] = "Thank you for adding a new translation!"
-    else
-      flash[:translation_error] = @translation.errors.empty? ? "Error" : @translation.errors.full_messages.to_sentence
+    
+		respond_to do |format|
+      if @translation.save
+        format.html { redirect_to @song, notice: 'Thank you for adding a new translation!' }
+        format.json { render :show, status: :created, location: @translation }
+      else
+        flash[:error] = @translation.errors.full_messages.to_sentence
+        format.html { redirect_to @song }
+        format.json { render json: @translation.errors, status: :unprocessable_entity }
+      end
     end
-    redirect_to @song
   end
   
   def edit
   end
   
   def check_link
-    # Check if link is working
-    @translation.save # @translation.check_link performed inherently during save validation
+    # @translation.check_link performed inherently during save validation
+    @translation.save 
     redirect_to(:back)
   end
   
   def update
-    if @translation.update(translation_params)
-      flash[:translation_success] = "Thank you for updating the translation!"
-      redirect_to @song
-    else
-      flash[:translation_error] = @translation.errors.empty? ? "Error" : @translation.errors.full_messages.to_sentence
-      render 'edit'
+    respond_to do |format|
+      if @translation.update(translation_params)
+        format.html { redirect_to @song, notice: 'Translation was successfully updated' }
+        format.json { render :show, status: :ok, location: @translation }
+      else
+        flash[:error] = @translation.errors.full_messages.to_sentence
+        format.html { render :edit }
+        format.json { render json: @translation.errors, status: :unprocessable_entity }
+      end
     end
   end
     
   def destroy
     @translation.destroy
-    redirect_to @song
+    respond_to do |format|
+      format.html { redirect_to @song, notice: 'Translation was successfully destroyed' }
+      format.json { head :no_content }
+    end
   end
  
   private

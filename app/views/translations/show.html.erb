@@ -3,9 +3,13 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
+<%= render partial: 'shared/flash', locals: { f: flash } %>
+
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:active?) %>:</strong></dt>
-  <dd><%= @translation.active ? "Active" : "Inactive" %></dd>
+  <dd><%= render partial: 'translations/active', object: @translation, as: 'translation' %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:song) %>:</strong></dt>
+  <dd><%= link_to @translation.song.title, @translation.song %></dd>
   <dt><strong><%= model_class.human_attribute_name(:link) %>:</strong></dt>
   <dd><%= link_to URI.decode_www_form_component(@translation.link), @translation.link %></dd>
   <dt><strong><%= model_class.human_attribute_name(:language) %>:</strong></dt>

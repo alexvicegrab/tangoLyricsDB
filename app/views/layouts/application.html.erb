@@ -19,12 +19,17 @@
 	<%= render 'layouts/navbar' %>
 	<div class="container-fluid">
 		<div class="row">
-		      <div id="content" class="col-lg-9 col-md-9 col-sm-8 col-xs-7"><%= yield %>
+		      <div id="content" class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+						<%= yield %>
 						<p class="spacer">&nbsp</p>
 					</div>
 		      <div id="sidebar" class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
-		        <%= render 'layouts/search' %>
-						<%= render 'layouts/stats' %>
+						<div id="search">
+		        	<%= render 'layouts/search' %>
+						</div>
+						<div id="stats">
+							<%= render 'layouts/stats' %>
+						</div>
 		      </div>
 					<p class="spacer">&nbsp</p>
 		    </div>

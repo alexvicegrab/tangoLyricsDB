@@ -13,10 +13,14 @@ class GenresController < ApplicationController
   
   def create    
 		@genre = Genre.new(genre_params)
-		if @genre.save
-		  redirect_to @genre
-    else
-      render 'new'
+		respond_to do |format|
+      if @genre.save
+        format.html { redirect_to @genre, notice: 'Genre was successfully created' }
+        format.json { render :show, status: :created, location: @genre }
+      else
+        format.html { render :new }
+        format.json { render json: @genre.errors, status: :unprocessable_entity }
+      end
     end
   end
   
@@ -27,21 +31,27 @@ class GenresController < ApplicationController
   end
   
   def update
-		if @genre.update(genre_params)
-		  redirect_to @genre
-    else
-      render 'edit'
+		respond_to do |format|
+      if @genre.update(genre_params)
+        format.html { redirect_to @genre, notice: 'Genre was successfully updated' }
+        format.json { render :show, status: :ok, location: @genre }
+      else
+        format.html { render :new }
+        format.json { render json: @genre.errors, status: :unprocessable_entity }
+      end
     end
   end
   
   def destroy
     @genre.destroy
- 
-    redirect_to genres_path
+    respond_to do |format|
+      format.html { redirect_to genres_path, notice: 'Genre was successfully destroyed' }
+      format.json { head :no_content }
+    end
   end
   
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or constraints between actions
     def set_genre
       @genre = Genre.find(params[:id])
     end

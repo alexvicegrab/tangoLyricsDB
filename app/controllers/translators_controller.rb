@@ -23,7 +23,7 @@ class TranslatorsController < ApplicationController
 
     respond_to do |format|
       if @translator.save
-        format.html { redirect_to @translator, notice: 'Translator was successfully created.' }
+        format.html { redirect_to @translator, notice: 'Translator was successfully created' }
         format.json { render :show, status: :created, location: @translator }
       else
         format.html { render :new }
@@ -35,7 +35,7 @@ class TranslatorsController < ApplicationController
   def update
     respond_to do |format|
       if @translator.update(translator_params)
-        format.html { redirect_to @translator, notice: 'Translator was successfully updated.' }
+        format.html { redirect_to @translator, notice: 'Translator was successfully updated' }
         format.json { render :show, status: :ok, location: @translator }
       else
         format.html { render :edit }
@@ -47,7 +47,7 @@ class TranslatorsController < ApplicationController
   def destroy
     @translator.destroy
     respond_to do |format|
-      format.html { redirect_to translators_url }
+      format.html { redirect_to translators_url, notice: 'Translator was successfully destroyed' }
       format.json { head :no_content }
     end
   end

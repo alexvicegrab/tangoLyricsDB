@@ -2,6 +2,9 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+
+<%= render partial: 'shared/flash', locals: { f: flash } %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -9,7 +12,7 @@
       <th><%= model_class.human_attribute_name(:site_name) %></th>
       <th><%= model_class.human_attribute_name(:site_link) %></th>
       <th><%= "T#" %></th>
-      <th class='action_column'><%=t '.actions', :default => t("helpers.actions!") %></th>
+      <th class='action_column'><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +23,8 @@
         <td><%= auto_link(translator.site_link) %></td>
         <td><%= translator.translations.size %></td>
         <td class='action_column'>
+			    <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),
+			                translator_path(translator),  :class => 'btn btn-xs btn-default' %>
           <%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'),
                       edit_translator_path(translator), :class => 'btn btn-xs btn-warning' %>
           <%= link_to raw('<i class="glyphicon glyphicon-remove"></i>'),

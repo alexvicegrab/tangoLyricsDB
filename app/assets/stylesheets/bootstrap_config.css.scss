@@ -7,7 +7,7 @@ body { padding-top: 51px; }
 }
 
 .action_column {
-	text-align:right;
+	width: 96px;
 }
 
 .spacer {
@@ -15,7 +15,14 @@ body { padding-top: 51px; }
 }
 
 #sidebar {
-	background-color: #f0f0f0;
+	padding: 0px;
+}
+
+#search, #stats {
+	background-color: #e0e0e0;
+	border-radius: 15px;
+	padding: 10px;
+	margin: 6px;
 }
 
 .pagination {
@@ -29,4 +36,8 @@ body { padding-top: 51px; }
 
 #footer {
 	min-height:40px;
+}
+
+.btn-circle {
+	border-radius: 50%;
 }
