@@ -1,11 +1,5 @@
 <%- model_class = Song -%>
-
-<div class="page-header">
-	<h4 style="float:right">
-		Displaying <%= @resultsCount %> / <%= Song.count.nil? ? 0 : Song.count %>
-	</h4>
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
+<%= render partial: 'shared/title', locals: { model_class: model_class } %>
 
 <%= render partial: 'shared/flash', locals: { f: flash } %>
 

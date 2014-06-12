@@ -14,6 +14,11 @@ body { padding-top: 51px; }
 	margin-bottom: 1cm;
 }
 
+.pagination {
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
 #sidebar {
 	padding: 0px;
 }
@@ -23,11 +28,6 @@ body { padding-top: 51px; }
 	border-radius: 15px;
 	padding: 10px;
 	margin: 6px;
-}
-
-.pagination {
-	margin-top: 10px;
-	margin-bottom: 0px;
 }
 
 #footer .navbar-nav > li > a {

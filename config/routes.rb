@@ -14,9 +14,10 @@ Rails.application.routes.draw do
   
   resources :genres
   
-  root 'welcome#index'
+  root 'songs#index'
   
-  get 'thanks' => 'welcome#thanks'
+  get 'about' => 'welcome#about'
+  get 'stats' => 'welcome#stats'
   get 'usage' => 'welcome#usage'
   
   get 'inactive_translations' => 'translations#inactive', :as => :inactive_translations
