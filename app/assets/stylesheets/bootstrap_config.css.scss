@@ -4,10 +4,14 @@ body { padding-top: 51px; }
 
 .navbar {
 	margin-bottom:0;
+	img {
+		margin-top: -14px;
+	}
 }
 
 .action_column {
 	width: 96px;
+	min-width: 96px;
 }
 
 .spacer {
@@ -31,11 +35,11 @@ body { padding-top: 51px; }
 }
 
 #footer .navbar-nav > li > a {
-	padding-top:15px;
+	padding-top: 15px;
 }
 
 #footer {
-	min-height:40px;
+	min-height: 40px;
 }
 
 .btn-circle {
