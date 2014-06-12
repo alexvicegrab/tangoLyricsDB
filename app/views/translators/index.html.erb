@@ -6,6 +6,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+			<th class='search_column'><%= "Search" %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:site_name) %></th>
       <th><%= model_class.human_attribute_name(:site_link) %></th>
@@ -16,6 +17,8 @@
   <tbody>
     <% @translators.each do |translator| %>
       <tr>
+				<td class='search_column'><%= link_to raw('<i type="button" class="glyphicon glyphicon-search"></i>'),
+					songs_path(:params => {:translator_is => translator.id}), :class => 'btn btn-xs btn-info btn-circle'%></td>
         <td><%= translator.name %></td>
         <td><%= link_to translator.site_name, translator_path(translator)%></td>
         <td><%= auto_link(translator.site_link) %></td>

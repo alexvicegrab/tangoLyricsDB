@@ -6,6 +6,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+			<th class='search_column'><%= "Search" %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
 			<th><%= "Song #" %></th>
       <th class='action_column'><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -14,6 +15,8 @@
   <tbody>
     <% @genres.each do |genre| %>
       <tr>
+				<td class='search_column'><%= link_to raw('<i type="button" class="glyphicon glyphicon-search"></i>'), 
+					songs_path(:params => {:genre_is => genre.id}), :class => 'btn btn-xs btn-info btn-circle'%></td>
         <td><%= link_to genre.name, genre_path(genre) %></td>
 				<td><%= genre.songs.size %></td>
         <td class='action_column'>
