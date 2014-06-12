@@ -19,6 +19,14 @@
 	<li><b>Year</b> of composition <small>[if in doubt, choose earliest date]</small></li>
 </ol>
 
+<h3>Link check</h3>
+The translation view has buttons indicating the status of each translation link. To re-check the translation link, click on the button. The different buttons specify translations that...
+<ul>
+	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-ok"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-success btn-circle' %> are active and accessible</li>
+	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-exclamation-sign"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-warning btn-circle' %> fail the check due to accessibility issues (e.g. translations on Facebook)</li>
+	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-exclamation-sign"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-danger btn-circle' %> cannot be found</li>
+</ul>
+
 <h3>Resources</h3>
 <ul>
 	<li><a href="http://www.todotango.com/">Todo Tango</a>, great archive of info. First resource to find your song info!</li>
@@ -26,6 +34,7 @@
 	<li><a href="http://sadaic.org.ar/">SADAIC</a> is useful if neither of the above have info on the composer/lyricist or year. Bear in mind it is not only for tango lists first the family name and then proper name.</li>
 	<li><a href="http://www.hermanotango.com.ar/">Hermano Tango</a>, the place to go if you want to find a song to translate.</li>
 </ul>
+
 <h3>Admin rights</h3>
 <p>
 	You <b>don't</b> need admin rights to:

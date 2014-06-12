@@ -2,4 +2,6 @@
 
 <%= column_chart Language.unscoped.order("name").joins(:translations).group("name").count, library: {fontSize: 20,  hAxis: {title: 'Language'}, vAxis: {title: 'Number of translations'},} %>
 
+<%= column_chart Genre.unscoped.order("name").joins(:songs).group("name").count, library: {fontSize: 20,  hAxis: {title: 'Genre'}, vAxis: {title: 'Number of songs'},} %>
+
 <%= column_chart Song.unscoped.group(:translations_count).count, library: {fontSize: 20,  hAxis: {title: 'Number of translations'}, vAxis: {title: 'Number of songs'},} %>
