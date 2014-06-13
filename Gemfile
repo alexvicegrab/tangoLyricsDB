@@ -52,8 +52,9 @@ gem 'nokogiri'
 # Oficial port of bootstrap into Sass
 gem 'bootstrap-sass'
 
-# Elusive icons for bootstrap
+# Elusive icons for bootstrap (and static assets to support it)
 gem 'elusive-icons-sass-rails'
+gem 'rails_serve_static_assets', group: [:production]
 
 # Dump database to seed...!
 gem 'seed_dump'
