@@ -178,7 +178,6 @@ DEPENDENCIES
   rails (= 4.1.0)
   rails_12factor
   rails_autolink
-  rails_serve_static_assets
   redcarpet (~> 2.1.1)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
