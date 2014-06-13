@@ -54,7 +54,7 @@ gem 'bootstrap-sass'
 
 # Elusive icons for bootstrap
 gem 'elusive-icons-sass-rails'
-gem 'rails_serve_static_assets', group: :production
+gem 'rails_serve_static_assets'
 
 # Dump database to seed...!
 gem 'seed_dump'
