@@ -59,6 +59,9 @@ GEM
       debugger-ruby_core_source (~> 1.3.2)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.3.4)
+    elusive-icons-sass-rails (1.0.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -164,6 +167,7 @@ DEPENDENCIES
   chartkick
   coffee-rails (~> 4.0.0)
   debugger
+  elusive-icons-sass-rails
   i18n
   jbuilder (~> 2.0)
   jquery-rails

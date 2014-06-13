@@ -1,6 +1,13 @@
 @import "bootstrap";
+@import "elusive-webfont";
 
 body { padding-top: 51px; }
+
+.el {
+	font-size: 32px;
+	margin: 0px;
+	padding: 0px;
+}
 
 .navbar {
 	margin-bottom:0;
@@ -39,7 +46,10 @@ body { padding-top: 51px; }
 }
 
 #footer .navbar-nav > li > a {
-	padding-top: 15px;
+	padding-top: 12px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 10px;
 }
 
 #footer {
