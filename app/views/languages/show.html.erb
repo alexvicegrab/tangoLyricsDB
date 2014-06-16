@@ -10,7 +10,9 @@
   <dd><%= @language.name %></dd>
   <dt><strong><%= "ISO" %>:</strong></dt>
   <dd><%= @language.iso %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:Search) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:count) %>:</strong></dt>
+  <dd><%= @language.translations.size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:search) %>:</strong></dt>
   <dd><%= render partial: 'shared/search_icon', locals: { f: @language } %></dd>
 </dl>
 

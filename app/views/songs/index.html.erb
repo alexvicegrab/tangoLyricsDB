@@ -19,7 +19,7 @@
     <% @songs.each do |song| %>
       <tr>
         <td><%= link_to song.title, song_path(song) %></td>
-				<td><%= song.genre.blank? ? "N/A" : song.genre.name %></td>
+				<td><%= song.genre.blank? ? "N/A" : link_to(song.genre.name, genre_path(song.genre.id)) %></td>
         <td><%= song.composer %></td>
         <td><%= song.lyricist %></td>
         <td><%= song.year.nil? ? "" : song.year %></td>

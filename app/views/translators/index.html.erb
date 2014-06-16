@@ -6,7 +6,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-			<th class='search_column'><%= "Search" %></th>
+			<th class='search_column'><%= model_class.human_attribute_name(:search) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:site_name) %></th>
       <th><%= model_class.human_attribute_name(:site_link) %></th>
