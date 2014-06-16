@@ -16,8 +16,7 @@
   <tbody>
     <% @languages.each do |language| %>
       <tr>
-				<td class='search_column'><%= link_to raw('<i type="button" class="glyphicon glyphicon-search"></i>'), 
-					songs_path(:params => {:language_is => language.id}), :class => 'btn btn-xs btn-info btn-circle'%></td>
+				<td class='search_column'><%= render partial: 'shared/search_icon', locals: { f: language } %></td>
 				<td><%= link_to language.name, language_path(language) %></td>
         <td><%= language.iso %></td>
 				<td><%= language.translations.size %></td>

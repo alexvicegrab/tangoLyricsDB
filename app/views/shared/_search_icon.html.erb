@@ -1,0 +1,11 @@
+<%= link_to raw('<i type="button" class="glyphicon glyphicon-search"></i>'), 
+					if controller?("translators")
+						translations_path(:params => {:translator_is => f.id})
+					elsif controller?("languages")
+						translations_path(:params => {:language_is => f.id})
+					elsif controller?("genres")
+						songs_path(:params => {:genre_is => f.id})
+					else
+						"#"
+					end,
+					:class => 'btn btn-xs btn-info btn-circle'%>

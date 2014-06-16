@@ -12,7 +12,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="TTD_footer_navbar">
 			<ul class="nav navbar-nav">
-				<%= paginate @songs, theme: 'twitter-bootstrap-3', :pagination_class => 'pagination-sm' if ( current_page?(songs_path) || current_page?(root_path) ) %>
+				<%= paginate @songs, theme: 'twitter-bootstrap-3', :pagination_class => 'pagination-sm' if ( current_page?(songs_path) || current_page?(root_path)) %>
+				<%= paginate @translations, theme: 'twitter-bootstrap-3', :pagination_class => 'pagination-sm' if current_page?(translations_path) %>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="navbar-link"><%= link_to raw('<i class="fa fa-wordpress myiconic"></i>' ), "http://www.eltangoteespera.com/p/dj-sasha-el-tordo-cv.html" %></li>

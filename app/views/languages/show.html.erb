@@ -10,6 +10,8 @@
   <dd><%= @language.name %></dd>
   <dt><strong><%= "ISO" %>:</strong></dt>
   <dd><%= @language.iso %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Search) %>:</strong></dt>
+  <dd><%= render partial: 'shared/search_icon', locals: { f: @language } %></dd>
 </dl>
 
 <div class="form-actions">

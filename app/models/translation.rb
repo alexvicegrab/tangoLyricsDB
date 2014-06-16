@@ -1,4 +1,5 @@
 class Translation < ActiveRecord::Base
+  include Filterable
   include UrlHelper
   
   belongs_to :song, counter_cache: true
@@ -8,6 +9,9 @@ class Translation < ActiveRecord::Base
   # Scopes
   # Next line overrides scoping in song Model, hence commented out
   # default_scope { order('created_at') }
+  
+  scope :language_is, -> (language_id) { Translation.where("language_id = ?", language_id) } 
+  scope :translator_is, -> (translator_id) { Translation.where("translator_id = ?", translator_id) } 
   
   # Validations
   validates :link,

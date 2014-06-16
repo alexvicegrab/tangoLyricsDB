@@ -1,0 +1,9 @@
+<%- model_class = Translation -%>
+<%= render partial: 'shared/title', locals: { model_class: model_class } %>
+
+<%= render partial: 'shared/flash', locals: { f: flash } %>
+
+<h2>Translations</h2>
+<%= render "translations/translation_header" %>
+<%= render @translations %>
+<%= render "translations/translation_footer" %>

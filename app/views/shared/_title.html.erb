@@ -1,5 +1,5 @@
 <div class="page-header">
-	<% if controller?('songs') %>
+	<% if controller?('songs', 'translations') %>
 	<h4 style="float:right">
 		Displaying <%= @resultsCount %> / <%= model_class.count.nil? ? 0 : model_class.count %>
 	</h4>

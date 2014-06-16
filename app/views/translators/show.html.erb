@@ -12,6 +12,8 @@
   <dd><%= @translator.site_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:site_link) %>:</strong></dt>
   <dd><%= auto_link(@translator.site_link) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Search) %>:</strong></dt>
+  <dd><%= render partial: 'shared/search_icon', locals: { f: @translator } %></dd>
 </dl>
 
 <div class="form-actions">

@@ -15,8 +15,7 @@
   <tbody>
     <% @genres.each do |genre| %>
       <tr>
-				<td class='search_column'><%= link_to raw('<i type="button" class="glyphicon glyphicon-search"></i>'), 
-					songs_path(:params => {:genre_is => genre.id}), :class => 'btn btn-xs btn-info btn-circle'%></td>
+				<td class='search_column'><%= render partial: 'shared/search_icon', locals: { f: genre } %></td>
         <td><%= link_to genre.name, genre_path(genre) %></td>
 				<td><%= genre.songs.size %></td>
         <td class='action_column'>

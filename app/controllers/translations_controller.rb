@@ -11,6 +11,15 @@ class TranslationsController < ApplicationController
     @translations = @translations.order('active')
   end
   
+  def index
+    @translations = Translation.filter( params.slice(:language_is,
+    :translator_is ))
+    
+    @resultsCount = @translations.count.nil? ? 0 : @translations.count
+    
+    @translations = @translations.page params[:page]
+  end
+  
   def show
   end
   

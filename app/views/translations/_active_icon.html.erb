@@ -1,0 +1,4 @@
+<%= link_to raw(translation.active ? '<i type="button" class="glyphicon glyphicon-ok"></i>' : '<i type="button" class="glyphicon glyphicon-exclamation-sign"></i>'), 
+	check_link_song_translation_path(translation.song, translation),
+	method: :put,
+	:class => translation.active.nil? ? 'btn btn-xs btn-warning btn-circle' : translation.active ? 'btn btn-xs btn-success btn-circle' : 'btn btn-xs btn-danger btn-circle' %>

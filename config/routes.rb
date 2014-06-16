@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'stats' => 'welcome#stats'
   get 'usage' => 'welcome#usage'
   
+  get 'translations' => 'translations#index', :as => :translations
   get 'inactive_translations' => 'translations#inactive', :as => :inactive_translations
 
 end

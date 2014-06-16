@@ -1,6 +1,6 @@
 <tr>
   <td>
-		<%= render partial: 'translations/active', object: translation, as: 'translation' %>
+		<%= render partial: 'translations/active_icon', object: translation, as: 'translation' %>
 	</td>
 	
 	<% if controller?('translations') %>
@@ -8,8 +8,10 @@
 	<% end %>
 	
 	<td><%= link_to URI.decode_www_form_component(translation.link), translation.link %></td>
-	<td><%= Language.exists?(translation.language_id) ? translation.language.iso : "[Error]" %></td>
-	<td><%= translation.translator_id == 0 ? "[Not categorised]" : ( Translator.exists?(translation.translator_id) ? Translator.find(translation.translator_id).site_name : "[Error]" ) %></td>
+	<td><%= Language.exists?(translation.language_id) ? link_to(translation.language.iso, language_path(translation.language_id) ) : "[Error]" %></td>
+	<td><%= translation.translator_id == 0 ? "[Not categorised]" : ( Translator.exists?(translation.translator_id) ? link_to(Translator.find(translation.translator_id).site_name, translator_path(translation.translator_id) ) : "[Error]" ) %></td>
+	
+	
 	<td class='action_column'>
     <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),
                 song_translation_path(translation.song, translation),  :class => 'btn btn-xs btn-default' %>
