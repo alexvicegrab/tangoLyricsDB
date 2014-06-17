@@ -19,12 +19,25 @@
 	<li><b>Year</b> of composition <small>[if in doubt, choose earliest date]</small></li>
 </ol>
 
-<h3>Link check</h3>
-The translation view has buttons indicating the status of each translation link. To re-check the translation link, click on the button. The different buttons specify translations that...
+<h3>Buttons</h3>
+<h4>Quick search</h4>
+The <em>translators</em>, <em>languages</em> and <em>genres</em> views have buttons <%= link_to raw('<i type="button" class="glyphicon glyphicon-search"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-info btn-circle' %> to find songs or translations filtered by these properties.
+
+<h4>Link check</h4>
+The <em>translation</em> view has buttons indicating the status of each translation link. To re-check the translation link, click on the button. The different buttons specify translations that...
 <ul>
 	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-ok"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-success btn-circle' %> are active and accessible</li>
 	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-exclamation-sign"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-warning btn-circle' %> fail the check due to accessibility issues (e.g. translations on Facebook)</li>
 	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-exclamation-sign"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-danger btn-circle' %> cannot be found</li>
+</ul>
+
+<h4>Actions</h4>
+
+Each individual item has access to 3 actions:
+<ul>
+	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-eye-open"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-default' %> view</li>
+	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-edit"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-warning' %> edit</li>
+	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-remove"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-danger' %> remove</li>
 </ul>
 
 <h3>Resources</h3>

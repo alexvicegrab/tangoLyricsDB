@@ -8,12 +8,13 @@ class TranslationsController < ApplicationController
   def inactive
     @translations = Translation.all
     @translations = @translations.where(active: [false, nil])
-    @translations = @translations.order('active')
+    @translations = @translations.joins(:song).order(['active', 'songs.title'])
   end
   
-  def index
+  def index  
     @translations = Translation.filter( params.slice(:language_is,
     :translator_is ))
+    @translations = @translations.joins(:song).order('songs.title')
     
     @resultsCount = @translations.count.nil? ? 0 : @translations.count
     
