@@ -5,11 +5,11 @@ one:
   composer: Juan D'Arienzo
   lyricist: Enrique Cadícamo
   year: 1921
-  genre_id: one
+  genre: one
 
 two:
   title: En la heulla del PoBrE
   composer: SERENO ARGELIO
   lyricist: Angel D'Agostino
   year: 1934
-  genre_id: three
+  genre: three
