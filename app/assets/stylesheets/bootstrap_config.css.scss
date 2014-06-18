@@ -6,6 +6,7 @@ $navbar-inverse-link-color: black;
 $navbar-height: 40px;
 
 @import 'bootstrap';
+@import 'bootstrap/tooltip';
 @import 'font-awesome';
 
 body { padding-top: 41px; }
@@ -16,9 +17,13 @@ body { padding-top: 41px; }
 }
 
 .navbar {
-	margin-bottom:0;
+	margin-bottom:0;a
 	img {
 		margin-top: -10px;
+	}
+	li > a {
+		padding-left: 12px;
+		padding-right: 12px;
 	}
 }
 

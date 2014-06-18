@@ -5,7 +5,7 @@
 			<th><%= model_class.human_attribute_name(:active?) %></th>
 			<%= raw('<th>Song</th>') if controller?('translations') %>
       <th><%= model_class.human_attribute_name(:link) %></th>
-			<th><%= model_class.human_attribute_name(:iso).upcase %></th>
+			<th><%= model_class.human_attribute_name(:lang) %></th>
 			<th><%= model_class.human_attribute_name(:translator) %></th>
       <th class='action_column'><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
