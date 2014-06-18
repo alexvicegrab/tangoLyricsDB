@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   resources :translators
 
   resources :songs do

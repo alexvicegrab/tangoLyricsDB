@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
   link: http://www.google.com/rojo
-  song_id: 2
+  language: two
+  song: one
 
 two:
-  id: 2
   link: https://github.com/verde
-  song_id: 1
+  language: one
+  song: two

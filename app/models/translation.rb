@@ -41,6 +41,7 @@ class Translation < ActiveRecord::Base
   def normalise_translation
     # Remove white space
     self.link = self.link.lstrip
+    self.link = URI.encode(URI.decode(self.link))
   end
   
   def define_translator

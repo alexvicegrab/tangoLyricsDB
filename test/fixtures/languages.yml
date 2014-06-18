@@ -5,11 +5,9 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  id: 1
   iso: en
   name: English
 
 two:
-  id: 2
   iso: ua
   name: ukrainian

@@ -18,9 +18,9 @@ class TranslatorsControllerTest < ActionController::TestCase
 
   test "should create translator" do
     assert_difference('Translator.count') do
-      post :create, translator: { name: [@translator.name, 'differentName'].join(' '),
-        site_link: [@translator.site_link, 'differentWebsite'].join(''),
-        site_name: @translator.site_name }
+      post :create, translator: { name: 'translatorName',
+        site_link: 'http://translatorSiteLink',
+        site_name: 'translatorSiteName' }
     end
 
     assert_redirected_to translator_path(assigns(:translator))
@@ -37,7 +37,9 @@ class TranslatorsControllerTest < ActionController::TestCase
   end
 
   test "should update translator" do
-    patch :update, id: @translator, translator: { name: @translator.name, site_link: @translator.site_link, site_name: @translator.site_name }
+    patch :update, id: @translator, translator: { name: @translator.name,
+      site_link: @translator.site_link,
+      site_name: @translator.site_name }
     assert_redirected_to translator_path(assigns(:translator))
   end
 
