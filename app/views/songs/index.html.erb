@@ -6,6 +6,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+			<th><%= 'YouTube' %></th>
 			<th><%= model_class.human_attribute_name(:title) %></th>
 			<th><%= model_class.human_attribute_name(:genre) %></th>
       <th><%= model_class.human_attribute_name(:composer) %></th>
@@ -18,6 +19,7 @@
   <tbody>
     <% @songs.each do |song| %>
       <tr>
+		    <td><%= render partial: 'youtube_icon', locals: { song: song } %></td>
         <td><%= link_to song.title, song_path(song) %></td>
 				<td><%= song.genre.blank? ? "N/A" : link_to(song.genre.name, genre_path(song.genre.id)) %></td>
         <td><%= song.composer %></td>

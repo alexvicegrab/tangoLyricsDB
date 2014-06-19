@@ -16,6 +16,8 @@
   <dd><%= @song.lyricist %></dd>
   <dt><strong><%= model_class.human_attribute_name(:year) %>:</strong></dt>
   <dd><%= @song.year.nil? ? "..." : @song.year %></dd>
+  <dt><strong><%= 'YouTube' %>:</strong></dt>
+  <dd><%= render partial: 'youtube_icon', locals: { song: @song } %></dd>
 </dl>
 
 <div class="form-actions">
