@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: "penelope rojas"
-  site_name: "tango rojo"
+  name: "Penelope Rojas"
+  site_name: "Tango Rojo"
   site_link: http://www.google.com/
   translations_count: 0
 
 two:
-  name: "pino verde"
-  site_name: "verde MAR"
+  name: "Pino Verde"
+  site_name: "Verde Mar"
   site_link: https://github.com/
   translations_count: 0

@@ -26,8 +26,8 @@ class Translator < ActiveRecord::Base
   protected
   def normalise_translator
     # Remove accents, white space, lower, titleise
-    self.name = I18n.transliterate(self.name.lstrip.downcase.titleize)
-    self.site_name = I18n.transliterate(self.site_name.lstrip.downcase.titleize)
-    self.site_link = self.site_link.lstrip.downcase
+    self.name = I18n.transliterate(self.name.strip.downcase.titleize) unless self.name.blank?
+    self.site_name = I18n.transliterate(self.site_name.strip.downcase.titleize) unless self.site_name.blank?
+    self.site_link = self.site_link.strip unless self.site_link.blank?
   end  
 end

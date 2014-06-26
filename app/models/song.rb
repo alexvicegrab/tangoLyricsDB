@@ -46,11 +46,17 @@ class Song < ActiveRecord::Base
   protected
   def normalise_song
     # Remove accents, white space, lower, titleise
-    self.title = I18n.transliterate(self.title.lstrip.downcase.titleize)
-    self.composer = I18n.transliterate(self.composer.lstrip.downcase.titleize)
-    self.lyricist = I18n.transliterate(self.lyricist.lstrip.downcase.titleize)
-    # Fix "D'a" to "D'A" in composer & lyricist
-    self.composer = self.composer.gsub("D'a", "d'A")
-    self.lyricist = self.lyricist.gsub("D'a", "d'A")
+    self.title = I18n.transliterate(self.title.strip.downcase.titleize) unless self.title.blank?
+    
+    unless self.composer.blank?
+      self.composer = I18n.transliterate(self.composer.strip.downcase.titleize)
+      # Fix "D'a" to "D'A" in composer & lyricist
+      self.composer = self.composer.gsub("D'a", "D'A")
+    end
+    
+    unless self.lyricist.blank?
+      self.lyricist = I18n.transliterate(self.lyricist.strip.downcase.titleize)
+      self.lyricist = self.lyricist.gsub("D'a", "D'A")
+    end
   end  
 end

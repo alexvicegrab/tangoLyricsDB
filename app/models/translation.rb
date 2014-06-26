@@ -35,22 +35,25 @@ class Translation < ActiveRecord::Base
   
   protected
   def check_link
-    self.active = check_url(self.link)
+    self.active = check_url(self.link) unless self.link.blank?
   end
   
   def normalise_translation
     # Remove white space
-    self.link = self.link.lstrip
-    self.link = URI.encode(URI.decode(self.link))
+    unless self.link.blank?
+      self.link = self.link.strip
+      self.link = URI.encode(URI.decode(self.link))
+    end
   end
   
   def define_translator
     # Check which translator this translation belongs to
     @translators = Translator.all
-    
-    @translators.each do |t|
-      if self.link.include?(t.site_link)
-        self.translator_id = t.id
+    unless self.link.blank?
+      @translators.each do |t|
+        if self.link.include?(t.site_link)
+          self.translator_id = t.id
+        end
       end
     end
   end

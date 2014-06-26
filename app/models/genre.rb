@@ -15,6 +15,6 @@ class Genre < ActiveRecord::Base
   
   protected
   def normalise_genre
-    self.name = self.name.downcase.titleize
+    self.name = self.name.strip.downcase.titleize unless self.name.blank?
   end
 end

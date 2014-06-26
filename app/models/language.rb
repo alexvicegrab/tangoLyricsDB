@@ -22,8 +22,8 @@ class Language < ActiveRecord::Base
   protected
   def normalise_language
     # Remove white space, lower
-    self.name = self.name.lstrip.downcase.titleize
-    self.iso = self.iso.lstrip.downcase
+    self.name = self.name.strip.downcase.titleize unless self.name.blank?
+    self.iso = self.iso.strip.downcase unless self.iso.blank?
   end  
   
 end
