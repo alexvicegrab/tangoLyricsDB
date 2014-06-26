@@ -42,7 +42,11 @@ class Song < ActiveRecord::Base
     
   # Callbacks
   before_validation :normalise_song, on: [ :create, :update ]
-    
+  
+  def youtube_link
+    "http://www.youtube.com/results?search_query=#{self.title.gsub(/\s/,'+')}+#{self.genre.name.gsub(/\s/,'+')}"
+  end
+  
   protected
   def normalise_song
     # Remove accents, white space, lower, titleise

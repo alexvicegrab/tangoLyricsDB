@@ -1,1 +1,1 @@
-<%= link_to raw('<i class="fa fa-youtube-play"></i>'),               "https://www.youtube.com/results?search_query=#{song.title.gsub(/\s/,'+')}+#{song.genre.name.gsub(/\s/,'+')}",  :class => 'btn btn-xs btn-danger btn-circle' %>
+<%= link_to raw('<i class="fa fa-youtube-play"></i>'), song.youtube_link,  :class => 'btn btn-xs btn-danger btn-circle' %>

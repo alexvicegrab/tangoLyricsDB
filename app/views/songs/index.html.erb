@@ -9,9 +9,9 @@
 			<th><%= 'YouTube' %></th>
 			<th><%= model_class.human_attribute_name(:title) %></th>
 			<th><%= model_class.human_attribute_name(:genre) %></th>
-      <th><%= model_class.human_attribute_name(:composer) %></th>
-      <th><%= model_class.human_attribute_name(:lyricist) %></th>
-      <th><%= model_class.human_attribute_name(:year) %></th>
+      <th class="hidden-xs hidden-sm"><%= model_class.human_attribute_name(:composer) %></th>
+      <th class="hidden-xs hidden-sm"><%= model_class.human_attribute_name(:lyricist) %></th>
+      <th class="hidden-xs"><%= model_class.human_attribute_name(:year) %></th>
 			<th><%= "T#" %></th>
       <th class='action_column'><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -22,9 +22,9 @@
 		    <td><%= render partial: 'youtube_icon', locals: { song: song } %></td>
         <td><%= link_to song.title, song_path(song) %></td>
 				<td><%= song.genre.blank? ? "N/A" : link_to(song.genre.name, genre_path(song.genre.id)) %></td>
-        <td><%= song.composer %></td>
-        <td><%= song.lyricist %></td>
-        <td><%= song.year.nil? ? "" : song.year %></td>
+        <td class="hidden-xs hidden-sm"><%= song.composer %></td>
+        <td class="hidden-xs hidden-sm"><%= song.lyricist %></td>
+        <td class="hidden-xs"><%= song.year.nil? ? "" : song.year %></td>
 				<td><%= song.translations.size %></td>
         <td class='action_column'>
 			    <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),

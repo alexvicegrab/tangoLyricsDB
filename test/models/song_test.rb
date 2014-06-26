@@ -70,4 +70,9 @@ class SongTest < ActiveSupport::TestCase
     assert_equal @song.composer, "Juan D'Arienzo"
     assert_equal @song.lyricist, "Roberto D'el Dia"
   end
+  
+  test "should create a youtube link" do
+    @song.save!
+    assert_equal @song.youtube_link, "http://www.youtube.com/results?search_query=Viento+Norte+Tango"
+  end
 end

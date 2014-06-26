@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
   <dd><%= @song.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:genre) %>:</strong></dt>
-  <dd><%= @song.genre.blank? ? "..." : @song.genre.name  %></dd>
+  <dd><%= @song.genre.blank? ? "..." : link_to(@song.genre.name, @song.genre) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:composer) %>:</strong></dt>
   <dd><%= @song.composer %></dd>
   <dt><strong><%= model_class.human_attribute_name(:lyricist) %>:</strong></dt>
