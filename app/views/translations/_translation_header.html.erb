@@ -2,11 +2,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-			<th><%= model_class.human_attribute_name(:active?) %></th>
+			<th class='search_column'><%= model_class.human_attribute_name(:active?) %></th>
+      <th class='search_column'><%= model_class.human_attribute_name(:link) %></th>
 			<%= raw('<th>Song</th>') if controller?('translations') %>
-      <th><%= model_class.human_attribute_name(:link) %></th>
-			<th><%= model_class.human_attribute_name(:lang) %></th>
 			<th><%= model_class.human_attribute_name(:translator) %></th>
+			<th><%= model_class.human_attribute_name(:lang) %></th>
       <th class='action_column'><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
