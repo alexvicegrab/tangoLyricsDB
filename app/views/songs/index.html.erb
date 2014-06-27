@@ -22,9 +22,9 @@
 		    <td><%= render partial: 'youtube_icon', locals: { song: song } %></td>
         <td><%= link_to song.title, song_path(song) %></td>
 				<td><%= song.genre.blank? ? "N/A" : link_to(song.genre.name, genre_path(song.genre.id)) %></td>
-        <td class="hidden-xs hidden-sm"><%= song.composer %></td>
-        <td class="hidden-xs hidden-sm"><%= song.lyricist %></td>
-        <td class="hidden-xs"><%= song.year.nil? ? "" : song.year %></td>
+        <td class="hidden-xs hidden-sm"><%= render partial: 'composer_search', locals: { song: song } %></td>
+        <td class="hidden-xs hidden-sm"><%= render partial: 'lyricist_search', locals: { song: song } %></td>
+        <td class="hidden-xs"><%= render partial: 'year_search', locals: { song: song } %></td>
 				<td><%= song.translations.size %></td>
         <td class='action_column'>
 			    <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),

@@ -11,11 +11,11 @@
   <dt><strong><%= model_class.human_attribute_name(:genre) %>:</strong></dt>
   <dd><%= @song.genre.blank? ? "..." : link_to(@song.genre.name, @song.genre) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:composer) %>:</strong></dt>
-  <dd><%= @song.composer %></dd>
+  <dd><%= render partial: 'composer_search', locals: { song: @song } %></dd>
   <dt><strong><%= model_class.human_attribute_name(:lyricist) %>:</strong></dt>
-  <dd><%= @song.lyricist %></dd>
+  <dd><%= render partial: 'lyricist_search', locals: { song: @song } %></dd>
   <dt><strong><%= model_class.human_attribute_name(:year) %>:</strong></dt>
-  <dd><%= @song.year.nil? ? "..." : @song.year %></dd>
+  <dd><%= render partial: 'year_search', locals: { song: @song } %></dd>
   <dt><strong><%= 'YouTube' %>:</strong></dt>
   <dd><%= render partial: 'youtube_icon', locals: { song: @song } %></dd>
 </dl>

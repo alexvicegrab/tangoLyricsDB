@@ -1,0 +1,8 @@
+<% lyricists = song.lyricist.split(/ \/ /) %>
+
+<% lyricists.each_with_index do |a, index| %>
+	<%= link_to(a, songs_path(:params => { :lyricist_has => a })) %>
+	<% unless index == lyricists.size - 1 %>
+		<%= " / " %> 
+	<% end %>
+<% end %>

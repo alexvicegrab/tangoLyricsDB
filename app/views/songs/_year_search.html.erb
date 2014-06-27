@@ -1,0 +1,1 @@
+<%= song.year.nil? ? "" : link_to(song.year, songs_path(:params => { :year_min => song.year, :year_max => song.year })) %>
