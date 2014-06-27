@@ -7,7 +7,7 @@
 	<td><%= link_to translation.song.title, song_path(translation.song) %></td>
 	<% end %>
 	
-	<td><%= link_to raw("<i class='glyphicon glyphicon-link'></i>"), translation.link, :class => 'btn btn-xs btn-primary', data_toggle: 'tooltip', title: URI.decode(translation.link), rel: :tooltip %></td>
+	<td><%= link_to raw("<i class='glyphicon glyphicon-link'></i>"), translation.link, :class => 'btn btn-xs btn-primary', data_toggle: 'tooltip', 'data-placement' => 'right', title: URI.decode(translation.link), rel: :tooltip %></td>
 	<td><%= Language.exists?(translation.language_id) ? link_to(translation.language.iso, language_path(translation.language_id) ) : "[Error]" %></td>
 	<td><%= translation.translator_id == 0 ? "[Not categorised]" : ( Translator.exists?(translation.translator_id) ? link_to(Translator.find(translation.translator_id).site_name, translator_path(translation.translator_id) ) : "[Error]" ) %></td>
 	
