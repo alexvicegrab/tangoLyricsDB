@@ -76,3 +76,6 @@ gem 'chartkick'
 # Autotest
 gem 'ZenTest'
 gem 'autotest-rails'
+
+# Helps jQuery work with turbolinks
+gem 'jquery-turbolinks'
