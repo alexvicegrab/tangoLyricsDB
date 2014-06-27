@@ -3,6 +3,7 @@ require 'test_helper'
 class TranslationTest < ActiveSupport::TestCase
   setup do
     @translation = Translation.new
+    @translation.song_id = songs(:one).id
     @translation.link = " http://someblog.com/donde-estas-corazon.html "
     @translation.language_id = languages(:one).id
   end
@@ -33,10 +34,16 @@ class TranslationTest < ActiveSupport::TestCase
     assert_not @translation.save
   end
 
-  test "should not save translation with existing link & language_id" do
+  test "should not save translation with existing link, language_id & song_id" do
     @translation.link = " http://www.gOogle.com/Rojo "
     @translation.language_id = languages(:two).id
     assert_not @translation.save
+  end
+  test "should save translation with existing link & language_id, but different song_id" do
+    @translation.link = " http://www.gOogle.com/Rojo "
+    @translation.song_id = songs(:two).id
+    @translation.language_id = languages(:two).id
+    assert @translation.save
   end
   test "should normalise translation link" do
     @translation.link = " http://someblog.com/donde-est%C3%A1s-coraz%C3%B3n.html "
