@@ -8,7 +8,7 @@ class Song < ActiveRecord::Base
   # Scopes
   default_scope { order('title') }
   
-  scope :title_has, -> (title) { where("lower(title) like ?", "%#{I18n.transliterate(title.downcase)}%") }
+  scope :title_has, -> (title) { where("lower(search_title) like ?", "%#{I18n.transliterate(title.downcase)}%") }
   scope :composer_has, -> (composer) { where("lower(composer) like ?", "%#{I18n.transliterate(composer.downcase)}%") }
   scope :lyricist_has, -> (lyricist) { where("lower(lyricist) like ?", "%#{I18n.transliterate(lyricist.downcase)}%") }
   scope :genre_is, -> (genre_id) { where("genre_id = ?", genre_id) }
@@ -47,11 +47,19 @@ class Song < ActiveRecord::Base
     "http://www.youtube.com/results?search_query=#{self.title.gsub(/\s/,'+')}+#{self.genre.name.gsub(/\s/,'+')}"
   end
   
+  def self.save_all
+    # Useful to check that all translations are valid
+    Song.all.each { |song| song.save! }
+  end
+  
   protected
   def normalise_song
     # Remove accents, white space, lower, titleise
-    self.title = I18n.transliterate(self.title.strip.downcase.titleize) unless self.title.blank?
-    
+    unless self.title.blank?
+      self.title = self.title.strip.downcase.titleize
+      self.search_title = I18n.transliterate(self.title.downcase)
+    end
+  
     unless self.composer.blank?
       self.composer = I18n.transliterate(self.composer.strip.downcase.titleize)
       # Fix "D'a" to "D'A" in composer & lyricist
