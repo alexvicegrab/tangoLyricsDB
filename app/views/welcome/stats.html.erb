@@ -1,3 +1,5 @@
+<% title "Stats" %>
+
 <%= column_chart Song.unscoped.order("year").group(:year).count, library: {fontSize: 20,  hAxis: {title: 'Year'}, vAxis: {title: 'Number of songs'},} %>
 
 <%= column_chart Language.unscoped.order("name").joins(:translations).group("name").count, library: {fontSize: 20,  hAxis: {title: 'Language'}, vAxis: {title: 'Number of translations'},} %>

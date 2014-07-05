@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tango Translation DB</title>
+  <title>TTdb | <%= (yield(:title).empty? ? "Tango Translation Database" : yield(:title)) %></title>
 	<meta name="Description" content="Tango Translation Database links Argentine Tango song translations from Spanish to many languages">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,8 +21,22 @@
 	<div class="container-fluid">
 		<div class="row">
 		      <div id="content" class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+						
+						<%= render partial: 'shared/flash', locals: { f: flash } %>
+						
+						<div class="page-header">
+							<% if controller?('songs', 'translations') %>
+								<h4 style="float:right">
+									<%= yield(:display_count) %>
+								</h4>
+							<% end %>
+							<h1><%= yield(:title) %></h1>
+						</div>
+						
 						<%= yield %>
+						
 						<p class="spacer">&nbsp</p>
+					
 					</div>
 		      <div id="sidebar" class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
 						<div id="search">

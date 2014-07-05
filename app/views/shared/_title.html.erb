@@ -1,8 +1,0 @@
-<div class="page-header">
-	<% if controller?('songs', 'translations') %>
-	<h4 style="float:right">
-		Displaying <%= @resultsCount %> / <%= model_class.count.nil? ? 0 : model_class.count %>
-	</h4>
-	<% end %>
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>

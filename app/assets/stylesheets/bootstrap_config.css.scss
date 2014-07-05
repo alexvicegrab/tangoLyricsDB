@@ -3,6 +3,7 @@ $navbar-inverse-link-hover-bg: #1AC0AD;
 $navbar-inverse-link-active-color: white;
 $navbar-inverse-link-hover-color: black;
 $navbar-inverse-link-color: black;
+$navbar-inverse-color: #e0e0e0;
 $navbar-height: 40px;
 
 @import 'bootstrap';
@@ -63,9 +64,11 @@ body { padding-top: 41px; }
 	margin: 6px;
 }
 
-#header .navbar-nav > li > a {
-	font-size: 18px;
-	border-radius: 8px;
+#header .navbar-nav > li {
+	a {
+		font-size: 18px;
+		border-radius: 8px;
+	}
 }
 
 #footer .navbar-nav > li > a {

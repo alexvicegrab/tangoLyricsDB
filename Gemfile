@@ -79,3 +79,6 @@ gem 'autotest-rails'
 
 # Helps jQuery work with turbolinks
 gem 'jquery-turbolinks'
+
+# Devise authentification
+gem 'devise'

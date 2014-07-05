@@ -17,12 +17,23 @@
         <li class="<%= 'active' if controller?('translators') %>"><%= link_to "Translators", translators_path %></li>
 				<li class="<%= 'active' if controller?('languages') %>"><%= link_to "Languages", languages_path %></li>
 				<li class="<%= 'active' if controller?('genres') %>"><%= link_to "Genres", genres_path %></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Info<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About", about_path %></li>
+						<li class="<%= 'active' if current_page?(usage_path) %>"><%= link_to "Usage", usage_path %></li>
+						<li class="<%= 'active' if current_page?(stats_path) %>"><%= link_to "Stats", stats_path %></li>
+						<li class="<%= 'active' if current_page?(inactive_translations_path) %>"><%= link_to "Admin", inactive_translations_path %></li>
+					</ul>
+				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About", about_path %></li>
-				<li class="<%= 'active' if current_page?(usage_path) %>"><%= link_to "Usage", usage_path %></li>
-				<li class="<%= 'active' if current_page?(stats_path) %>"><%= link_to "Stats", stats_path %></li>
-				<li class="<%= 'active' if current_page?(inactive_translations_path) %>"><%= link_to "Admin", inactive_translations_path %></li>
+					<% if user_signed_in? %>
+				    <p class="navbar-text">User: <%= current_user.email %></p> <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "devise" %></li>
+				  <% else %>
+						<li><%= link_to "Sign In", new_user_session_path, class: "devise" %></li>
+				  <% end %>
+				</div>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -1,7 +1,6 @@
 <%- model_class = Translation -%>
-<%= render partial: 'shared/title', locals: { model_class: model_class } %>
-
-<%= render partial: 'shared/flash', locals: { f: flash } %>
+<% title model_class.model_name.human.pluralize.titleize %>
+<% display_count model_class, @resultsCount %>
 
 <%= render "translations/translation_header" %>
 <%= render @translations %>

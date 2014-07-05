@@ -2,8 +2,7 @@ class TranslationsController < ApplicationController
   include UrlHelper
   
   before_action :set_translation, only: [:show, :edit, :update, :destroy, :check_link]
-  
-  http_basic_authenticate_with name: "sasha", password: "tango", except: [:index, :show, :create, :check_link] if Rails.env.production?
+  before_action :authenticate_user!, except: [:index, :show, :create, :check_link]
   
   def inactive
     @translations = Translation.all

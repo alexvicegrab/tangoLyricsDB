@@ -2,6 +2,7 @@ require 'test_helper'
 
 class TranslatorsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @translator = translators(:one)
   end
 

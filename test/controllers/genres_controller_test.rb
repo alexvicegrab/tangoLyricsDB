@@ -2,6 +2,7 @@ require 'test_helper'
 
 class GenresControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @genre = genres(:one)
   end
 

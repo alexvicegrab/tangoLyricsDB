@@ -2,6 +2,7 @@ require 'test_helper'
 
 class TranslationsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @song = songs(:one)
     @translation = translations(:one)
   end

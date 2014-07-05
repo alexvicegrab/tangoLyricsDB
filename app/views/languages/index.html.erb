@@ -1,7 +1,5 @@
 <%- model_class = Language -%>
-<%= render partial: 'shared/title', locals: { model_class: model_class } %>
-
-<%= render partial: 'shared/flash', locals: { f: flash } %>
+<% title model_class.model_name.human.pluralize.titleize %>
 
 <table class="table table-striped">
   <thead>
