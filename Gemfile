@@ -82,3 +82,6 @@ gem 'jquery-turbolinks'
 
 # Devise authentification
 gem 'devise'
+
+# Environmental variables via Figaro
+gem 'figaro'

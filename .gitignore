@@ -17,3 +17,5 @@
 
 # Ignore the documentation
 /doc
+# Ignore application configuration
+/config/application.yml
