@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @songs = Song.filter( params.slice(:title_has, 
+    @songs = Song.includes(:genre).filter( params.slice(:title_has, 
     :genre_is, 
     :composer_has, 
     :lyricist_has, 

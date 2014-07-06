@@ -8,6 +8,7 @@ class TranslationsController < ApplicationController
     @translations = Translation.all
     @translations = @translations.where(active: [false, nil])
     @translations = @translations.joins(:song).order(['active', 'songs.title'])
+    #.includes([:translator, :language, :song])
   end
   
   def index  
