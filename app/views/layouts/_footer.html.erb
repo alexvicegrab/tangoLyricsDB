@@ -16,10 +16,12 @@
 				<%= paginate @translations, theme: 'twitter-bootstrap-3', :pagination_class => 'pagination-sm' if current_page?(translations_path) %>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="navbar-link"><%= link_to raw('<i class="fa fa-wordpress myiconic"></i>' ), "http://www.eltangoteespera.com/p/dj-sasha-el-tordo-cv.html" %></li>
-				<li class="navbar-link"><%= link_to raw('<i class="fa fa-github-alt myiconic"></i>' ), "https://github.com/alexvicegrab/tangoLyricsDB" %></li>
-				<li class="navbar-link"><%= link_to raw('<i class="fa fa-facebook-square myiconic"></i>' ), "https://www.facebook.com/groups/410698905667019/" %></li>
-				<li class="navbar-link"><%= link_to raw('<i class="fa fa-envelope myiconic"></i>' ), "mailto:tangotranslation@gmail.com" %></li>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default myiconic"><%= link_to raw('<i class="fa fa-wordpress" style="color:#fb8f3d;"></i>' ), "http://www.eltangoteespera.com/p/dj-sasha-el-tordo-cv.html" %></button>
+				<button type="button" class="btn btn-default myiconic"><%= link_to raw('<i class="fa fa-github-alt" style="color:#000000;"></i>' ), "https://github.com/alexvicegrab/tangoLyricsDB" %></button>
+				<button type="button" class="btn btn-default myiconic"><%= link_to raw('<i class="fa fa-facebook-square" style="color:#3b5998;"></i>' ), "https://www.facebook.com/groups/410698905667019/" %></button>
+				<button type="button" class="btn btn-default myiconic"><%= link_to raw('<i class="fa fa-envelope" style="color:#dd4b39;"></i>' ), "mailto:tangotranslation@gmail.com" %></button>
+				</div>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

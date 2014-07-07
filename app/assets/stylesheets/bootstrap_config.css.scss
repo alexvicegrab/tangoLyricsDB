@@ -17,8 +17,12 @@ body { padding-top: 41px; }
 }
 
 .myiconic {
-	font-size: 32px;
-	padding-top: 4px;
+	font-size: 27px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 0px;
 }
 
 .navbar {
@@ -48,6 +52,19 @@ body { padding-top: 41px; }
 .pagination {
 	margin-top: 5px;
 	margin-bottom: 0px;
+}
+
+a.anchor {
+	// Fixes problem due to fixed position navbar
+	display: block;
+	position: relative;
+	top: -50px;
+	visibility: hidden;
+}
+
+#search_link {
+	text-align: center;
+	margin-top: 20px;
 }
 
 #sidebar {
