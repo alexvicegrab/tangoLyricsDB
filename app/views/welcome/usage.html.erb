@@ -6,7 +6,7 @@
 </p>
 <ol>
 	<li>translation <b>Link</b> <small>[including the "http://" at the start]</small></li>
-	<li><b>Language</b>(s) <small>[if language is not in the list <a href="https://www.facebook.com/DjAlejandroSasha">get in touch</a>]</small></li>
+	<li><b>Language</b>(s) <small>[if language is not in the list <%= link_to "get in touch", "mailto:tangotranslation@gmail.com" %>]</small></li>
 </ol>
 <p>
 	When adding songs, please check the relevant resources to correctly specify:
@@ -25,7 +25,7 @@
 	The <em>translators</em>, <em>languages</em> and <em>genres</em> views have buttons <%= link_to raw('<i type="button" class="glyphicon glyphicon-search"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-info btn-circle' %> to find songs or translations filtered by these properties.
 </p>
 <p>
-	The <em>songs</em> view has a <%= link_to raw('<i type="button" class="fa fa-youtube-play"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-danger btn-circle' %> button linking to an automated YouTube search of the song.
+	The <em>songs</em> view has a <%= link_to raw('<i type="button" class="fa fa-youtube-play"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-circle youtube_icon' %> button linking to an automated YouTube search of the song.
 </p>
 <h4>Translations</h4>
 <p>
@@ -51,10 +51,10 @@ Each individual item has access to 3 actions:
 
 <h3>Resources</h3>
 <ul>
-	<li><a href="http://www.todotango.com/">Todo Tango</a>, great archive of info. First resource to find your song info!</li>
-	<li><a href="https://tango.info/">Tango Info</a>, my second stop if TodoTango does not have full info on the song.</li>
-	<li><a href="http://sadaic.org.ar/">SADAIC</a> is useful if neither of the above have info on the composer/lyricist or year. Bear in mind it is not only for tango lists first the family name and then proper name.</li>
-	<li><a href="http://www.hermanotango.com.ar/">Hermano Tango</a>, the place to go if you want to find a song to translate.</li>
+	<li><%= link_to "Todo Tango", "http://www.todotango.com/", target: '_blank' %>, great archive of info. First resource to find your song info!</li>
+	<li><%= link_to "Tango Info", "https://tango.info/", target: '_blank' %>, my second stop if TodoTango does not have full info on the song.</li>
+	<li><%= link_to "SADAIC", "http://sadaic.org.ar/", target: '_blank' %>, useful if neither of the above have info on the composer/lyricist or year. Bear in mind it is not only for tango lists first the family name and then proper name.</li>
+	<li><%= link_to "Hermano Tango", "http://www.hermanotango.com.ar/", target: '_blank' %>, the place to go if you want to find a song to translate.</li>
 </ul>
 
 <h3>Admin rights</h3>
