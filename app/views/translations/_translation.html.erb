@@ -1,6 +1,6 @@
 <tr>
   <td><%= render partial: 'translations/active_icon', object: translation, as: 'translation' %></td>
-	<td class='search_column'><%= link_to raw("<i class='glyphicon glyphicon-link'></i>"), translation.link, :class => 'btn btn-xs btn-primary', data_toggle: 'tooltip', 'data-placement' => 'right', title: URI.decode(translation.link), rel: :tooltip %></td>
+	<td class='search_column'><%= link_to raw("<i class='glyphicon glyphicon-link'></i>"), translation.link, :class => 'btn btn-xs btn-primary', data_toggle: 'tooltip', 'data-placement' => 'right', title: URI.decode(translation.link), rel: :tooltip, :target => "_blank" %></td>
 	
 	<% if controller?('translations') %>
 	<td><%= link_to translation.song.title, song_path(translation.song) %></td>

@@ -5,7 +5,7 @@
   <dt><strong><%= model_class.human_attribute_name(:site_name) %>:</strong></dt>
   <dd><%= @translator.site_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:site_link) %>:</strong></dt>
-  <dd><%= auto_link(@translator.site_link) %></dd>
+  <dd><%= link_to @translator.site_link, @translator.site_link, :target => "_blank" %></dd>
   <dt><strong><%= model_class.human_attribute_name(:translator) %>:</strong></dt>
   <dd><%= @translator.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:count) %>:</strong></dt>

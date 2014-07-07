@@ -5,7 +5,7 @@
   <dt><strong><%= model_class.human_attribute_name(:song) %>:</strong></dt>
   <dd><%= link_to @translation.song.title, @translation.song %></dd>
   <dt><strong><%= model_class.human_attribute_name(:link) %>:</strong></dt>
-  <dd><%= link_to URI.decode_www_form_component(@translation.link), @translation.link %></dd>
+  <dd><%= link_to URI.decode_www_form_component(@translation.link), @translation.link, :target => "_blank" %></dd>
   <dt><strong><%= model_class.human_attribute_name(:language) %>:</strong></dt>
   <dd><%= @translation.language.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:active?) %>:</strong></dt>

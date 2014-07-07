@@ -16,7 +16,7 @@
     <% @translators.each do |translator| %>
       <tr>
 				<td class='search_column'><%= render partial: 'shared/search_icon', locals: { f: translator } %></td>
-				<td class='search_column'><%= link_to raw("<i class='glyphicon glyphicon-link'></i>"), translator.site_link, :class => 'btn btn-xs btn-primary', data_toggle: 'tooltip', 'data-placement' => 'right', title: URI.decode(translator.site_link), rel: :tooltip %></td>
+				<td class='search_column'><%= link_to raw("<i class='glyphicon glyphicon-link'></i>"), translator.site_link, :class => 'btn btn-xs btn-primary', data_toggle: 'tooltip', 'data-placement' => 'right', title: URI.decode(translator.site_link), rel: :tooltip, :target => "_blank" %></td>
 				<td><%= link_to translator.site_name, translator_path(translator)%></td>
         <td><%= translator.name %></td>
         <td><%= translator.translations.size %></td>
