@@ -2,7 +2,7 @@ class Song < ActiveRecord::Base
   include Filterable
   
   belongs_to :genre, counter_cache: true
-  has_many :translations, -> { joins(:language).order('languages.iso') }, dependent: :delete_all
+  has_many :translations, -> { includes([:language, :song]).order('languages.iso') }, dependent: :delete_all
   has_many :languages, through: :translations
   
   # Scopes

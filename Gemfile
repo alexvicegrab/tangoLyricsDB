@@ -21,8 +21,11 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+group :development do
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'bullet'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -41,6 +44,12 @@ gem 'rails_12factor', group: :production
 
 # Ruby 
 ruby "2.1.1"
+
+group :test do
+  gem 'ZenTest'
+  gem 'autotest-rails'
+  gem 'minitest-reporters'
+end
 
 # Autolink
 gem 'rails_autolink'
@@ -73,11 +82,7 @@ gem 'bootstrap-kaminari-views', :git => 'https://github.com/barock19/bootstrap-k
 # Charting
 gem 'chartkick'
 
-# Autotest
-gem 'ZenTest'
-gem 'autotest-rails'
-
-# Helps jQuery work with turbolinks
+# Helps jQuery work with turbolinks (important for e.g. tooltips)
 gem 'jquery-turbolinks'
 
 # Devise authentification

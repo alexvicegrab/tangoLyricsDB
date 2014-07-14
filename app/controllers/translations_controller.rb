@@ -5,16 +5,11 @@ class TranslationsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :create, :check_link]
   
   def inactive
-    @translations = Translation.all
-    @translations = @translations.where(active: [false, nil])
-    @translations = @translations.joins(:song).order(['active', 'songs.title'])
-    #.includes([:translator, :language, :song])
+    @translations = Translation.includes([:translator, :language, :song]).where(active: [false, nil]).order(['active', 'songs.title'])
   end
   
-  def index  
-    @translations = Translation.filter( params.slice(:language_is,
-    :translator_is ))
-    @translations = @translations.joins(:song).order('songs.title')
+  def index
+    @translations = Translation.includes([:translator, :language, :song]).filter( params.slice(:language_is, :translator_is )).order('songs.title')
     
     @resultsCount = @translations.count.nil? ? 0 : @translations.count
     

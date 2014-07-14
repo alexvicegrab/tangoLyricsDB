@@ -39,10 +39,12 @@ class Translation < ActiveRecord::Base
   end
   
   def normalise_translation
-    # Remove white space
+    # Remove white space, replace https with http, unescape "#" character
     unless self.link.blank?
       self.link = self.link.strip
       self.link = URI.encode(URI.decode(self.link))
+      self.link = self.link.gsub('https', 'http')
+      self.link = self.link.gsub('%23', '#')
     end
   end
   
