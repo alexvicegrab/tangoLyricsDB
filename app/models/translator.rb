@@ -22,6 +22,7 @@ class Translator < ActiveRecord::Base
     
   # Callbacks
   before_validation :normalise_translator, on: [ :create, :update ]
+  after_validation :update_translations
     
   protected
   def normalise_translator
@@ -29,5 +30,17 @@ class Translator < ActiveRecord::Base
     self.name = I18n.transliterate(self.name.strip.downcase.titleize) unless self.name.blank?
     self.site_name = I18n.transliterate(self.site_name.strip.downcase.titleize) unless self.site_name.blank?
     self.site_link = self.site_link.strip unless self.site_link.blank?
-  end  
+  end
+
+  def update_translations
+    # Update dependent translations if the site link changes
+    site_link_new = self.site_link
+    site_link_old = Translator.find(self.id).site_link
+    
+    if site_link_old != site_link_new
+      self.translations.each do |t|
+        t.update_attribute(:link, t.link.sub(site_link_old, site_link_new))
+      end
+    end
+  end
 end

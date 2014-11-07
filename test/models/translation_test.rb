@@ -65,4 +65,9 @@ class TranslationTest < ActiveSupport::TestCase
     @translation.save!
     assert_equal @translation.translator_id, translators(:one).id, "#{@translation.translator_id}"
   end
+  test "should preserve anchors in link" do
+    @translation.link = " http://www.google.com/red.html%23anchor "
+    @translation.save!
+    assert_equal @translation.link, "http://www.google.com/red.html#anchor"
+  end
 end

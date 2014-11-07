@@ -58,7 +58,7 @@ gem 'rails_autolink'
 gem 'redcarpet', '~> 2.1.1'
 gem 'nokogiri'
 
-# Oficial port of bootstrap into Sass
+# Official port of bootstrap into Sass
 gem 'bootstrap-sass'
 # Icons for bootstrap
 gem 'font-awesome-rails'

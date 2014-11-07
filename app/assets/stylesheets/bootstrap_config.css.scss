@@ -10,7 +10,9 @@ $navbar-height: 40px;
 @import 'bootstrap/tooltip';
 @import 'font-awesome';
 
-body { padding-top: 41px; }
+body { 
+	padding-top: $navbar-height + 1px;
+}
 
 .tooltip-inner {
     max-width: 500px;
@@ -31,7 +33,7 @@ body { padding-top: 41px; }
 }
 
 .navbar {
-	margin-bottom:0;a
+	margin-bottom:0;
 	img {
 		margin-top: -10px;
 	}
