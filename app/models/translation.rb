@@ -43,7 +43,7 @@ class Translation < ActiveRecord::Base
     unless self.link.blank?
       self.link = self.link.strip
       self.link = URI.encode(URI.decode(self.link))
-      self.link = self.link.gsub('https', 'http')
+      #self.link = self.link.gsub('https', 'http')
       self.link = self.link.gsub('%23', '#')
     end
   end

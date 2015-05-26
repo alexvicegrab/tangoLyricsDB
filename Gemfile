@@ -36,8 +36,8 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use debugger
-gem 'debugger', group: [:development, :test]
+# Use [debugger or byebug]
+gem 'byebug', group: [:development, :test]
 
 # Required by Heroku
 gem 'rails_12factor', group: :production
@@ -90,3 +90,6 @@ gem 'devise'
 
 # Environmental variables via Figaro
 gem 'figaro'
+
+# Better parsing of URLs
+gem 'domainatrix'
