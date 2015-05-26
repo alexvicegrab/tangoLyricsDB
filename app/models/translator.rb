@@ -22,7 +22,7 @@ class Translator < ActiveRecord::Base
     
   # Callbacks
   before_validation :normalise_translator, on: [ :create, :update ]
-  after_validation :update_translations
+  after_validation :update_translations, on: [ :update ]
     
   protected
   def normalise_translator
@@ -35,6 +35,7 @@ class Translator < ActiveRecord::Base
   def update_translations
     # Update dependent translations if the site link changes
     site_link_new = self.site_link
+    Rails.logger.debug "self.id #{self.id}"
     site_link_old = Translator.find(self.id).site_link
     
     if site_link_old != site_link_new

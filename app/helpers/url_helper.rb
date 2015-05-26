@@ -1,7 +1,6 @@
 module UrlHelper
   def check_url(url)
     
-    Rails.logger.warn "UrlHelper::check_url url #{url}"
     uri = URI.parse(url)
     # Domainatrix is better at parsing the path than URI
     uriD = Domainatrix.parse(url)
