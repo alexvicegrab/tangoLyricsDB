@@ -44,7 +44,8 @@ class Translation < ActiveRecord::Base
       self.link = self.link.strip
       self.link = URI.encode(URI.decode(self.link))
       #self.link = self.link.gsub('https', 'http')
-      self.link = self.link.gsub('%23', '#')
+      self.link = self.link.gsub('%23', '#') # Hash incorrectly rendered
+      self.link = self.link.gsub('%20', '') # %20 sign creeping into links (e.g. YouTube links split at "=" sign)
     end
   end
   
