@@ -19,3 +19,7 @@
 /doc
 # Ignore application configuration
 /config/application.yml
+
+##########
+# Temporary files
+*~

@@ -1,3 +1,4 @@
+
 <h4>
 	<%= Song.count.nil? ? 0 : Song.count %> songs
 </h4>
@@ -8,5 +9,5 @@
 	last Song: <%= Song.unscoped.last.nil? ? "N/A" : link_to(Song.unscoped.last.title, Song.unscoped.last) %>
 </h4>
 <h4>
-	last Translation: <%= Translation.unscoped.last.song.nil? ? "N/A" : link_to(Translation.unscoped.last.song.title, Translation.unscoped.last.song) %>
+	last Translation: <%= (Translation.unscoped.last.nil? or Translation.unscoped.last.song.nil?) ? "N/A" : link_to(Translation.unscoped.last.song.title, Translation.unscoped.last.song) %>
 </h4>
