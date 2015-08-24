@@ -39,8 +39,8 @@ end
 # Use [debugger or byebug]
 gem 'byebug', group: [:development, :test]
 
-# Required by Heroku
-gem 'rails_12factor', group: :production
+# Required by Heroku (messes up logs outside of Heroku)
+#gem 'rails_12factor', group: :production
 
 # Ruby 
 ruby "2.1.1"
