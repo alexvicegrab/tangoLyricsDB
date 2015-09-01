@@ -43,7 +43,7 @@ gem 'byebug', group: [:development, :test]
 #gem 'rails_12factor', group: :production
 
 # Ruby 
-ruby "2.1.1"
+ruby "2.1.4"
 
 group :test do
   gem 'ZenTest'
