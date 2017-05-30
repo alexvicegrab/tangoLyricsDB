@@ -51,9 +51,6 @@ group :test do
   gem 'minitest-reporters'
 end
 
-# Web app server
-gem 'passenger'
-
 # Autolink
 gem 'rails_autolink'
 
@@ -96,3 +93,7 @@ gem 'figaro'
 
 # Better parsing of URLs
 gem 'domainatrix'
+
+# JS runtime
+gem 'therubyracer'
+
