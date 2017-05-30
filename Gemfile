@@ -43,13 +43,16 @@ gem 'byebug', group: [:development, :test]
 #gem 'rails_12factor', group: :production
 
 # Ruby 
-ruby "2.1.4"
+ruby "2.3.1"
 
 group :test do
   gem 'ZenTest'
   gem 'autotest-rails'
   gem 'minitest-reporters'
 end
+
+# Web app server
+gem 'passenger'
 
 # Autolink
 gem 'rails_autolink'
