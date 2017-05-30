@@ -24,7 +24,7 @@
         <td class="hidden-xs hidden-sm"><%= render partial: 'composer_search', locals: { song: song } %></td>
         <td class="hidden-xs hidden-sm"><%= render partial: 'lyricist_search', locals: { song: song } %></td>
         <td class="hidden-xs"><%= render partial: 'year_search', locals: { song: song } %></td>
-				<td><%= song.translations.size %></td>
+				<td><%= song.translations.length %></td>
         <td class='action_column'>
 			    <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),
 			                song_path(song),  :class => 'btn btn-xs btn-default' %>

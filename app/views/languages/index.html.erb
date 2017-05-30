@@ -17,7 +17,7 @@
 				<td class='search_column'><%= render partial: 'shared/search_icon', locals: { f: language } %></td>
 				<td><%= link_to language.name, language_path(language) %></td>
         <td><%= language.iso %></td>
-				<td><%= language.translations.size %></td>
+				<td><%= language.translations.length %></td>
         <td class='action_column'>
 			    <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),
 			                language_path(language),  :class => 'btn btn-xs btn-default' %>
