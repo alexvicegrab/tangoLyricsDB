@@ -1,7 +1,7 @@
 from fabric.api import run
 from fabric.contrib.files import exists, sed, append
 from fabric.context_managers import cd
-from fabric.operations import prompt
+from fabric.operations import prompt, sudo
 from fabtools import require
 
 from blessings import Terminal
@@ -37,6 +37,13 @@ def _configure_webserver():
         'passenger_enabled on;   # index  index.html index.htm;',
         use_sudo=True)
     # Update Nginx init script with key variables
+    if not exists('/etc/init.d/nginx'):
+        with cd('/var/www/tangoLyricsDB'):
+            sudo('cp init.d-nginx /etc/init.d/nginx')
+            sudo('chmod 755 /etc/init.d/nginx')
+            sudo('chown root:root /etc/init.d/nginx')
+            sudo('update-rc.d nginx defaults')
+            sudo('update-rc.d nginx enable')
     secret_key = prompt('What is the SECRET_KEY_BASE? for TTdb?')
     append('/etc/init.d/nginx',
            'export SECRET_KEY_BASE={}'.format(secret_key),
@@ -47,9 +54,9 @@ def _configure_webserver():
     append('/etc/init.d/nginx',
            'export GMAIL_USERNAME=tangotranslation@gmail.com',
            use_sudo=True)
-    gmail_passwd = prompt('What is the GMAIL_PASSWORD for the TTdb Mailer?')
+    gmail_psswd = prompt('What is the GMAIL_PASSWORD for the TTdb Mailer?')
     append('/etc/init.d/nginx',
-           'export GMAIL_PASSWORD={}'.format(gmail_passwd),
+           'export GMAIL_PASSWORD={}'.format(gmail_psswd),
            use_sudo=True)
 
 
@@ -62,14 +69,14 @@ def _download_github():
 def _enable_swap():
     print(t.green("Setup SWAP file to prevent Memory Errors during compilation of Web Server"))
     if not exists('/swapfile'):
-        run('sudo dd if=/dev/zero of=/swapfile bs=4096 count=256k')
-        run('sudo mkswap /swapfile')
-        run('sudo chown root:root /swapfile')
-        run('sudo chmod 0600 /swapfile')
-        run('sudo swapon /swapfile')
+        sudo('dd if=/dev/zero of=/swapfile bs=4096 count=256k')
+        sudo('mkswap /swapfile')
+        sudo('chown root:root /swapfile')
+        sudo('chmod 0600 /swapfile')
+        sudo('swapon /swapfile')
         append('/etc/fstab', '/swapfile       none    swap    sw      0       0', use_sudo=True)
-        run('echo 10 | sudo tee /proc/sys/vm/swappiness')
-        run('echo vm.swappiness = 10 | sudo tee -a /etc/sysctl.conf')
+        sudo('echo 10 | sudo tee /proc/sys/vm/swappiness')
+        sudo('echo vm.swappiness = 10 | sudo tee -a /etc/sysctl.conf')
 
 
 def _install_bundle():
@@ -82,8 +89,8 @@ def _install_bundle():
 
 def _install_packages():
     print(t.green("Install important Ubuntu packages necessary for rest of installation"))
-    run('sudo apt update')
-    run('sudo apt install htop ruby ruby-dev build-essential libpq-dev libcurl4-openssl-dev -y')
+    sudo('apt update')
+    sudo('apt install htop ruby ruby-dev build-essential libpq-dev libcurl4-openssl-dev -y')
 
 
 def _install_webserver():
@@ -98,11 +105,10 @@ def _install_webserver():
 
 def _install_postgres():
     print(t.green("Install postgres dependencies and tangoLyricsDB user"))
-    #run('sudo apt-get update')
-    #run('sudo apt-get install postgresql postgresql-contrib')
     require.postgres.server()
+    psql_psswd = prompt('Provide password for tangoLyricsDB postgreSQL user')
     try:
-        require.postgres.user('tangoLyricsDB', 'TheTangoTranslationDataBase', createdb=True)
+        require.postgres.user('tangoLyricsDB', psql_psswd, createdb=True)
     except:
         print(t.yellow('tangoLyricsDB user probably exists'))
 
@@ -110,7 +116,7 @@ def _install_postgres():
 def _restore_database():
     print(t.green("Restore database for TTdb from backup"))
     with cd('/var/www/tangoLyricsDB'):
-        run('pg_restore --verbose --clean --no-acl --no-owner -h localhost -U tangoLyricsDB -d tangoLyricsDB_production backup/*.dump')
+        sudo('pg_restore --verbose --clean --no-acl --no-owner -h localhost -U tangoLyricsDB -d tangoLyricsDB_production backup/*.dump', user='postgres')
 
 
 def _setup_byobu():
@@ -124,16 +130,15 @@ def _setup_database():
         'local   all             all                                     peer',
         'local   all             all                                     trust',
         use_sudo=True)
+    sed('/etc/postgresql/9.5/main/pg_hba.conf',
+        'local   all             postgres                                peer',
+        'local   all             postgres                                trust',
+        use_sudo=True)
+    sudo('service postgresql restart')
     with cd('/var/www/tangoLyricsDB'):
         run('RAILS_ENV=production bundle exec rake db:create db:schema:load')
 
 
 def _start_webserver():
-    if not exists('/etc/init.d/nginx'):
-        with cd('/var/www/tangoLyricsDB'):
-            run('cp init.d-nginx /etc/init.d/nginx')
-            run('sudo chmod 755 /etc/init.d/nginx')
-            run('sudo chown root:root /etc/init.d/nginx')
-            run('sudo update-rc.d nginx defaults')
-            run('sudo update-rc.d nginx enable')
-    run('sudo service nginx start')
+    sudo('service nginx start')
+
