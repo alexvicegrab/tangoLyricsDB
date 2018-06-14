@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
+gem 'rails', '4.2.8'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -42,8 +42,8 @@ gem 'byebug', group: [:development, :test]
 # Required by Heroku (messes up logs outside of Heroku)
 #gem 'rails_12factor', group: :production
 
-# Ruby 
-ruby "2.3.1"
+# Ruby
+ruby "2.5.1"
 
 group :test do
   gem 'ZenTest'
@@ -96,4 +96,3 @@ gem 'domainatrix'
 
 # JS runtime
 gem 'therubyracer'
-
