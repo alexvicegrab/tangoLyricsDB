@@ -18,7 +18,7 @@ def deploy():
     _install_webserver()
     _download_github()
     _install_bundle()
-    _setup_database()
+    _setup_database('9.6')
     _configure_webserver()
     _start_webserver()
 
@@ -147,13 +147,13 @@ def _setup_byobu():
     run('byobu-enable')
 
 
-def _setup_database():
+def _setup_database(version):
     print(t.green("Setup TTdb database"))
-    sed('/etc/postgresql/9.5/main/pg_hba.conf',
+    sed('/etc/postgresql/' + version + '/main/pg_hba.conf',
         'local   all             all                                     peer',
         'local   all             all                                     trust',
         use_sudo=True)
-    sed('/etc/postgresql/9.5/main/pg_hba.conf',
+    sed('/etc/postgresql/' + version + '/main/pg_hba.conf',
         'local   all             postgres                                peer',
         'local   all             postgres                                trust',
         use_sudo=True)
