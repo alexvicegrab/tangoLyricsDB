@@ -13,6 +13,7 @@ def deploy():
     _setup_byobu()
     _enable_swap()
     _install_packages()
+    _install_rbenv()
     _install_postgres()
     _install_webserver()
     _download_github()
@@ -62,6 +63,9 @@ def _configure_webserver():
 
 def _download_github():
     print(t.green("Download TTdb source"))
+    if not exists('/var/www'):
+        sudo('mkdir -p /var/www')
+        sudo('chown ' + env.user + ' /var/www')
     if not exists('/var/www/tangoLyricsDB'):
         run('git clone https://github.com/alexvicegrab/tangoLyricsDB.git /var/www/tangoLyricsDB')
 
@@ -89,8 +93,27 @@ def _install_bundle():
 
 def _install_packages():
     print(t.green("Install important Ubuntu packages necessary for rest of installation"))
+    # Need Node & Yarn for Ruby (https://gorails.com/setup/ubuntu/17.10)
+    run('curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -')
+    run('curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -')
+    run('echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list')
     sudo('apt update')
-    sudo('apt install htop ruby ruby-dev build-essential libpq-dev libcurl4-openssl-dev -y')
+    # Various tools (gcc-6 needed for rbenv)
+    sudo('apt install htop -y')
+    run('sudo apt install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn -y')
+
+
+def _install_rbenv():
+    try:
+        run('ruby -v')
+    except:
+        run('git clone https://github.com/rbenv/rbenv.git ~/.rbenv')
+        run('echo \'export PATH="$HOME/.rbenv/bin:$PATH"\' >> ~/.bash_profile')
+        run('echo \'eval "$(rbenv init -)"\' >> ~/.bash_profile')
+        run('git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build')
+        run('echo \'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"\' >> ~/.bash_profile')
+        run('rbenv install 2.5.1')
+        run('rbenv global 2.5.1')
 
 
 def _install_webserver():
@@ -100,7 +123,7 @@ def _install_webserver():
     except:
         run('gem install passenger')
     if not exists('/opt/nginx'):
-        run('passenger-install-nginx-module --auto --prefix=/opt/nginx --auto-download --extra-configure-flags=none --languages ruby')
+        sudo('`which passenger-install-nginx-module` --auto --prefix=/opt/nginx --auto-download --extra-configure-flags=none --languages ruby')
 
 
 def _install_postgres():
@@ -141,4 +164,3 @@ def _setup_database():
 
 def _start_webserver():
     sudo('service nginx start')
-
