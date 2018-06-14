@@ -1,4 +1,4 @@
-from fabric.api import run
+from fabric.api import env, run
 from fabric.contrib.files import exists, sed, append
 from fabric.context_managers import cd
 from fabric.operations import prompt, sudo
@@ -23,8 +23,8 @@ def deploy():
     _start_webserver()
 
 
-def restore_db():
-    _restore_database()
+def restore_db(filename="TDB_26-05-2018.dump"):
+    _restore_database(filename)
 
 
 def _configure_webserver():
@@ -59,13 +59,17 @@ def _configure_webserver():
     append('/etc/init.d/nginx',
            'export GMAIL_PASSWORD={}'.format(gmail_psswd),
            use_sudo=True)
+    psql_psswd = prompt('What is the TANGOLYRICSDB_DATABASE_PASSWORD?')
+    append('/etc/init.d/nginx',
+           'export TANGOLYRICSDB_DATABASE_PASSWORD={}'.format(psql_psswd),
+           use_sudo=True)
 
 
 def _download_github():
     print(t.green("Download TTdb source"))
     if not exists('/var/www'):
         sudo('mkdir -p /var/www')
-        sudo('chown ' + env.user + ' /var/www')
+    sudo('chown ' + env.user + ' /var/www')
     if not exists('/var/www/tangoLyricsDB'):
         run('git clone https://github.com/alexvicegrab/tangoLyricsDB.git /var/www/tangoLyricsDB')
 
@@ -98,9 +102,8 @@ def _install_packages():
     run('curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -')
     run('echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list')
     sudo('apt update')
-    # Various tools (gcc-6 needed for rbenv)
     sudo('apt install htop -y')
-    run('sudo apt install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn -y')
+    sudo('apt install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn -y')
 
 
 def _install_rbenv():
@@ -128,7 +131,8 @@ def _install_webserver():
 
 def _install_postgres():
     print(t.green("Install postgres dependencies and tangoLyricsDB user"))
-    require.postgres.server()
+    sudo('apt install postgresql-server-dev-9.6')
+    # TODO: Currently we ask for the same password twice, how can we DRY?
     psql_psswd = prompt('Provide password for tangoLyricsDB postgreSQL user')
     try:
         require.postgres.user('tangoLyricsDB', psql_psswd, createdb=True)
@@ -136,10 +140,10 @@ def _install_postgres():
         print(t.yellow('tangoLyricsDB user probably exists'))
 
 
-def _restore_database():
+def _restore_database(filename):
     print(t.green("Restore database for TTdb from backup"))
     with cd('/var/www/tangoLyricsDB'):
-        sudo('pg_restore --verbose --clean --no-acl --no-owner -h localhost -U tangoLyricsDB -d tangoLyricsDB_production backup/*.dump', user='postgres')
+        sudo('pg_restore --verbose --clean --no-acl --no-owner -h localhost -U tangoLyricsDB -d tangoLyricsDB_production backup/{fn}'.format(fn=filename), user='postgres')
 
 
 def _setup_byobu():
