@@ -14,17 +14,28 @@ def deploy():
     _enable_swap()
     _install_packages()
     _install_rbenv()
-    _install_postgres()
+    _install_postgres('9.5')
     _install_webserver()
     _download_github()
     _install_bundle()
-    _setup_database('9.6')
+    _setup_database('9.5')
     _configure_webserver()
     _start_webserver()
+    _auto_backup()
 
 
 def restore_db(filename="TDB_26-05-2018.dump"):
     _restore_database(filename)
+
+
+def _auto_backup():
+    print(t.green("Setup automatic backup with crontab"))
+    res = run('crontab -l')
+    if "TTdb_dump" not in res:
+        run('(crontab -l ; echo "0 0 * * * /var/www/tangoLyricsDB/TTdb_dump.sh") | crontab -')
+        print(t.green("Crontab setup"))
+    else:
+        print(t.yellow("Crontab set-up, no action needed"))
 
 
 def _configure_webserver():
@@ -129,9 +140,9 @@ def _install_webserver():
         sudo('`which passenger-install-nginx-module` --auto --prefix=/opt/nginx --auto-download --extra-configure-flags=none --languages ruby')
 
 
-def _install_postgres():
+def _install_postgres(version):
     print(t.green("Install postgres dependencies and tangoLyricsDB user"))
-    sudo('apt install postgresql-server-dev-9.6')
+    sudo('apt install -y postgresql-server-dev-' + version)
     # TODO: Currently we ask for the same password twice, how can we DRY?
     psql_psswd = prompt('Provide password for tangoLyricsDB postgreSQL user')
     try:
