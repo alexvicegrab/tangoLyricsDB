@@ -29,6 +29,10 @@
 *.tfstate*
 .terraform
 
+# Environment
+.envrc
+venv
+
 ##########
 # Temporary files
 *~
