@@ -21,10 +21,21 @@ def deploy():
     _setup_database('9.5')
     _configure_webserver()
     _start_webserver()
+    _auto_backup()
 
 
 def restore_db(filename="TDB_26-05-2018.dump"):
     _restore_database(filename)
+
+
+def _auto_backup():
+    print(t.green("Setup automatic backup with crontab"))
+    res = run('crontab -l')
+    if "TTdb_dump" not in res:
+        run('(crontab -l ; echo "0 0 * * * /var/www/tangoLyricsDB/TTdb_dump.sh") | crontab -')
+        print(t.green("Crontab setup"))
+    else:
+        print(t.yellow("Crontab set-up, no action needed"))
 
 
 def _configure_webserver():
