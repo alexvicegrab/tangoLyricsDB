@@ -14,11 +14,11 @@ def deploy():
     _enable_swap()
     _install_packages()
     _install_rbenv()
-    _install_postgres('9.5')
+    _install_postgres('10')
     _install_webserver()
     _download_github()
     _install_bundle()
-    _setup_database('9.5')
+    _setup_database('10')
     _configure_webserver()
     _start_webserver()
     _auto_backup()
@@ -143,6 +143,7 @@ def _install_webserver():
 def _install_postgres(version):
     print(t.green("Install postgres dependencies and tangoLyricsDB user"))
     sudo('apt install -y postgresql-server-dev-' + version)
+    sudo('apt install -y postgresql-client-' + version)
     # TODO: Currently we ask for the same password twice, how can we DRY?
     psql_psswd = prompt('Provide password for tangoLyricsDB postgreSQL user')
     try:

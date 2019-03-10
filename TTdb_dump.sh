@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 export NOW=$(date +"%Y-%m-%d")
 
 # TODO: We should save this variable as env

@@ -13,7 +13,7 @@ resource "google_compute_instance" "vm" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-1604-lts"
+      image = "ubuntu-1804-lts"
     }
   }
 
