@@ -32,10 +32,16 @@ Then we can run the necessary installation scripts:
 
 # Docker Compose
 
+Create the relevant docker volumes
+
+    docker volume create --name postgres-vol
+
 Build and run docker-compose thus:
 
     export RAILS_ENV="production"
     export SECRET_KEY_BASE=$(rake secret)
+    export GMAIL_USERNAME=<your Gmail username>  # I use tangotranslation@gmail.com
+    export GMAIL_PASSWORD=<your Gmail password>
     docker-compose build
     docker-compose up
 

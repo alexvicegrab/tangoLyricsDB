@@ -2,17 +2,30 @@ version: '3'
 services:
   db:
     image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      # POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - postgres-vol:/var/lib/postgresql/data
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    volumes:
-      - .:/myapp
-    ports:
-      - "3000:3000"
     depends_on:
       - db
     environment:
       RAILS_ENV: ${RAILS_ENV}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      WORKER_PROCESSES: 8
+      UNICORN_ADDRESS: 0.0.0.0:3000
+      GMAIL_DOMAIN: mail.google.com
+      GMAIL_USERNAME: ${GMAIL_USERNAME}
+      GMAIL_PASSWORD: ${GMAIL_PASSWORD}
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/ttdb
+
+volumes:
+  postgres-vol:

@@ -27,20 +27,14 @@ group :development do
   gem 'bullet'
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
 # Use unicorn as the app server
-#gem 'unicorn'
+gem 'unicorn', '~> 5.5.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use [debugger or byebug]
 gem 'byebug', group: [:development, :test]
-
-# Required by Heroku (messes up logs outside of Heroku)
-#gem 'rails_12factor', group: :production
 
 # Ruby
 ruby "2.5.1"
@@ -85,7 +79,7 @@ gem 'chartkick'
 # Helps jQuery work with turbolinks (important for e.g. tooltips)
 gem 'jquery-turbolinks'
 
-# Devise authentification
+# Devise authentication
 gem 'devise'
 
 # Environmental variables via Figaro
