@@ -3,7 +3,7 @@ class LanguagesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @languages = Language.all
+    @languages = Language.includes(:translations).all
   end
   
   def new

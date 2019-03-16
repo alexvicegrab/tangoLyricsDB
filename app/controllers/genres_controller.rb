@@ -3,7 +3,7 @@ class GenresController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @genres = Genre.all
+    @genres = Genre.includes(:songs).all
   end
   
   def new
