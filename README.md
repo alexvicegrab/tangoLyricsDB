@@ -12,6 +12,15 @@ To deploy a copy of this project, you must follow these steps.
 
 Set up a GCP account and a project and create a GCP compute instance by following the `./terraform/instance/README.md`
 
+### Env vars
+
+Make sure you export a set of environmental variables
+
+    export RAILS_ENV=production
+    export SECRET_KEY_BASE=<a secret key base>  # The output of rake secret
+    export GMAIL_USERNAME=<your Gmail username>  # I use tangotranslation@gmail.com
+    export GMAIL_PASSWORD=<your Gmail password>
+
 ### Python fabric
 
 To install the components on the server we will be using Python Fabric 1.x (2.x has a very different API)
@@ -38,10 +47,6 @@ Create the relevant docker volumes
 
 Build and run docker-compose thus:
 
-    export RAILS_ENV=production
-    export SECRET_KEY_BASE=$(cd rails_app && rake secret)
-    export GMAIL_USERNAME=<your Gmail username>  # I use tangotranslation@gmail.com
-    export GMAIL_PASSWORD=<your Gmail password>
     docker-compose build
     docker-compose up -d
 
