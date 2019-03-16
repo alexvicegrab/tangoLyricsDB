@@ -16,7 +16,7 @@
 
 # Ignore all logfiles and tempfiles.
 */log/*.log
-/tmp
+*/tmp
 
 # Ignore the documentation
 /doc
