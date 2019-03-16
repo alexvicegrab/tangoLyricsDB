@@ -46,7 +46,7 @@ def _docker_compose(branch="master"):
            "export GMAIL_USERNAME={}".format(environ["GMAIL_USERNAME"]))
     append("~/.bashrc",
            "export GMAIL_PASSWORD={}".format(environ["GMAIL_PASSWORD"]))
-    with cd('~/tangoLyricsDB'):
+    with cd("~/tangoLyricsDB"):
         run("docker-compose build")
         run("docker-compose up -d")
         run("docker-compose run app rake db:create")
@@ -54,7 +54,7 @@ def _docker_compose(branch="master"):
 
 def _download_github(branch="master"):
     print(t.green("Download TTdb source"))
-    if not exists('~/tangoLyricsDB'):
+    if not exists("~/tangoLyricsDB"):
         run('git clone https://github.com/alexvicegrab/tangoLyricsDB.git')
     with cd("~/tangoLyricsDB"):
         run("git checkout {}".format(branch))
@@ -85,7 +85,7 @@ def _install_packages():
         run("sudo apt-key fingerprint 0EBFCD88")
         run('sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"')
         run("sudo apt-get update")
-        run("sudo apt-get install docker-ce docker-ce-cli containerd.io")
+        run("sudo apt-get install -y docker-ce docker-ce-cli containerd.io")
     # Enable user to connect to Docker
     run("sudo usermod -a -G docker $USER")
     # Need to install Docker and Docker compose
@@ -100,7 +100,7 @@ def _install_packages():
 def _restore_database(backup):
     print(t.green("Restore database for TTdb from backup"))
     backup_file = "./backup/{}.dump".format(backup)
-    with cd("~/tangoLyricsDB'):
+    with cd("~/tangoLyricsDB"):
         sudo("docker exec -i tangolyricsdb_db_1 pg_restore --clean --no-acl --no-owner -U postgres -d tangoLyricsDB_${RAILS_ENV} < " + backup_file)
 
 
