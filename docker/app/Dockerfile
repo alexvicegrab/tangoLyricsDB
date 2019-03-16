@@ -2,7 +2,7 @@
 
 FROM ruby:2.5.1-slim
 
-ARG APP_PATH=/ttdb
+ARG APP_PATH=/var/www/ttdb
 
 # Install dependencies:
 #   - build-essential: To ensure certain gems can be compiled
@@ -13,7 +13,7 @@ ARG APP_PATH=/ttdb
 RUN apt-get update -qq && apt-get install -y build-essential git nodejs libpq-dev postgresql-client
 
 # Create directory and set context to it
-RUN mkdir $APP_PATH
+RUN mkdir -p $APP_PATH
 WORKDIR $APP_PATH
 
 # Ensure gems are cached and only get updated when they change. This will
