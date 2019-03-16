@@ -10,7 +10,9 @@ services:
     volumes:
       - postgres-vol:/var/lib/postgresql/data
   web:
-    build: .
+    build:
+      context: ./rails_app
+      dockerfile: Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     depends_on:
       - db
@@ -25,7 +27,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/ttdb
+      - ./rails_app:/ttdb
 
 volumes:
   postgres-vol:
