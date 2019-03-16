@@ -18,8 +18,8 @@ def deploy():
     _setup_byobu()
     _enable_swap()
     _install_packages()
-    _download_github()
-    _docker_compose("docker")
+    _download_github("docker")
+    _docker_compose()
     #_auto_backup()
 
 
@@ -37,7 +37,7 @@ def _auto_backup():
         print(t.yellow("Crontab set-up, no action needed"))
 
 
-def _docker_compose(branch="master"):
+def _docker_compose():
     append("~/.bashrc",
            "export RAILS_ENV=production")
     append("~/.bashrc",
