@@ -1,3 +1,5 @@
+from os import environ
+
 from fabric.api import env, run
 from fabric.contrib.files import exists, sed, append
 from fabric.context_managers import cd
@@ -39,11 +41,11 @@ def _docker_compose(branch="master"):
     append("~/.bashrc",
            "export RAILS_ENV=production")
     append("~/.bashrc",
-           "export SECRET_KEY_BASE=$(cd rails_app && rake secret)")
+           "export SECRET_KEY_BASE={}".format(environ["SECRET_KEY_BASE"]))
     append("~/.bashrc",
-           "export GMAIL_USERNAME=tangotranslation@gmail.com")
+           "export GMAIL_USERNAME={}".format(environ["GMAIL_USERNAME"]))
     append("~/.bashrc",
-           "export GMAIL_PASSWORD=<your Gmail password>")
+           "export GMAIL_PASSWORD={}".format(environ["GMAIL_PASSWORD"]))
     with cd('~/tangoLyricsDB'):
         run("docker-compose build")
         run("docker-compose up -d")

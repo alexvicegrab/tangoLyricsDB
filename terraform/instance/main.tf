@@ -29,3 +29,13 @@ resource "google_compute_instance" "vm" {
     sshKeys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
   }
 }
+
+resource "google_compute_firewall" "web" {
+  name    = "open-web"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "443"]
+  }
+}
