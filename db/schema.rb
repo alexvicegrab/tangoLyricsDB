@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20140705162312) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "genres", force: true do |t|
+  create_table "genres", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "songs_count", default: 0
   end
 
-  create_table "languages", force: true do |t|
+  create_table "languages", force: :cascade do |t|
     t.string   "iso"
     t.string   "name"
     t.integer  "translations_count", default: 0
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140705162312) do
     t.datetime "updated_at"
   end
 
-  create_table "songs", force: true do |t|
+  create_table "songs", force: :cascade do |t|
     t.string   "title"
     t.string   "composer"
     t.string   "lyricist"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140705162312) do
     t.string   "search_title"
   end
 
-  create_table "translations", force: true do |t|
+  create_table "translations", force: :cascade do |t|
     t.string   "link"
     t.integer  "song_id"
     t.datetime "created_at"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140705162312) do
   add_index "translations", ["language_id"], name: "index_translations_on_language_id", using: :btree
   add_index "translations", ["song_id"], name: "index_translations_on_song_id", using: :btree
 
-  create_table "translators", force: true do |t|
+  create_table "translators", force: :cascade do |t|
     t.string   "name"
     t.string   "site_name"
     t.string   "site_link"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20140705162312) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
