@@ -47,10 +47,10 @@ Build and run docker-compose thus:
 
 Precompile assets:
 
-    docker-compose run web bundle exec rake assets:precompile
+    docker-compose run app bundle exec rake assets:precompile
 
 We can create and restore a specific database:
     
     export BACKUP="TDB_2019-03-03"
-    docker-compose run web rake db:create
+    docker-compose run app rake db:create
     docker exec -i tangolyricsdb_db_1 pg_restore --clean --no-acl --no-owner -U postgres -d tangoLyricsDB_${RAILS_ENV} < ./backup/${BACKUP}.dump 
