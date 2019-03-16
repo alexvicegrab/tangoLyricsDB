@@ -17,9 +17,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
   username: postgres
-  password:
+  host: db  # For Docker Compose
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
@@ -84,5 +83,4 @@ test:
 production:
   <<: *default
   database: tangoLyricsDB_production
-  username: tangoLyricsDB
   password: <%= ENV['TANGOLYRICSDB_DATABASE_PASSWORD'] %>
