@@ -29,3 +29,22 @@ First we will create a python 2.7 environment:
 Then we can run the necessary installation scripts:
 
     ./venv/bin/fab -H ubuntu@$(terraform output -state=./terraform/instance/terraform.tfstate ip) deploy
+
+# Docker Compose
+
+Build and run docker-compose thus:
+
+    export RAILS_ENV="production"
+    export SECRET_KEY_BASE=$(rake secret)
+    docker-compose build
+    docker-compose up
+
+Precompile assets:
+
+    docker-compose run web bundle exec rake assets:precompile
+
+We can create and restore a specific database:
+    
+    export BACKUP="TDB_2019-03-03"
+    docker-compose run web rake db:create
+    docker exec -i tangolyricsdb_db_1 pg_restore --clean --no-acl --no-owner -U postgres -d tangoLyricsDB_${RAILS_ENV} < ./backup/${BACKUP}.dump 
