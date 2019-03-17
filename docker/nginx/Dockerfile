@@ -6,16 +6,16 @@ FROM nginx
 # Install dependencies
 RUN apt-get update -qq && apt-get -y install apache2-utils
 
-# establish where Nginx should look for files
+# Establish where Nginx should look for files
 ENV APP_PATH /var/www/ttdb
 
 # Set our working directory inside the image
 WORKDIR $APP_PATH
 
-# create log directory
+# Create log directory
 RUN mkdir log
 
-# copy over static assets
+# Copy over static assets
 COPY public public
 
 # Copy Nginx config template

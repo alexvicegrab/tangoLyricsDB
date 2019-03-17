@@ -14,7 +14,7 @@ Set up a GCP account and a project and create a GCP compute instance by followin
 
 ### Env vars
 
-Make sure you export a set of environmental variables
+Make sure you export a set of environmental variables (ideally place these into a `~/envvars/ttdb.sh` file and source them)
 
     export RAILS_ENV=production
     export SECRET_KEY_BASE=<a secret key base>  # The output of rake secret
@@ -45,14 +45,14 @@ Create the relevant docker volumes
 
     docker volume create --name postgres-vol
 
+Precompile assets (you will need `ruby` and `rake` to do this), in to provide them with the :
+
+    docker-compose run app bundle exec rake assets:precompile
+
 Build and run docker-compose thus:
 
     docker-compose build
     docker-compose up -d
-
-Precompile assets:
-
-    docker-compose run app bundle exec rake assets:precompile
 
 We can create and restore a specific database:
     

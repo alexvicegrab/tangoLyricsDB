@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require jquery.turbolinks.js
 //= require jquery.turbolinks
 //= require jquery_ujs
@@ -19,4 +20,4 @@
 
 $(function(){
   $("a[rel='tooltip']").tooltip();
-})
+});
