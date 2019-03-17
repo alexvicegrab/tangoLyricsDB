@@ -31,7 +31,10 @@ def restore_db(filename="TDB_2019-03-03"):
 
 def _auto_backup():
     print(t.green("Setup automatic backup with crontab"))
-    res = run('crontab -l')
+    try:
+        res = run('crontab -l')
+    except:
+        res = ""
     if "TTdb_dump" not in res:
         run('(crontab -l ; echo "0 0 * * * $TTDB_PATH/TTdb_dump.sh") | crontab -')
         print(t.green("Crontab setup"))
