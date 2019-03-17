@@ -15,15 +15,16 @@ services:
     volumes:
       - postgres-vol:/var/lib/postgresql/data
 
-  nginx:
-    build:
-      context: ./rails_app
-      dockerfile: ../docker/nginx/Dockerfile
-    depends_on:
-      - app
-    ports:
-      - 80:80
-      - 443:443
+  # TODO: Find a way to get the Glyphicons and JS to work correctly with NGINX
+  #nginx:
+  #  build:
+  #    context: ./rails_app
+  #    dockerfile: ../docker/nginx/Dockerfile
+  #  depends_on:
+  #    - app
+  #  ports:
+  #    - 80:80
+  #    - 443:443
 
   app:
     build:
@@ -41,6 +42,7 @@ services:
       GMAIL_USERNAME: ${GMAIL_USERNAME}
       GMAIL_PASSWORD: ${GMAIL_PASSWORD}
     ports:
-      - "3000:3000"
+      - 81:3000
+      # - 3000:3000
     volumes:
       - ./rails_app:/var/www/ttdb
