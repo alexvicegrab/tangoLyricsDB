@@ -16,16 +16,16 @@
     <% @translators.each do |translator| %>
       <tr>
 				<td class='search_column'><%= render partial: 'shared/search_icon', locals: { f: translator } %></td>
-				<td class='search_column'><%= link_to raw("<i class='glyphicon glyphicon-link'></i>"), translator.site_link, :class => 'btn btn-xs btn-primary', data_toggle: 'tooltip', 'data-placement' => 'right', title: URI.decode(translator.site_link), rel: :tooltip, :target => "_blank" %></td>
+				<td class='search_column'><%= link_to raw("<i class='fa fa-link'></i>"), translator.site_link, :class => 'btn btn-xs btn-primary', data_toggle: 'tooltip', 'data-placement' => 'right', title: URI.decode(translator.site_link), rel: :tooltip, :target => "_blank" %></td>
 				<td><%= link_to translator.site_name, translator_path(translator)%></td>
         <td><%= translator.name %></td>
         <td><%= translator.translations.length %></td>
         <td class='action_column'>
-			    <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),
+			    <%= link_to raw('<i class="fa fa-eye"></i>'),
 			                translator_path(translator),  :class => 'btn btn-xs btn-default' %>
-          <%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'),
+          <%= link_to raw('<i class="fa fa-edit"></i>'),
                       edit_translator_path(translator), :class => 'btn btn-xs btn-warning' %>
-          <%= link_to raw('<i class="glyphicon glyphicon-remove"></i>'),
+          <%= link_to raw('<i class="fa fa-trash"></i>'),
                       translator_path(translator),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -36,6 +36,6 @@
   </tbody>
 </table>
 
-<%= link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new_translator")),
+<%= link_to '<i class="fa fa-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new_translator")),
             new_translator_path,
             :class => 'btn btn-warning' %>

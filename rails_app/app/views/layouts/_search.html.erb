@@ -53,18 +53,18 @@
 	<div class="row">
 		<div class="col-xs-4">
 	<%= button_tag(type: 'submit', class: "btn btn-info") do %>
-	  <i class="glyphicon glyphicon-search"></i> <%= t('.search', :default => t("helpers.links.search")) %>
+	  <i class="fa fa-search"></i> <%= t('.search', :default => t("helpers.links.search")) %>
 	<% end %>
 	</div>
 	<div class="col-xs-2"></div>
 	<div class="col-xs-4">
-	<%= link_to '<i class="glyphicon glyphicon-trash"></i> '.html_safe + t('.clear', :default => t("helpers.links.clear")),
+	<%= link_to '<i class="fa fa-trash"></i> '.html_safe + t('.clear', :default => t("helpers.links.clear")),
 	songs_path, :class => 'btn btn-default'  %>
 		</div>
 	</div>
 </div>
 <div class="form-group">
-		<%= link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new")) + ' Song',
+		<%= link_to '<i class="fa fa-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new")) + ' Song',
 		new_song_path,
 		:class => 'btn btn-warning' %>
 </div>

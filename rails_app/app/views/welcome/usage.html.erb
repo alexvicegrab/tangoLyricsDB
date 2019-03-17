@@ -22,31 +22,31 @@
 <h3>Buttons</h3>
 <h4>Quick search</h4>
 <p>
-	The <em>translators</em>, <em>languages</em> and <em>genres</em> views have buttons <%= link_to raw('<i type="button" class="glyphicon glyphicon-search"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-info btn-circle' %> to find songs or translations filtered by these properties.
+	The <em>translators</em>, <em>languages</em> and <em>genres</em> views have buttons <%= link_to raw('<i type="button" class="fa fa-search"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-info btn-circle' %> to find songs or translations filtered by these properties.
 </p>
 <p>
 	The <em>songs</em> view has a <%= link_to raw('<i type="button" class="fa fa-youtube-play"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-circle youtube_icon' %> button linking to an automated YouTube search of the song.
 </p>
 <h4>Translations</h4>
 <p>
-	The <em>translation</em> view presents each link as a <%= link_to raw('<i type="button" class="glyphicon glyphicon-link"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-primary' %> button. Hover your mouse over it to see a tooltip with the link destination.
+	The <em>translation</em> view presents each link as a <%= link_to raw('<i type="button" class="fa fa-link"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-primary' %> button. Hover your mouse over it to see a tooltip with the link destination.
 </p>
 <p>
 	In addition, each translation buttons indicating the status of each translation link. To re-check the translation link, click on the button. The different buttons specify translations that...
 </p>
 <ul>
-	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-ok"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-success btn-circle' %> are active and accessible</li>
-	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-exclamation-sign"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-warning btn-circle' %> fail the check due to accessibility issues (e.g. translations on Facebook)</li>
-	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-exclamation-sign"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-danger btn-circle' %> cannot be found</li>
+	<li><%= link_to raw('<i type="button" class="fa fa-check"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-success btn-circle' %> are active and accessible</li>
+	<li><%= link_to raw('<i type="button" class="fa fa-exclamation"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-warning btn-circle' %> fail the check due to accessibility issues (e.g. translations on Facebook)</li>
+	<li><%= link_to raw('<i type="button" class="fa fa-exclamation"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-danger btn-circle' %> cannot be found</li>
 </ul>
 
 <h4>Actions</h4>
 
 Each individual item has access to 3 actions:
 <ul>
-	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-eye-open"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-default' %> view</li>
-	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-edit"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-warning' %> edit</li>
-	<li><%= link_to raw('<i type="button" class="glyphicon glyphicon-remove"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-danger' %> remove</li>
+	<li><%= link_to raw('<i type="button" class="fa fa-eye"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-default' %> view</li>
+	<li><%= link_to raw('<i type="button" class="fa fa-edit"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-warning' %> edit</li>
+	<li><%= link_to raw('<i type="button" class="fa fa-trash"></i>'), '#', :disabled => true, :class => 'btn btn-xs btn-danger' %> remove</li>
 </ul>
 
 <h3>Resources</h3>

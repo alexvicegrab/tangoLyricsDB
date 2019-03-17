@@ -17,11 +17,11 @@
         <td><%= link_to genre.name, genre_path(genre) %></td>
 				<td><%= genre.songs.length %></td>
         <td class='action_column'>
-			    <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),
+			    <%= link_to raw('<i class="fa fa-eye"></i>'),
 			                genre_path(genre),  :class => 'btn btn-xs btn-default' %>
-          <%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'),
+          <%= link_to raw('<i class="fa fa-edit"></i>'),
                       edit_genre_path(genre), :class => 'btn btn-xs btn-warning' %>
-          <%= link_to raw('<i class="glyphicon glyphicon-remove"></i>'),
+          <%= link_to raw('<i class="fa fa-trash"></i>'),
                       genre_path(genre),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -32,6 +32,6 @@
   </tbody>
 </table>
 
-<%= link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new_genre")),
+<%= link_to '<i class="fa fa-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new_genre")),
             new_genre_path,
             :class => 'btn btn-warning' %>

@@ -1,6 +1,6 @@
 <tr>
   <td><%= render partial: 'translations/active_icon', object: translation, as: 'translation' %></td>
-	<td class='search_column'><%= link_to raw("<i class='glyphicon glyphicon-link'></i>"), translation.link, :class => 'btn btn-xs btn-primary', data_toggle: 'tooltip', 'data-placement' => 'right', title: URI.decode(translation.link), rel: :tooltip, :target => "_blank" %></td>
+	<td class='search_column'><%= link_to raw("<i class='fa fa-link'></i>"), translation.link, :class => 'btn btn-xs btn-primary', data_toggle: 'tooltip', 'data-placement' => 'right', title: URI.decode(translation.link), rel: :tooltip, :target => "_blank" %></td>
 	
 	<% if controller?('translations') %>
 	<td><%= link_to translation.song.title, song_path(translation.song) %></td>
@@ -10,11 +10,11 @@
 	<td class='search_column'><%= Language.exists?(translation.language_id) ? link_to(translation.language.iso, language_path(translation.language_id) ) : "[Error]" %></td>
 	
 	<td class='action_column'>
-    <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),
+    <%= link_to raw('<i class="fa fa-eye"></i>'),
                 song_translation_path(translation.song, translation),  :class => 'btn btn-xs btn-default' %>
-    <%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'),
+    <%= link_to raw('<i class="fa fa-edit"></i>'),
                 edit_song_translation_path(translation.song, translation),  :class => 'btn btn-xs btn-warning' %>
-		<%= link_to raw('<i class="glyphicon glyphicon-remove"></i>'),
+		<%= link_to raw('<i class="fa fa-trash"></i>'),
 												[translation.song, translation],
 					              method: :delete,
 					              data: { confirm: t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

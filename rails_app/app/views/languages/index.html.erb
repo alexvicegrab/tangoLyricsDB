@@ -19,11 +19,11 @@
         <td><%= language.iso %></td>
 				<td><%= language.translations.length %></td>
         <td class='action_column'>
-			    <%= link_to raw('<i class="glyphicon glyphicon-eye-open"></i>'),
+			    <%= link_to raw('<i class="fa fa-eye"></i>'),
 			                language_path(language),  :class => 'btn btn-xs btn-default' %>
-          <%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'),
+          <%= link_to raw('<i class="fa fa-edit"></i>'),
                       edit_language_path(language), :class => 'btn btn-xs btn-warning' %>
-          <%= link_to raw('<i class="glyphicon glyphicon-remove"></i>'),
+          <%= link_to raw('<i class="fa fa-trash"></i>'),
                       language_path(language),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -34,6 +34,6 @@
   </tbody>
 </table>
 
-<%= link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new_language")),
+<%= link_to '<i class="fa fa-pencil"></i> '.html_safe + t('.new', :default => t("helpers.links.new_language")),
             new_language_path,
             :class => 'btn btn-warning' %>
