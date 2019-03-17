@@ -13,6 +13,8 @@ t = Terminal()
 env.colorize_errors = True
 env.shell = "/bin/bash -i -c"
 
+TTDB_PATH = "~/tangoLyricsDB"
+
 
 def deploy():
     _setup_byobu()
@@ -47,9 +49,16 @@ def _docker_compose():
     append("~/.bashrc",
            "export GMAIL_PASSWORD={}".format(environ["GMAIL_PASSWORD"]))
     append("~/.bashrc",
-           "export TTDB_PATH=~/tangoLyricsDB")
-    with cd("$TTDB_PATH"):
+           "export TTDB_PATH={}".format(TTDB_PATH))
+    with cd(TTDB_PATH):
         with cd("rails_app"):
+            # TODO: Is there a way of doing this with Docker instead, and output same files locally?
+            try:
+                run("bundle --version")
+            except:
+                run('sudo gem install bundler -v "~>1.0"')
+            run("bundle install --without development test")
+            run("rm -rf public")
             run("bundle exec rake assets:precompile")
         run("docker-compose build")
         run("docker-compose up -d")
@@ -58,9 +67,11 @@ def _docker_compose():
 
 def _download_github(branch="master"):
     print(t.green("Download TTdb source"))
-    if not exists("$TTDB_PATH"):
+    try:
         run('git clone https://github.com/alexvicegrab/tangoLyricsDB.git $TTDB_PATH')
-    with cd("$TTDB_PATH"):
+    except:
+        print(t.red("Repository already exists"))
+    with cd(TTDB_PATH):
         run("git checkout {}".format(branch))
         run("git pull")
 
@@ -80,21 +91,21 @@ def _enable_swap():
 
 def _install_packages():
     print(t.green("Install important Ubuntu packages necessary for rest of installation"))
-    # Ruby to install Rake
+    run("sudo apt-get update")
+    # Ruby to install gems and Rake
     try:
         run("ruby -v")
     except:
-        run("sudo snap install ruby --classic")
+        run("sudo apt-get install -y ruby ruby-dev build-essential libpq-dev liblzma-dev zlib1g-dev")
     # Rake to do a bundle install
     try:
         run("rake -V")
     except:
-        run("sudo apt-get install rake")
+        run("sudo apt-get -y install rake")
     # Docker to build the containers
     try:
         run("docker version")
     except:
-        run("sudo apt-get update")
         run("sudo apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common")
         run("curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -")
         run("sudo apt-key fingerprint 0EBFCD88")
@@ -116,7 +127,7 @@ def _install_packages():
 def _restore_database(backup):
     print(t.green("Restore database for TTdb from backup"))
     backup_file = "./backup/{}.dump".format(backup)
-    with cd("$TTDB_PATH"):
+    with cd(TTDB_PATH):
         sudo("docker exec -i tangolyricsdb_db_1 pg_restore --clean --no-acl --no-owner -U postgres -d tangoLyricsDB_${RAILS_ENV} < " + backup_file)
 
 
