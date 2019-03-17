@@ -20,6 +20,7 @@ Make sure you export a set of environmental variables (ideally place these into 
     export SECRET_KEY_BASE=<a secret key base>  # The output of rake secret
     export GMAIL_USERNAME=<your Gmail username>  # I use tangotranslation@gmail.com
     export GMAIL_PASSWORD=<your Gmail password>
+    export TTDB_PATH=<Where you downloaded the TTDB git repository> # I typically use ~/tangoLyricsDB
 
 ### Python fabric
 
@@ -47,7 +48,7 @@ Create the relevant docker volumes
 
 Precompile assets (you will need `ruby` and `rake` to do this), in to provide them with the :
 
-    docker-compose run app bundle exec rake assets:precompile
+    bundle exec rake assets:precompile
 
 Build and run docker-compose thus:
 

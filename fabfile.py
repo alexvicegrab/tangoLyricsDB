@@ -31,7 +31,7 @@ def _auto_backup():
     print(t.green("Setup automatic backup with crontab"))
     res = run('crontab -l')
     if "TTdb_dump" not in res:
-        run('(crontab -l ; echo "0 0 * * * /var/www/tangoLyricsDB/TTdb_dump.sh") | crontab -')
+        run('(crontab -l ; echo "0 0 * * * $TTDB_PATH/TTdb_dump.sh") | crontab -')
         print(t.green("Crontab setup"))
     else:
         print(t.yellow("Crontab set-up, no action needed"))
@@ -46,7 +46,11 @@ def _docker_compose():
            "export GMAIL_USERNAME={}".format(environ["GMAIL_USERNAME"]))
     append("~/.bashrc",
            "export GMAIL_PASSWORD={}".format(environ["GMAIL_PASSWORD"]))
-    with cd("~/tangoLyricsDB"):
+    append("~/.bashrc",
+           "export TTDB_PATH=~/tangoLyricsDB")
+    with cd("$TTDB_PATH"):
+        with cd("rails_app"):
+            run("bundle exec rake assets:precompile")
         run("docker-compose build")
         run("docker-compose up -d")
         run("docker-compose run app rake db:create")
@@ -54,9 +58,9 @@ def _docker_compose():
 
 def _download_github(branch="master"):
     print(t.green("Download TTdb source"))
-    if not exists("~/tangoLyricsDB"):
-        run('git clone https://github.com/alexvicegrab/tangoLyricsDB.git')
-    with cd("~/tangoLyricsDB"):
+    if not exists("$TTDB_PATH"):
+        run('git clone https://github.com/alexvicegrab/tangoLyricsDB.git $TTDB_PATH')
+    with cd("$TTDB_PATH"):
         run("git checkout {}".format(branch))
         run("git pull")
 
@@ -76,6 +80,17 @@ def _enable_swap():
 
 def _install_packages():
     print(t.green("Install important Ubuntu packages necessary for rest of installation"))
+    # Ruby to install Rake
+    try:
+        run("ruby -v")
+    except:
+        run("sudo snap install ruby --classic")
+    # Rake to do a bundle install
+    try:
+        run("rake -V")
+    except:
+        run("sudo apt-get install rake")
+    # Docker to build the containers
     try:
         run("docker version")
     except:
@@ -88,19 +103,20 @@ def _install_packages():
         run("sudo apt-get install -y docker-ce docker-ce-cli containerd.io")
     # Enable user to connect to Docker
     run("sudo usermod -a -G docker $USER")
-    # Need to install Docker and Docker compose
+    # Docker Compose to deploy app
     try:
         run("docker-compose --version")
     except:
         run('sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose')
         run("sudo chmod +x /usr/local/bin/docker-compose")
+    # HTop to monitor resource usage
     run("sudo apt-get install -y htop")
 
 
 def _restore_database(backup):
     print(t.green("Restore database for TTdb from backup"))
     backup_file = "./backup/{}.dump".format(backup)
-    with cd("~/tangoLyricsDB"):
+    with cd("$TTDB_PATH"):
         sudo("docker exec -i tangolyricsdb_db_1 pg_restore --clean --no-acl --no-owner -U postgres -d tangoLyricsDB_${RAILS_ENV} < " + backup_file)
 
 
