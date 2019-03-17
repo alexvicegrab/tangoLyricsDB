@@ -20,10 +20,10 @@ def deploy():
     _install_packages()
     _download_github("docker")
     _docker_compose()
-    #_auto_backup()
+    _auto_backup()
 
 
-def restore_db(filename="TDB_26-05-2018.dump"):
+def restore_db(filename="TDB_2019-03-03"):
     _restore_database(filename)
 
 

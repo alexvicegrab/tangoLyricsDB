@@ -40,7 +40,8 @@ Then we can run the necessary installation scripts:
 
     ./venv/bin/fab -H ubuntu@$(terraform output -state=./terraform/instance/terraform.tfstate ip) deploy
 
-# Docker Compose
+
+## Local setup
 
 Create the relevant docker volumes
 
@@ -59,4 +60,4 @@ We can create and restore a specific database:
     
     export BACKUP="TDB_2019-03-03"
     docker-compose run app rake db:create
-    docker exec -i tangolyricsdb_db_1 pg_restore --clean --no-acl --no-owner -U postgres -d tangoLyricsDB_${RAILS_ENV} < ./backup/${BACKUP}.dump 
+    docker exec -i tangolyricsdb_db_1 pg_restore --clean --no-acl --no-owner -U postgres -d tangoLyricsDB_${RAILS_ENV} < ./backup/${BACKUP}.dump
