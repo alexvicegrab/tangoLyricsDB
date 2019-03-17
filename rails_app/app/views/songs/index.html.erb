@@ -1,0 +1,42 @@
+<%- model_class = Song -%>
+<% title model_class.model_name.human.pluralize.titleize %>
+<% display_count model_class, @resultsCount %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+			<th><%= 'YouTube' %></th>
+			<th><%= model_class.human_attribute_name(:title) %></th>
+			<th><%= model_class.human_attribute_name(:genre) %></th>
+      <th class="hidden-xs hidden-sm"><%= model_class.human_attribute_name(:composer) %></th>
+      <th class="hidden-xs hidden-sm"><%= model_class.human_attribute_name(:lyricist) %></th>
+      <th class="hidden-xs"><%= model_class.human_attribute_name(:year) %></th>
+			<th><%= "T#" %></th>
+      <th class='action_column'><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+		    <td><%= render partial: 'youtube_icon', locals: { song: song } %></td>
+        <td><%= link_to song.title, song_path(song) %></td>
+				<td><%= song.genre.blank? ? "N/A" : link_to(song.genre.name, genre_path(song.genre.id)) %></td>
+        <td class="hidden-xs hidden-sm"><%= render partial: 'composer_search', locals: { song: song } %></td>
+        <td class="hidden-xs hidden-sm"><%= render partial: 'lyricist_search', locals: { song: song } %></td>
+        <td class="hidden-xs"><%= render partial: 'year_search', locals: { song: song } %></td>
+				<td><%= song.translations.length %></td>
+        <td class='action_column'>
+			    <%= link_to raw('<i class="fa fa-eye"></i>'),
+			                song_path(song),  :class => 'btn btn-xs btn-default' %>
+          <%= link_to raw('<i class="fa fa-edit"></i>'),
+                      edit_song_path(song), :class => 'btn btn-xs btn-warning' %>
+          <%= link_to raw('<i class="fa fa-trash"></i>'),
+                      song_path(song),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

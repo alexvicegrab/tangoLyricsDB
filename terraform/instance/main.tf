@@ -13,7 +13,7 @@ resource "google_compute_instance" "vm" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-1604-lts"
+      image = "ubuntu-1804-lts"
     }
   }
 
@@ -27,5 +27,15 @@ resource "google_compute_instance" "vm" {
 
   metadata {
     sshKeys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+  }
+}
+
+resource "google_compute_firewall" "web" {
+  name    = "open-web"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "443"]
   }
 }

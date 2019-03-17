@@ -1,0 +1,23 @@
+<%- model_class = Genre -%>
+<% title @genre.name %>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @genre.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:count) %>:</strong></dt>
+  <dd><%= @genre.songs.size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:search) %>:</strong></dt>
+  <dd><%= render partial: 'shared/search_icon', locals: { f: @genre } %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to '<i class="fa fa-chevron-left"></i> '.html_safe + t('.back', :default => t("helpers.links.back")),
+              genres_path, :class => 'btn btn-default'  %>
+  <%= link_to '<i class="fa fa-edit"></i> '.html_safe + t('.edit', :default => t("helpers.links.edit")),
+              edit_genre_path(@genre), :class => 'btn btn-warning' %>
+  <%= link_to '<i class="fa fa-trash"></i> '.html_safe + t('.destroy', :default => t("helpers.links.destroy")),
+              genre_path(@genre),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

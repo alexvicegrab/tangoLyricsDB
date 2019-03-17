@@ -4,7 +4,6 @@ cffi==1.10.0
 cryptography==1.8.2
 enum34==1.1.6
 Fabric==1.13.2
-fabtools==0.20.0
 idna==2.5
 ipaddress==1.0.18
 packaging==16.8
