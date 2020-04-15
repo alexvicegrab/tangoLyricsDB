@@ -61,3 +61,14 @@ We can create and restore a specific database:
     export BACKUP="TDB_2019-03-03"
     docker-compose run app rake db:create
     docker exec -i tangolyricsdb_db_1 pg_restore --clean --no-acl --no-owner -U postgres -d tangoLyricsDB_${RAILS_ENV} < ./backup/${BACKUP}.dump
+
+## Adding a translator
+
+Connect to the VM that is running the app.
+
+    docker exec -it tangolyricsdb_app_1 rails c
+
+This will setup a Rails console prompt.
+
+    @user = User.new(:email => 'email@example.com', :password => 'password', :password_confirmation => 'password')
+    @user.save
